@@ -1,0 +1,17 @@
+<view class="container">
+	<view>
+		<view class="act_btn">
+			<image src="../../../images/act/place_3.png" mode="widthFix" />
+		</view>
+		<view class="place-title">放桶</view>
+		<view class="place-cont">
+			<view>1、请选择新的垃圾桶</view>
+			<view>2、请将手机靠近新垃圾桶顶部</view>
+			<view>3、停留3秒钟</view>
+			<view>4、请将新桶放回业主指定处</view>
+		</view>
+	</view>
+	<view class="ad_box">
+		<image src="https://xcx.9shenghe.com/develop/upload/img/ad/ft_yellow.png" class="wedding_img" mode="widthFix"></image>
+	</view>
+</view>

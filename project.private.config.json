@@ -1,0 +1,234 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/loginpage/index",
+          "pathName": "pages/loginpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/act/collect/collect",
+          "pathName": "pages/act/collect/collect",
+          "query": "oid=b1a72453aead4225b116a74e4c6652db",
+          "scene": null
+        },
+        {
+          "name": "pages/act/place",
+          "pathName": "pages/act/place",
+          "query": "oid=123123",
+          "scene": null
+        },
+        {
+          "name": "pages/form/order",
+          "pathName": "pages/form/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/loginpage/index",
+          "pathName": "pages/loginpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/ordercancel",
+          "pathName": "pages/my/ordercancel",
+          "query": "type=customer",
+          "scene": null
+        },
+        {
+          "name": "pages/form/bind",
+          "pathName": "pages/form/bind",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "type=worker",
+          "scene": null
+        },
+        {
+          "name": "pages/form/comment",
+          "pathName": "pages/form/comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/product/list",
+          "pathName": "pages/product/list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/rob",
+          "pathName": "pages/order/rob",
+          "query": "type=customer",
+          "scene": null
+        },
+        {
+          "name": "pages/account/index",
+          "pathName": "pages/account/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/form/bind",
+          "pathName": "pages/form/bind",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/list",
+          "pathName": "pages/order/list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/account/verify",
+          "pathName": "pages/account/verify",
+          "query": "packageId=111",
+          "scene": null
+        },
+        {
+          "name": "pages/act/weigh",
+          "pathName": "pages/act/weigh",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/getOrderList",
+          "pathName": "pages/my/getOrderList",
+          "query": "type=worker",
+          "scene": null
+        },
+        {
+          "name": "pages/act/place/place",
+          "pathName": "pages/act/place/place",
+          "query": "oid=123123",
+          "scene": null
+        },
+        {
+          "name": "pages/act/place/place3",
+          "pathName": "pages/act/place/place3",
+          "query": "packageId=111",
+          "scene": null
+        },
+        {
+          "name": "pages/act/collect/collect2",
+          "pathName": "pages/act/collect/collect2",
+          "query": "packageId=111",
+          "scene": null
+        },
+        {
+          "name": "pages/act/collect/collect3",
+          "pathName": "pages/act/collect/collect3",
+          "query": "packageId=111",
+          "scene": null
+        },
+        {
+          "name": "pages/order/complete",
+          "pathName": "pages/order/complete",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/getOrderList",
+          "pathName": "pages/my/getOrderList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/act/collect/collect",
+          "pathName": "pages/act/collect/collect",
+          "query": "oid=f2f3c751839e46be9d0738f1501a00da",
+          "scene": null
+        },
+        {
+          "name": "pages/act/collect/collect",
+          "pathName": "pages/act/collect/collect",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/tip",
+          "pathName": "pages/order/tip",
+          "query": "oid=6459d780ccd14355a13d8eff73e4af8f",
+          "scene": null
+        },
+        {
+          "name": "pages/order/tip",
+          "pathName": "pages/order/tip",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/list",
+          "pathName": "pages/order/list",
+          "query": "from=complete&oid=b1a72453aead4225b116a74e4c6652db",
+          "scene": null
+        },
+        {
+          "name": "pages/order/detail",
+          "pathName": "pages/order/detail",
+          "query": "orderId=333a8d74207e4a81ad5278ee0fb4b8cb",
+          "scene": null
+        },
+        {
+          "name": "pages/order/complete",
+          "pathName": "pages/order/complete",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/rob",
+          "pathName": "pages/order/rob",
+          "query": "orderId=333a8d74207e4a81ad5278ee0fb4b8cb",
+          "scene": null
+        },
+        {
+          "name": "pages/form/order",
+          "pathName": "pages/form/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/rob",
+          "pathName": "pages/order/rob",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/list",
+          "pathName": "pages/order/list",
+          "query": "from=nocomplete",
+          "scene": null
+        },
+        {
+          "name": "pages/test/test",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/index",
+          "pathName": "pages/order/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

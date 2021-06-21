@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="atm_head">
+      <view class="head_text">
+          <image src="../../images/account/icon_coin2.png" mode="widthFix"  style="width:50rpx"></image>
+          <text>我的余额</text>
+      </view>
+      <view class="money">{{amount}}</view>
+  </view>
+
+  <view class="atm_box">
+    <view class="atm_text">
+      选择提现的金额
+    </view>
+    <view class="lable_box">
+        <view wx:for="{{lable}}" wx:key="index" id="{{index}}" bindtap="setLable" class="atm_lable {{now==index?'on':''}}">{{item}}<image src="../../images/account/icon_jb.png"  mode="widthFix" class="b"></image></view>
+    </view>
+    <view class="atm_btn">
+      <image src="../../images/account/icon_tx.png"mode="widthFix" style="width:40rpx;margin-right:10rpx" /><text>提现至微信钱包</text>
+    </view>
+  </view>
+
+</view>

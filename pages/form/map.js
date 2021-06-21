@@ -1,0 +1,237 @@
+const app = getApp();
+const api = require("../../api/index.js");
+
+var { mixin, redirectTo } = require("../../utils/fuc.js");
+var myBehavior = require("../../minxin/func.js");
+Page(
+    mixin(myBehavior, {
+        data: {
+            files: [],
+            array: ["环卫", "保洁", "保姆", "业主", "其他"],
+            zhiye: "",
+            card_z: "",
+            card_f: "",
+            card_z_img: "",
+            card_f_img: "",
+            galleryShow: false,
+            imgUrls: [],
+            address: "",
+            markers: [{
+                id: 11111,
+                latitude: 23.099994,
+                longitude: 113.324520,
+                name: 'T.I.T 创意园',
+                label: {
+                    content: '创意园',
+                    color: '#ff00ff',
+                    textAlign: 'center'
+                }
+            },
+            {
+                id: 22222,
+                latitude: 24.099994,
+                longitude: 113.324520,
+                name: 'T.I.T 1111',
+                label: {
+                    content: 'xxx小区2',
+                    color: '#ff00ff',
+                    textAlign: 'center'
+                }
+
+            },
+            {
+                id: 33333,
+                latitude: 24.5,
+                longitude: 125.324520,
+                name: 'T.I.T 111',
+                label: {
+                    content: 'xxx小区3',
+                    color: '#ff00ff',
+                    textAlign: 'center',
+                    anchorY: '-40'
+                }
+            },
+            {
+                id: 44444,
+                latitude: 22.099994,
+                longitude: 113.324520,
+                name: '创意园qwe'
+            }, {
+                id: 555,
+                latitude: 22.099994,
+                longitude: 113.324520,
+                name: '创意园qweend'
+            }],
+        },
+
+        checkForm: function (data) {
+            let formData = {};
+            let error = false;
+            if (!error && data.name == "") {
+                error = "请填写姓名";
+            }
+            if (!error && data.mobileNumber == "") {
+                error = "请填写手机号码";
+            }
+            if (!error && data.address == "") {
+                error = "请填写详细地址";
+            }
+            if (!error && this.data.zhiye == "") {
+                error = "请选择职业";
+            }
+            if (!error && data.credential == "") {
+                error = "请填写工作证号";
+            }
+
+            if (!error && this.data.card_z == "") {
+                error = "请上传本人照片";
+            }
+
+            // if(!error && this.data.card_f==''){
+            //   error = '请上传工作证照片'
+            // }
+
+            if (!error && this.data.card_z_img == "") {
+                error = "请等待照片上传完毕";
+            }
+
+            // if(!error && this.data.card_f_img==''){
+            //   error = '请等待照片上传完毕'
+            // }
+
+            if (error !== false) {
+                wx.showToast({
+                    title: error,
+                    icon: "none",
+                    duration: 2000,
+                });
+                return false;
+            }
+            formData = Object.assign({}, formData, data);
+            formData.openId = app.globalData.openId;
+            formData.profession = this.data.zhiye;
+            formData.imageFile0 = this.data.card_z_img;
+            //formData.imageFile1 = this.data.card_f_img;
+            return formData;
+        },
+        formSubmit: function (e) {
+            console.log("form发生了submit事件，携带数据为：", e.detail.value);
+            let formData = this.checkForm(e.detail.value);
+            if (formData !== false) {
+                api.user
+                    .bind(formData, "资料上传中")
+                    .then(() => {
+                        app.globalData.nowUser.bind = "W";
+                        redirectTo("/pages/account/verify");
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                        wx.showToast({
+                            title: err.msg,
+                            icon: "none",
+                            duration: 2000,
+                        });
+                    });
+            }
+        },
+
+        bindZhiyeChange: function (e) {
+            console.log("picker发送选择改变，携带值为", e.detail.value);
+            let zhiye = this.data.array[e.detail.value];
+            this.setData({
+                zhiye,
+            });
+        },
+
+        onLoad() { },
+
+        chooseImage: function (e) {
+            let filed = e.currentTarget.dataset.type;
+            var that = this;
+            wx.chooseImage({
+                count: 1,
+                sizeType: ["original", "compressed"], // 可以指定是原图还是压缩图，默认二者都有
+                sourceType: ["album", "camera"], // 可以指定来源是相册还是相机，默认二者都有
+                success: function (res) {
+                    // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+                    console.log(filed);
+                    let data = {};
+                    data[filed] = res.tempFilePaths[0];
+                    that.setData(data);
+
+                    api.file
+                        .up(res.tempFilePaths[0])
+                        .then((rs) => {
+                            console.log("up", rs);
+                            let urls = {};
+                            urls[filed + "_img"] = rs.data.id;
+                            that.setData(urls);
+                        })
+                        .catch((err) => {
+                            console.log("uperror", err);
+                            wx.showToast({
+                                title: err.msg || "上传失败",
+                                icon: "none",
+                                duration: 2000,
+                            });
+                        });
+                },
+            });
+        },
+        galleryDelete: function (e) {
+            console.log(e);
+            if (e.detail.url == this.data.card_z) {
+                this.setData({ card_z: "" });
+            }
+            if (e.detail.url == this.data.card_f) {
+                this.setData({ card_f: "" });
+            }
+        },
+        galleryHide: function (e) { },
+        previewImage: function (e) {
+            let filed = e.currentTarget.dataset.type;
+            let data = this.data[filed];
+            this.setData({
+                galleryShow: true,
+                imgUrls: [data],
+            });
+        },
+        cardTap: function (e) {
+            let filed = e.currentTarget.dataset.type;
+            let data = this.data[filed];
+            if (data == "") {
+                this.chooseImage(e);
+            } else {
+                this.previewImage(e);
+            }
+        },
+
+        onChangeAddress() {
+            wx.chooseLocation({
+                success: (rs) => {
+                    console.log(rs)
+                    this.setData({
+                        address: rs.address + rs.name
+                    })
+                }
+            })
+        },
+
+        // onChangeAddress() {
+        //     let mapContext = wx.createMapContext('myMap')
+        //     console.log(mapContext)
+        //     mapContext.getCenterLocation({
+        //         success: function(res){
+        //             console.log(res.longitude)
+        //             console.log(res.latitude)
+        //             console.log('000000000')
+        //         }
+        //     })
+        // },
+        aaaa(evt){
+          console.log(evt)
+          console.log(evt)
+        }
+
+    })
+);

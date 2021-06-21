@@ -1,0 +1,141 @@
+@import './bind.wxss';
+
+.container{
+    width: 100%;
+    overflow: hidden; 
+}
+
+.flex_4{
+  width: calc(100% - 60rpx);
+  margin: 30rpx auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  color: #31A043;
+  font-size: 30rpx;
+}
+.flex_4 view{
+  margin: 10rpx 0;
+  padding: 10rpx 0;
+  display: block;
+}
+.topTip{
+  background:rgb(72, 72, 88);
+  color: #fafafa;
+  width: 100vw;
+  padding:18rpx 35rpx;
+  box-sizing: border-box;
+  line-height: 30rpx;
+  font-size: 22rpx;
+  margin-bottom: 5rpx;
+}
+.form-inp-txt{
+    font-size: 30rpx;
+}
+
+.right{
+    transform: rotate(-90deg);
+}
+.inline{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 400rpx;
+}
+.picker-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.new-btn{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20rpx;
+}
+.type-btn{
+    width: 150rpx;
+    height: 60rpx;
+    overflow: hidden;
+    background: rgba(49, 160, 67, 0.01);
+    border: 1px solid #DADADA;
+    border-radius: 10rpx;
+    text-align: center;
+    margin-left: 30rpx;
+    box-sizing: border-box;
+    margin-bottom: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-txt{
+    font-size: 30rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    display: block;
+    line-height: 58rpx;
+}
+.icon-row{
+  width: 0;
+  height: 0;
+  border-left: 10rpx solid transparent;
+  border-right: 10rpx solid transparent;
+  border-top: 16rpx solid rgba(0, 0, 0, 0.2);
+  margin-left: 10rpx;
+}
+.active-btn{
+    border: 1px solid #31A043;   
+}
+.active-btn .btn-txt{
+    color: #31A043;
+}
+.type-dialog{
+    width: 690rpx;
+    position: absolute;
+    left: 50%;
+    top: 32%;
+    margin-left: -345rpx;
+    z-index: 11;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 10rpx;
+}
+.dialog-top{
+  width: 100%;
+  height: 87rpx;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.mask{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+.title{
+    font-size: 30rpx;
+    line-height: 87rpx;
+    font-family: PingFang SC;
+    font-weight: 600;
+    color: #333333;
+}
+.c-title{
+    font-size: 30rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #666666;
+    position: absolute;
+    right: 22rpx;
+    top: 12rpx;
+    padding: 10rpx;
+}
+.dialog-bottom{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 60rpx;
+    margin-top: 30rpx;
+}

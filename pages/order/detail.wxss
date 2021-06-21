@@ -1,0 +1,94 @@
+.container{
+  width: 100vw;
+  padding-top: 30rpx;
+}
+
+.title-box{
+  border-bottom: 1rpx solid #DADADA;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 90rpx;
+
+}
+.title{
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 48rpx;
+}
+.icon-line{
+  width: 8rpx;
+  height: 24rpx;
+  background: #31A043;
+  border-radius: 4rpx;
+  margin: 0 9rpx 0 24rpx;
+}
+.cont{
+  padding: 30rpx 0;
+}
+.line {
+  display: flex;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  line-height: 48rpx;
+  min-height: 60rpx;
+}
+
+.line-lf{
+  width: 147rpx;
+  text-align: right;
+}
+.line-rf{
+  flex: 1;
+  margin-left: 50rpx;
+  margin-right: 14rpx;
+}
+
+.detail-block{
+  width: 690rpx;
+  /* height: 309px; */
+  background: #FFFFFF;
+  box-shadow: 0px 3rpx 6rpx 0px rgba(0, 0, 0, 0.08);
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+}
+/* .detail-top {
+  margin-top: 30rpx;
+} */
+
+.cont-label{
+  font-size: 20rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #31A043;
+  background: rgba(49, 160, 67, 0);
+  border: 1rpx solid #31A043;
+  border-radius: 4rpx;
+  padding: 0 18rpx;
+  text-align: center;
+  margin-right: 12rpx;
+  margin-top: 12rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+}
+
+.label-box{
+  margin: 26rpx 40rpx 38rpx 40rpx;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.order_item{
+  width: calc(100% - 60rpx);
+  border-bottom:  1rpx solid #DADADA;
+  padding:44rpx 0 44rpx 16rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

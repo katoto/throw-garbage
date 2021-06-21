@@ -1,0 +1,24 @@
+<view class="container">
+	<empty wx:if="{{ loaded && orders.length===0 }}">
+		<text>{{tip}}</text>
+	</empty>
+	<view wx:if="{{loaded}}" style="width:100vw">
+		<view class="order_item" wx:for="{{orders}}" wx:key="index" data-key="{{index}}" data-item="{{item}}">
+			<view class="order_time">{{item.orderTime}}</view>
+			<view class="order_addr">{{item.address}}{{item.communityName}}{{item.buildingNumber}}{{item.houseNumber}}</view>
+			<view class="order_status">
+				<image wx:if="{{type=='good'}}" src="../../images/common/icon_xiaolian.png" class="status_icon" mode="widthFix"></image>
+				<button wx:if="{{type!='good'}}" open-type='contact' style="width:100rpx;">
+					<image open-type='contact' src="../../images/common/icon_kulian.png" class="status_icon" mode="widthFix"></image>
+				</button>
+			</view>
+		</view>
+		<!-- <view class="order_item">
+			<view class="order_time">xxxxx</view>
+			<view class="order_addr">wwwwwwwwwww</view>
+			<view class="order_status">
+				<image wx:if="{{type=='good'}}" src="../../images/common/icon_xiaolian.png" class="status_icon" mode="widthFix"></image>
+			</view>
+		</view> -->
+	</view>
+</view>

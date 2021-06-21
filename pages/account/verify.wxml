@@ -1,0 +1,16 @@
+<view class="container">
+	<view class="order_empyt">
+		<view>
+			<image src="../../images/common/pic_wait.png" mode="widthFix"></image>
+		</view>
+		<view class="empty_text">
+			审核中，请耐心等待！
+		</view>
+	</view>
+	<view class="verify_box">
+		<view class="verify_icon">
+			<image src="../../images/common/icon_book.png" mode="widthFix"></image>
+		</view>
+		<view class="verify_txt">请致电系统维护人员电话:13614560531，开通功能和预约领取服务工具和服装。</view>
+	</view>
+</view>

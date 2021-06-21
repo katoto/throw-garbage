@@ -1,0 +1,37 @@
+<view class="container">
+	<form bindsubmit="formSubmit" style="width:100vw">
+		<view class="form_title  f-sb">
+			<view>对上一单评价</view>
+		</view>
+		<view class="flex_3" style="margin: 0rpx auto">
+			<view class="radio_list" wx:for="{{lable}}" wx:key="index">
+				<radio-group bindchange="radioChange{{index}}" class="radio_group">
+					<label class="radio_label"  wx:for="{{item}}" wx:for-item="it" wx:for-index="in" wx:key="in">
+						<radio value="{{it.value}}" checked="{{it.checked}}"/>
+						<view class="weui-cell__bd">{{it.label}}</view>
+					</label>
+				</radio-group>
+			</view>
+		</view>
+
+		<view class="form_title">
+			建议栏（选填）
+		</view>
+		<view class="form-item">
+			<textarea name="comment" maxlength="100" placeholder="请输入想说的话" class="gx-textarea h_100" placeholder-style="color:#999999;"></textarea>
+		</view>
+
+		<view class="upload-item" style="margin: 40rpx auto 0;">
+			<mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="3" title="上传照片" tips=""></mp-uploader>
+		</view>
+		<view class="ad_box">
+			<image src="{{commoentServer.banner}}" class="wedding_img" mode="widthFix"></image>
+		</view>
+		<view class="s_btn_box">
+			<view class="submit_btn skip_btn" bindtap="jump2Order">跳过</view> <button formType="submit" class="submit_btn" style="width:300rpx">提交</button>
+		</view>
+		<view class="help_text">
+			有问题？可联系客服 <text bindtap="callPhone" data-tel="{{tel}}">{{tel}}</text>
+		</view>
+	</form>
+</view>

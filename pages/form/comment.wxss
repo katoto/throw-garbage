@@ -1,0 +1,78 @@
+@import './bind.wxss';
+
+.form-2-item{
+  width: 50%;
+  padding: 10rpx 34rpx;
+  background: #FFFFFF;
+  border: 1rpx solid #DADADA;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  font-style: normal;
+}
+.form-2-item .picker{
+font-size: 25rpx;
+font-style: normal;
+font-weight: 400;
+}
+.flex_3{
+  width: calc(100% - 60rpx);
+  margin: 30rpx auto;
+  color: #31A043;
+  font-size: 30rpx;
+  display: flex;
+}
+
+.radio_list{
+  width: 29%;
+  margin-right: 28rpx;
+}
+
+.radio_group{
+  width: 100%;
+}
+
+.radio_label{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 28rpx;
+}
+
+.s_btn_box{
+  text-align: center;
+  width: calc(100% - 80rpx);
+  margin: 5rpx auto 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.submit_btn{
+display: inline-block;
+width: 300rpx;
+height: 112rpx;
+background: #31A043;
+box-shadow: 0px 5rpx 51rpx 0px rgba(49, 160, 67, 0.28);
+border-radius: 56rpx;
+text-align: center;
+line-height: 112rpx;
+font-size: 32rpx;
+color: #ffffff;
+}
+.skip_btn{
+background: #FFFFFF;
+box-shadow: 0px 5rpx 51rpx 0px rgba(49, 160, 67, 0.28);
+color: #31A043;
+}
+.ad_box{
+  width: calc(100% - 60rpx);
+  height: 270rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin: 40rpx auto;
+}
+.wedding_img{
+ width: 100%;
+}

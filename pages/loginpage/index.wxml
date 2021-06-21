@@ -1,0 +1,24 @@
+<view class="container">
+	<view class="container-box">
+		<view>
+			<image class="user-logo" src="../../images/index/logo.png" mode="widthFix" />
+		</view>
+		<view class="login-btn-box" wx:if="{{showLoginbtn}}">
+			<button class="login-btn" bindtap="loginBtnFn">
+				登录
+			</button>
+		</view>
+		<view class="login-btn-box" wx:else>
+			<button class="login-btn" open-type="{{openType}}" bindtap="userInfoHandler" bindgetphonenumber="phoneHandler">
+				{{openType === 'userProfile' ? '授权用户信息' : '授权手机号' }}
+			</button>
+		</view>
+		<view class="login-protol">
+			<view class="login-protol-box">
+				<checkbox class="login-checkbox" bindtap="changeCheckbox" checked="{{loginProtolAgree}}" />
+				<text class="protol-txt"> 默认已阅读并同意</text>
+				<text class="protol-txt-type"  bindtap="toXieyi">《法律声明及隐私政策》</text>
+			</view>
+		</view>
+	</view>
+</view>

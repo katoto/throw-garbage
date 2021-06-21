@@ -1,0 +1,67 @@
+.container{
+  width: 100vw;
+}
+.order_item{
+  width: calc(100% - 60rpx);
+  border-bottom:  1rpx solid #DADADA;
+  padding:25rpx 0 25rpx 15rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.order_addr{
+  width: calc(100% - 120rpx - 160rpx);
+  flex-grow:1;
+  flex-shrink: 2; 
+  color: #090103;
+  font-size: 30rpx;
+  line-height: 1.5;
+}
+.order_status{
+  color: #31A043;
+  font-size: 30ropx;
+  font-style: italic;
+  font-weight: 400;
+  border-left: 1rpx solid #DADADA;
+  flex-basis: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.order_status button{
+  padding: 0;
+  margin:0;
+}
+.c_gray{
+  color: #999999;
+}
+.xq_jiang{
+  font-size: 24rpx;
+  color: #ffffff;
+  text-align: center;
+  background: linear-gradient(-90deg, #FF3232, #FF9174);
+  border-radius: 23px;
+  padding:5rpx 20rpx;
+  font-style: normal;
+  margin-top:15rpx;
+}
+.xq_jiang_txt{
+  margin-top: 5rpx;
+  font-size: 18rpx;
+  color: #ff3131;
+  font-style: normal;
+}
+.status_icon{
+  display: inline-block;
+  width: 60rpx;
+  max-height: 60rpx;
+}
+.order_time{
+  font-size: 30rpx;
+  color: #090103;
+  flex-basis: 150rpx;
+  line-height: 1.5;
+}

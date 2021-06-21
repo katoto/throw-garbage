@@ -1,0 +1,15 @@
+<view class="container">
+	<view class="video-box p_bottom" style="margin-bottom:0">
+		<video poster="{{succServer.poster}}"  src="{{succServer.video}}" object-fit="cover" binderror="videoErrorCallback" enable-danmu danmu-btn controls></video>
+	</view>
+	<view class="success_box">
+		<view>
+			<image src="../../images/common/icon_order_success1.png" class="success_img" mode="heightFix"></image>
+		</view>
+		<view class="success_txt">
+			请将垃圾桶放置门口 
+			等待接单人员(无接触)取桶
+		</view>
+		<button class="submit_btn" bindtap="gotoHome">知道了</button>
+	</view>
+</view>

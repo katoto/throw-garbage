@@ -1,0 +1,24 @@
+<!-- <navbar now-bar="ke"></navbar> -->
+<view class="act_list_box" wx:if="{{orderList && orderList.length > 0}}">
+	<view class="order-line" wx:for="{{orderList}}" wx:key="index">
+		<view class="line-top">
+			<view class="top-order-time">下单时间：{{item.bookingTime}}</view>
+			<!-- roder-btn-disable 不可用状态-->
+			<view class="top-roder-btn {{item.status === 'P' ? 'roder-btn-disable' : ''}}" data-orderitem="{{item}}" bindtap="cancelHandle">取消下单</view>
+		</view>
+		<view class="line-bottom">
+			<text>{{item.address}}{{item.communityName}}{{item.buildingNumber}}{{item.houseNumber}}</text>
+		</view>
+		<view class="order-label" wx:if="{{item.garbageLabel}}">
+			<text wx:for="{{item.garbageLabel}}" wx:for-item="itemLabel" wx:key="index" class="label-item-txt">{{itemLabel}}</text>
+		</view>
+	</view>
+</view>
+<view class="order_empyt" wx:else>
+	<view>
+		<image src="../../images/common/pic_wait.png" mode="widthFix"></image>
+	</view>
+	<view class="empty_text">
+		您还没有订单，快去下单吧~
+	</view>
+</view>

@@ -1,0 +1,119 @@
+page{
+  background: #ffffff;
+}
+.user-info-box{
+  margin-top: 49rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+.user-info{
+ display: flex;
+ flex-direction: row;
+ justify-content:center;
+}
+.user-info .avatar{
+  width: 140rpx;
+  height: 140rpx;
+  background: #FFFFFF;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-info .nickname{
+  font-size: 32rpx;
+  margin-top: 25rpx;
+}
+
+.yied_order_box{
+  width: calc(100% - 60rpx);
+  margin:52rpx auto 0;
+  position: relative;
+  overflow: hidden;
+  border-radius:10rpx;
+}
+.y_o_b_bg{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+.wedding_img{
+  width: 100%;
+}
+.yied_order_desc{
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #77372C;
+}
+.yied_order_desc .order_num{
+  margin-top: 2rpx;
+  font-size: 50rpx;
+  color:#DA3A20 ;
+}
+.user_tj_nums{
+  width: calc(100% - 60rpx);
+  margin: 23rpx auto 0;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+.nums_item{
+  width: calc(50% - 11rpx); 
+  background: #FFFFFF;
+  border: 1rpx solid #DADADA;
+  border-radius: 10rpx;
+  padding: 22rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+.nums_title{
+  font-size: 36rpx;
+}
+.c_green{
+  color: #31A043;
+}
+.c_red{
+  color: #DA3A20;
+}
+.nums_unit{
+  font-size: 24rpx;
+}
+.ad_box{
+  width: calc(100% - 60rpx);
+  height: 270rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin: 40rpx auto;
+}
+.wedding_img{
+ width: 100%;
+}
+.clear{
+  clear: both;
+}
+
+.index-btn{
+  padding: 0;
+  margin:0 ;
+  margin-top: 50rpx;
+  width: 492rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  font-size: 32rpx;
+  font-weight: 400;
+  border-radius: 56rpx;
+  box-sizing: content-box;
+  background: #35c91d;
+  box-shadow: 0px 5rpx 51rpx 0rpx rgba(49, 160, 67, 0.28);
+  color: #fff;
+}
+.user-headimg{
+    display: block;
+    height: 130rpx;
+    width:130rpx
+}

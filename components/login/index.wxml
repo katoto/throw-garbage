@@ -1,0 +1,10 @@
+<view class="login_box" catchtouchmove="return">
+  <view class="login_from" bindtap="hideLoginBox">
+      <view class="close_login" >
+      ×
+    </view>
+      <image src="../../images/index/logo.png"  mode="widthFix" style="width:150rpx;" />
+      <slot></slot>
+      <view style="margin-top:15rpx"><text style="color:#5f5f5f;margin-left:5rpx; font-size:24rpx"> 默认已阅读并同意</text><text  style="color:#ff0000;font-size:24rpx" bindtap="toXieyi">《法律声明及隐私政策》</text></view>
+  </view>
+</view>

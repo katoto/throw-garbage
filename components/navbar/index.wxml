@@ -1,0 +1,10 @@
+<view class="bottom-nav" style="padding-bottom: {{isIphoneX?'32rpx':0}}">
+	<block wx:for="{{nav}}" wx:key="key">
+		<view class="b-n-item {{nowBar==item.key?'on':''}}" bindtap="goto" data-url="{{item.url}}" data-txt="{{item.txt}}">
+			<view class="i-a-center">
+				<image class="sm-icon" src="{{item.icon}}"></image>
+			</view>
+			<view class="i-a-center f-24"><text>{{item.txt}}</text></view>
+		</view>
+	</block>
+</view>

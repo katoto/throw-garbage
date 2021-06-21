@@ -1,0 +1,32 @@
+<view class="container">
+	<view class="ad_box">
+		<image src="{{compServer.banner}}" class="wedding_img" mode="widthFix"></image>
+	</view>
+
+	<view class="order_list_box" wx:if="{{loaded}}">
+		<view class="order_list_item" wx:for="{{orders}}" wx:key="index" bindtap="orderComplete" data-key="{{index}}" data-item="{{item}}">
+			<view class="order_info_box">
+				<view class="order_addr">{{item.address}}{{item.communityName}}{{item.buildingNumber}}{{item.houseNumber}}</view>
+				<view class="order_status">{{item.size}}户</view>
+			</view>
+			<view class="order_mark">
+				<view class="mark-txt" wx:if="{{item.returnFlag}}">已归还工具</view>
+				<block wx:else>{{mark}}</block>
+			</view>
+		</view>
+		<!-- <view class="order_list_item" >
+			<view class="order_info_box">
+				<view class="order_addr">地下蓄势待发为前提</view>
+				<view class="order_status">111户</view>
+			</view>
+			<view class="order_mark">
+				<view class="mark-txt">已归还工具</view>
+			</view>
+		</view> -->
+	</view>
+
+	<empty wx:if="{{ loaded && orders.length==0 }}">
+		<text>还没有完成的订单，快去抢单吧！</text>
+	</empty>
+
+</view>

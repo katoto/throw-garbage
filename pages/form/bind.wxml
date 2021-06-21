@@ -1,0 +1,77 @@
+<view class="container">
+	<!-- <map id="myMap" show-location markers="{{markers}}" bindmarkertap="aaaa" /> -->
+	<form bindsubmit="formSubmit" style="width:100vw">
+		<view class="form-item f-sb">
+			<view>姓名</view>
+			<view class="f-end">
+				<input name="name" maxlength="12" type="text" placeholder="请输入您的姓名" style="text-align: right;" />
+			</view>
+		</view>
+		<view class="form-item f-sb">
+			<view>选择地址</view>
+			<view class="f-end">
+				<view class="c_999 f_30" bindtap="onChangeAddress">
+					选择地址
+				</view>
+				<image src="../../images/common/icon_xiala.png" class="xl_icon" mode="widthFix"></image>
+			</view>
+		</view>
+
+		<view class="form-item">
+			<textarea maxlength="60" name="address" placeholder="详细地址：如道路，门牌号，小区，楼栋号，单元室等。" class="gx-textarea h_100" placeholder-style="color:#999999;" value="{{address}}"></textarea>
+		</view>
+		<view class="form-item f-sb">
+			<view>职业</view>
+			<view class="f-end">
+				<view class="c_999 f_30 f-end">
+					<picker mode="selector" name="profession" value="{{zhiye}}" range="{{array}}" bindchange="bindZhiyeChange">
+						<view class="picker">
+							{{zhiye || '请选择职业'}}
+						</view>
+					</picker>
+				</view>
+				<image src="../../images/common/icon_xiala.png" class="xl_icon" mode="widthFix"></image>
+			</view>
+		</view>
+		<view class="form-item f-sb">
+			<view>工作证号</view>
+			<view class="f-end">
+				<input type="text" maxlength="22" name="credential" placeholder="请输入您的工作证号" style="text-align: right;" />
+			</view>
+		</view>
+
+		<!-- <view class="form-item f_cc c_999 f_30 card_box" bindtap="cardTap" data-type="card_z">
+			<image src="{{card_z}}" wx:if="{{card_z !=''}}" mode="aspectFit" class="card_img"></image>
+			<view class="card_bg" wx:if="{{card_z==''}}">
+				<image src="../../images/account/icon_id.png"></image>
+				<text>为了保障小区业主的安全、我司帮助小区物业收集取垃圾劳务人员相关信息,我司保证所收集信息只用于物业核对使用,用此流程保证业主的安全性。</text>
+			</view>
+		</view> -->
+		<view>
+			<view class="form-item f_cc c_999 f_30 n_id_card_box" bindtap="cardTap" data-type="card_z">
+				<image src="{{card_z}}" wx:if="{{card_z !=''}}" mode="aspectFit" class="card_img"></image>
+				<view class="card_bg n_card_bg" wx:if="{{card_z==''}}">
+					<image src="../../images/account/icon_nid.png"></image>
+					<view class="n_card_txt_box">
+						<text class="n_card_txt">点击上传人脸自拍照片</text>
+					</view>
+				</view>
+			</view>
+			<view class="id_tips">
+				<text>* 为保证小区业主安全，该信息仅用于物业核对取垃圾人员资料使用</text>
+			</view>
+		</view>
+
+		<!-- <view class="form-item f_cc c_999 f_30 card_box" bindtap="cardTap" data-type="card_f">
+    <image src="{{card_f}}" wx:if="{{card_f !=''}}" mode="aspectFit" class="card_img"></image>
+    <view class="card_bg" wx-if="{{card_f==''}}">
+      <image src="../../images/account/icon_id.png"></image>
+      <text>点击上传工作证照片</text>
+    </view>
+</view> -->
+		<mp-gallery show="{{galleryShow}}" bindchange="change" binddelete="galleryDelete" bindhide="galleryHide" img-urls="{{imgUrls}}" delete hide-on-click="{{true}}" current="0"></mp-gallery>
+		<view class="s_btn_box">
+			<button class="submit_btn" formType="submit">提交</button>
+		</view>
+	</form>
+</view>

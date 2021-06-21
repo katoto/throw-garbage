@@ -1,0 +1,85 @@
+.container{
+  width: 100vw;
+}
+.order_item{
+  width: calc(100% - 60rpx);
+  border-bottom:  1rpx solid #DADADA;
+  padding:36rpx 0 26rpx 16rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.order_addr{
+    color: #090103;
+    font-size: 30rpx;
+    line-height: 1.5;
+    font-family: PingFang SC;
+    font-weight: 400;
+}
+.order_status{
+  color: #31A043;
+  font-size: 30rpx;
+  font-style: italic;
+  font-weight: 400;
+  border-left: 1rpx solid #DADADA;
+  width: 22%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 68rpx;
+}
+.c_gray{
+  color: #999999;
+}
+.xq_jiang{
+  font-size: 24rpx;
+  color: #ffffff;
+  text-align: center;
+  background: linear-gradient(-90deg, #FF3232, #FF9174);
+  border-radius: 23px;
+  padding:5rpx 20rpx;
+  font-style: normal;
+  margin-top:15rpx;
+}
+.xq_jiang_txt{
+  margin-top: 5rpx;
+  font-size: 18rpx;
+  color: #ff3131;
+  font-style: normal;
+}
+.order_ok{
+    color: #999999;
+}
+
+.order-time{
+    font-size: 24rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #333333;
+    line-height: 48rpx;
+    margin-bottom: 10rpx;
+}
+
+.order_label{
+  width: 100%;
+  margin-top: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.order_label .order_label_item{
+  padding: 0 20rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  border: 1px solid #31A043;
+  border-radius: 4rpx;
+  margin-right: 10rpx;
+  color: #31A043;
+  margin-bottom: 10rpx;
+  font-size: 20rpx;
+}

@@ -1,0 +1,70 @@
+.icon_atm_box{
+  margin-top: 80rpx;
+}
+.icon_atm_box image{
+  width: 110rpx;
+  height: 110rpx;
+}
+.text_atm_box{
+  margin-top: 37rpx;
+  font-size: 32rpx;
+}
+.money_box{
+  margin-top: 65rpx;
+  text-align: start;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.money_box .money_icon{
+  font-size:64rpx;
+  margin-top: 15rpx;
+}
+.money_box .money_num{
+  font-size:100rpx;
+}
+.atm_btn_box{
+  margin-top: 72rpx;
+}
+.atm_btn_box button{
+  font-weight: 400;
+  padding: 0;
+  color: #ffffff;
+  line-height:112rpx;
+  width: 492rpx;
+  height: 112rpx;
+  background: #31A043;
+  box-shadow: 0px 5rpx 51rpx 0px rgba(49, 160, 67, 0.28);
+  border-radius: 56rpx;
+}
+.atm_desc_box{
+  text-align: left;
+  margin: 73rpx auto 0;
+  width: calc(100% - 128rpx);
+}
+.atm_desc_title{
+  font-size:26rpx;
+  font-weight: 600;
+  text-align: left;
+}
+.atm_desc_title text{
+ display: block;
+}
+.desc_content{
+  margin-top: 29rpx;
+  font-size: 26rpx;
+  line-height: 1.8;
+}
+.ad_box{
+  width: calc(100% - 60rpx);
+  height: 270rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin: 40rpx auto;
+}
+.wedding_img{
+ width: 100%;
+}
+.desc_content view{
+  margin-bottom:15rpx;
+}

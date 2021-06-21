@@ -1,0 +1,21 @@
+<view class="container">
+	<view>
+		<view class="act_btn" bindtap="doConnect">
+			<image src="../../images/order/icon_cheng.png" mode="widthFix" />
+		</view>
+		<view style="font-size:34rpx;margin-top:10rpx;color:#333;text-align: center;">称重</view>
+		<view style="font-size:28rpx;margin-top:30rpx;color:#666666;">
+			<view>1、请将垃圾桶放入智能称上</view>
+			<view>2、停留3秒后，按称重键</view>
+			<!-- <view bindtap="goTestFn" style="margin-top:20rpx">点击跳过测试</view> -->
+		</view>
+	</view>
+
+	<!-- <view style="margin-top: 100px" bindtap="doConnect">重连蓝牙</view>
+	<view>蓝牙列表：<view wx:for="{{devices}}" wx:key="index">{{item}}</view>
+	</view> -->
+
+	<view class="ad_box">
+		<image src="https://xcx.9shenghe.com/develop/upload/img/ad/cz.png" class="wedding_img" mode="widthFix"></image>
+	</view>
+</view>

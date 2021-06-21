@@ -1,0 +1,52 @@
+.container{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.success_img{
+  width: 207rpx;
+}
+.success_txt{
+  color: #333333;
+  text-align: center;
+  font-size: 32rpx;
+  margin-top: 52rpx;
+}
+.success_box{
+  flex: 1 1;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.ad_box{
+  width: 690rpx;
+  height: 345rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin: 20rpx auto 30rpx;
+}
+.wedding_img{
+ width: 100%;
+}
+.submit_btn{
+  height:90rpx;
+  line-height:90rpx;
+  margin-top:40rpx;
+  margin-bottom: 68rpx;
+}
+.video-box{
+  width: 690rpx;
+  height: 390rpx;
+  background: #E2E2E2;
+  border-radius: 10rpx;
+}
+.video-box video{
+  display: block;
+  width: 100%;
+  height: 390rpx;
+  border-radius: 10rpx;
+}

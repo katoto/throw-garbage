@@ -1,0 +1,95 @@
+<!-- 底部tabbar -->
+<tabbar tabbar="{{tabbar}}"></tabbar>
+
+<view class="container">
+	<view class="user-info-box">
+		<block wx:if="{{n_userLogin}}">
+			<view class="user-info" bindtap="goUserCenter">
+				<view class="avatar">
+					<open-data type="userAvatarUrl"></open-data>
+				</view>
+				<view class="nickname">
+					<open-data type="userNickName"></open-data>
+				</view>
+			</view>
+		</block>
+		<block wx:else>
+			<view class="user-info" bindtap="showLoginBox">
+				<view class="avatar">
+					<image src="../../images/common/user_head.png" mode="widthFix" style="width:96rpx" />
+				</view>
+				<view class="nickname" style="font-weight: 700;color:#000;">请登录</view>
+			</view>
+		</block>
+	</view>
+	<view style="width:100vw;margin-top:50rpx;">
+		<view class="pmd_box">
+			<image src="../../images/common/jsdd.png" mode="widthFix" style="width:140rpx;height:35rpx" />
+			<view class="pmd_list_box">
+				<view class="pmd_list">
+					<text class="pmd_item">足不出户，预约代丢，垃圾变现，久神来帮您</text>
+					<text class="pmd_item">足不出户，预约代丢，垃圾变现，久神来帮您</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="home_act_box">
+		<view class="home_act_btn_box rp-order-fenlei">
+			<view class="home_act_btn_item " bindtap="loginGoto" data-url="/pages/order/his">
+				<image src="../../images/common/icon_flqx.png" mode="widthFix"></image>
+				<text>分类清晰</text>
+			</view>
+			<view class="home_act_btn_item rp-order-xiadan" bindtap="actAddOrder">
+				<image src="../../images/common/icon_xd.png" mode="widthFix"></image>
+				<text>下单</text>
+			</view>
+			<view class="home_act_btn_item rp-order-jiangli" bindtap="loginGoto" data-url="/pages/account/atm">
+				<image src="../../images/common/icon_qxjl.png" mode="widthFix"></image>
+				<text>清晰奖励</text>
+			</view>
+		</view>
+		<view class="home_act_btn_box rp-order-fenleierror">
+			<view class="home_act_btn_item" bindtap="loginGoto" data-url="/pages/order/his?type=bad">
+				<image src="../../images/common/icon_flyc.png" mode="widthFix"></image>
+				<text>分类异常</text>
+			</view>
+			<view class="home_act_btn_item rp-order-tousu">
+				<button type='default' wx:if="{{n_userLogin}}" open-type="contact" bindcontact="handleContact" class="ts_btn" style=" width: 120rpx;">
+					<image src="../../images/common/icon_ts.png" mode="widthFix"></image>
+					<text>投诉</text>
+				</button>
+				<button type='default' wx:else bindtap="checkLoginHandle" class="ts_btn" style=" width: 120rpx;">
+					<image src="../../images/common/icon_ts.png" mode="widthFix"></image>
+					<text>投诉</text>
+				</button>
+			</view>
+			<view class="home_act_btn_item rp-order-nonda" bindtap="goto" data-url="/pages/product/list">
+				<image src="../../images/common/icon_ndcp.png" mode="widthFix"></image>
+				<text>农大精选</text>
+			</view>
+		</view>
+	</view>
+	<view class="video-box rp-order-video">
+		<video poster="{{homeServer.videoPoster}}" src="{{homeServer.video}}"  object-fit="cover" binderror="videoErrorCallback" enable-danmu danmu-btn controls></video>
+	</view>
+
+	<view class="order-index-ad">
+		<swiper circular="true" autoplay="true" duration="500" interval="2000">
+			<swiper-item >
+				<view class="swiper-item {{item}}">
+					<image src="{{homeServer.swiper1}}" class="ad_img" mode="widthFix"></image>
+				</view>
+			</swiper-item>
+			<swiper-item >
+				<view class="swiper-item {{item}}">
+					<image src="{{homeServer.swiper2}}" class="ad_img" mode="widthFix"></image>
+				</view>
+			</swiper-item>
+			<swiper-item >
+				<view class="swiper-item {{item}}">
+					<image src="{{homeServer.swiper3}}" class="ad_img" mode="widthFix"></image>
+				</view>
+			</swiper-item>
+		</swiper>
+	</view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "mp-gallery": "weui-miniprogram/gallery/gallery"
+  },
+  "navigationBarTitleText": "身份绑定"
+}

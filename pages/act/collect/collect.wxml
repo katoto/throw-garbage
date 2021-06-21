@@ -1,0 +1,17 @@
+<view class="container">
+	<view class="coll-box">
+		<view class="act_btn" bindtap="connDevice">
+			<image src="../../../images/act/coll_1.png" mode="widthFix" />
+		</view>
+		<view class="coll-title">取桶</view>
+		<view class="coll-desc">
+			<view>1、请将手机靠近垃圾桶顶部</view>
+			<view>2、停留3秒钟</view>
+		</view>
+	</view>
+
+	<view class="ad_box p_bottom">
+	<!-- https://xcx.9shenghe.com/develop/upload/img/ad/fl02.png -->
+		<image src="https://xcx.9shenghe.com/develop/upload/img/ad/qt_blue.png" class="wedding_img" mode="widthFix"></image>
+	</view>
+</view>

@@ -1,0 +1,15 @@
+<view class="container">
+	<view class="order_item" wx:for="{{orders}}" wx:key="index" data-key="{{index}}" data-item="{{item}}">
+		<view style="width:72%">
+			<view class="order-time">下单时间：{{item.booksTime}}</view>
+			<view class="order_addr">{{item.address}}{{item.communityName}}{{item.buildingNumber}}{{item.houseNumber}}</view>
+		</view>
+		<view class="order_status {{item.status === 'F'?'order_ok' : ''}}" bindtap="listClick" data-item="{{item}}">{{item.status === 'F'?'已完成' : '进行中'}}</view>
+		<view class="order_label" wx:if="{{item.garbageLabel}}">
+			<view class="order_label_item" wx:for="{{item.garbageLabel}}" wx:for-item="itemLabel" wx:key="index">{{itemLabel}}</view>
+		</view>
+	</view>
+	<empty wx:if="{{loaded && orders.length==0}}">
+		<text>还没有完成的订单，快去抢单吧！</text>
+	</empty>
+</view>

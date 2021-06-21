@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/index"
+  },
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "取消抢单"
+}

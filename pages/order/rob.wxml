@@ -1,0 +1,42 @@
+<view class="container">
+	<view class="rob_box" style="margin-bottom:20rpx" wx:if="{{loaded}}">
+		<block wx:for="{{orders}}" wx:key="index">
+			<block wx:if="{{item.type=='order'}}">
+				<view class="rob_item_box" data-url="/pages/order/list" data-key="{{index}}" data-item="{{item}}" bindtap="lockOrder">
+					<view class="rob_info_box">
+						<view class="rob_addr">
+							<view>{{item.address}}{{item.size}}户</view>
+							<view class="rob-bookTime">{{item.bookingTime}}</view>
+						</view>
+						<view class="rob_price_box">
+							<view class="price-box-lf">
+								<text class="rob-price-txt">{{item.price}}元</text>
+							</view>
+							<view class="price-box-rf">
+								<text class="box-rf-txt">抢</text>
+								<image src="../../images/order/icon_next.png" class="icon_next" mode="widthFix"></image>
+							</view>
+						</view>
+						<!-- <view class="rob_btn">
+							抢 >
+						</view>
+						<view class="rob-price">
+							<text class="rob-price-txt">{{item.price}}元</text>
+						</view> -->
+					</view>
+					<view class="rob_item_bg">
+						<image src="../../images/order/qiangdan_bg.png" class="wedding_img" mode="widthFix"></image>
+					</view>
+				</view>
+			</block>
+			<block wx:if="{{item.type=='ad'}}">
+				<view class="ad_box" style="margin-bottom:30rpx;">
+					<image src="{{item.src}}" class="wedding_img" mode="widthFix"></image>
+				</view>
+			</block>
+		</block>
+	</view>
+	<empty wx:if="{{ loaded && orders.length==0 }}" class="empty-class">
+		<text>暂无待抢订单</text>
+	</empty>
+</view>

@@ -1,0 +1,43 @@
+/* components/navbar/index.wxss */
+.bottom-nav{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  background: #F5F8F4;
+  height: 112rpx;
+  z-index: 1;
+  border-top:1rpx solid #E5E5E5;
+}
+.b-n-item{
+  width: 30%;
+  padding-top:14rpx;
+  position: relative;
+  filter: grayscale(100%);  
+  filter: #999999;
+  color: #999999; 
+}
+.b-n-item .sm-icon{
+  width:46rpx;
+  height: 46rpx;
+}
+.i-a-center{
+  text-align: center;
+  height: 46rpx;
+}
+
+.b-n-item.on{
+  filter: grayscale(0%);  
+  color:#46B157;
+}
+
+
+.bottom-nav ~ .container{
+  padding-bottom: 120rpx;
+}
+
+.f-24{
+  font-size: 24rpx;
+}

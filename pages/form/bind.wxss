@@ -1,0 +1,171 @@
+page{
+  background: #ffffff;
+}
+.form-item{
+  width: calc( 100% - 60rpx);
+  margin:17rpx auto;
+  padding: 30rpx 34rpx;
+  background: #FFFFFF;
+  border: 1rpx solid #DADADA;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+}
+.f-sb{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.f-end{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.xl_icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+}
+.c_999{
+  color: #999999;
+}
+.f_30{
+  font-size: 30rpx;
+}
+.form_title{
+  text-align: left;
+  color: #333333;
+  width: calc( 100% - 60rpx);
+  font-size: 36rpx;
+  font-weight: bold;
+  margin:60rpx auto 30rpx;
+}
+.form_title .form_title_desc{
+  font-size: 26rpx;
+  color: #999999;
+}
+.gx-textarea{
+  font-size: 30rpx;
+  line-height: 1.8;
+  width: 100%;
+}
+.upload-item{
+  margin-top: 40rpx;
+  width: calc( 100% - 60rpx);
+}
+.upload-item .weui-uploader__title{
+  color: #333333;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.s_btn_box{
+  text-align: center;
+  margin: 70rpx auto;
+}
+.submit_btn{
+  width: 492rpx;
+height: 112rpx;
+background: #31A043;
+box-shadow: 0px 5rpx 51rpx 0px rgba(49, 160, 67, 0.28);
+border-radius: 56rpx;
+text-align: center;
+line-height: 112rpx;
+font-size: 32rpx;
+color: #ffffff;
+font-weight: 400;
+margin: 0 auto;
+padding: 0;
+}
+
+.help_text{
+  margin-top: 50rpx;
+  margin-bottom:50rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #999999;
+}
+.help_text text{
+  color: #31A043;
+}
+.h_200{
+  height: 200rpx;
+}
+.h_100{
+  height: 100rpx;
+}
+.mb_30rpx{
+  margin-bottom: 30rpx;
+}
+.f_cc{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.card_bg{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card_bg image{
+  width:76rpx;
+  height: 66rpx;
+  margin-bottom: 33rpx;
+}
+.card_box{
+  height: 50vw;
+}
+.card_img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+.ad_box{
+  width: calc(100% - 60rpx);
+  height: 270rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin: 40rpx auto;
+}
+.wedding_img{
+ width: 100%;
+}
+.n_id_card_box{
+    width: 690rpx;
+    height: 346rpx;
+    border-radius: 10rpx;
+    padding: 0;
+}
+.n_card_bg{
+    width: 500rpx;
+    height: 260rpx;
+    position: relative;
+}
+.n_card_bg image{
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+.n_card_txt_box{
+    position: absolute;
+    bottom: 58rpx;
+    text-align: center;
+    width: 500rpx;
+}
+.n_card_txt{
+    font-size: 24rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #999999;
+}
+.id_tips{
+    font-size: 20rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #999999;
+    padding-left: 36rpx;
+}

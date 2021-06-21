@@ -1,0 +1,36 @@
+<view class="container">
+	<!-- <view class="order_item" wx:for="{{orders}}" wx:key="index" data-key="{{index}}" data-item="{{item}}">
+		<view class="order_addr">{{item.address}}{{item.communityName}}{{item.buildingNumber}}{{item.houseNumber}}</view>
+		<view class="order_status {{item.status === 'F'?'order_ok' : ''}}" bindtap="listClick" data-item="{{item}}">{{item.status === 'F'?'已完成' : '进行中'}}</view>
+	</view> -->
+	<block wx:if="{{orderMsg}}">
+		<view class="detail-block">
+			<view class="title-box">
+				<view class="icon-line"></view>
+				<view class="title">订单信息</view>
+			</view>
+			<view class="cont">
+				<view class="line">
+					<view class="line-lf">预约时间</view>
+					<view class="line-rf">{{orderMsg.bookingTime}}</view>
+				</view>
+				<view class="line">
+					<view class="line-lf">订单地址</view>
+					<view class="line-rf">{{orderMsg.address}} {{orderMsg.communityName}} {{orderMsg.buildingNumber}}{{orderMsg.houseNumber}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="detail-block">
+			<view class="title-box">
+				<view class="icon-line"></view>
+				<view class="title">下单类型</view>
+			</view>
+			<view class="cont label-box" wx:if="{{orderMsg.garbageTypeArr}}">
+				<view wx:for="{{orderMsg.garbageTypeArr}}" wx:key="index" data-key="{{index}}" class="cont-label">{{item}}</view>
+			</view>
+		</view>
+	</block>
+	<empty wx:if="{{!orderMsg}}">
+		<text>还没有完成的订单，快去抢单吧！</text>
+	</empty>
+</view>

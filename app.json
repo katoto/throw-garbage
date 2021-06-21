@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "pages/order/index",
+    "pages/index/index",
+    "pages/product/list",
+    "pages/form/order",
+    "pages/form/bind",
+    "pages/form/complain",
+    "pages/form/comment",
+    "pages/form/map",
+    "pages/act/weigh",
+    "pages/act/place/place",
+    "pages/act/place/place2",
+    "pages/act/place/place3",
+    "pages/act/collect/collect",
+    "pages/act/collect/collect2",
+    "pages/act/collect/collect3",
+    "pages/order/tip",
+    "pages/order/his",
+    "pages/order/list",
+    "pages/order/complete",
+    "pages/order/rob",
+    "pages/order/detail",
+    "pages/account/verify",
+    "pages/account/index",
+    "pages/account/atm",
+    "pages/account/doatm",
+    "pages/my/index",
+    "pages/my/ordercancel",
+    "pages/my/getOrderList",
+    "pages/h5/xieyi",
+    "pages/product/detail",
+    "pages/loginpage/index",
+    "components/tabbar/index"
+  ],
+
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#979795",
+    "selectedColor": "#1c1c1b",
+    "list":[{
+      "pagePath": "pages/order/index",
+      "iconPath": "/images/bar/icon_dlj_pre.png",
+      "selectedIconPath": "/images/bar/icon_dlj_pre.png",
+      "text": "丢垃圾"
+    },
+    {
+      "pagePath": "pages/account/index",
+      "iconPath": "/images/bar/icon_qlj_pre.png",
+      "selectedIconPath": "/images/bar/icon_qlj_pre.png",
+      "text": "取垃圾"
+    },
+    {
+      "pagePath": "pages/my/index",
+      "iconPath": "/images/bar/icon_khzx_pre.png",
+      "selectedIconPath": "/images/bar/icon_khzx_pre.png",
+      "text": "客户中心"
+    }]
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "久神代丢",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "useExtendedLib": {
+    "weui": true
+  }
+}

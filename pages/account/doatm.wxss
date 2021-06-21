@@ -1,0 +1,77 @@
+.atm_head{
+  background:#31A043;
+  height: 300rpx;
+  width: 100vw;
+}
+.head_text{
+  margin-top: 60rpx;
+  display: flex;
+  justify-items: center;
+  align-items:center;
+  color: #fff;
+}
+.head_text image{
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+}
+.money{
+  font-size: 110rpx;
+  color: #fff;
+  margin-left: 30rpx;
+}
+.atm_box{
+  width: calc(100vw - 60rpx);
+  margin: 0 auto;
+}
+.atm_text{
+  width: 100%;
+  text-align: left;
+  font-size: 30rpx;
+  margin: 38rpx 0;
+  font-weight: 600;
+}
+.lable_box{
+  display:flex;
+  justify-content: space-around;
+  flex-wrap:wrap;
+  width: 100%;
+}
+.atm_lable{
+  width: 28%;
+  text-align: center;
+  background: #FFFFFF;
+  border: 2px solid #E8E8E8;
+  border-radius: 8px;
+  height: 120rpx;
+  line-height: 120rpx;
+  margin-bottom: 45rpx;
+  position: relative;
+}
+.atm_lable .b{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width:45rpx;
+  height: 38rpx;
+  display: none;
+}
+.atm_lable.on{
+  border-color: #31A043;
+}
+.atm_lable.on .b{
+  display: block;
+}
+.atm_btn{
+  width: 492rpx;
+height: 112rpx;
+line-height: 112rpx;
+background: #31A043;
+box-shadow: 0rpx 5rpx 51rpx 0rpx rgba(49, 160, 67, 0.28);
+border-radius: 56rpx;
+margin: 50rpx auto 0;
+text-align: center;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+}

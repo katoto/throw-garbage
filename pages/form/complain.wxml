@@ -1,0 +1,56 @@
+<view class="container">
+	<view class="form-item f-sb">
+		<view>选择地址</view>
+		<view class="f-end">
+			<view class="c_999 f_30">
+
+				<picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+					<view class="picker">
+						{{region[0]}}{{region[1]}}{{region[2]}}
+					</view>
+				</picker>
+
+			</view>
+			<image src="../../images/common/icon_xiala.png" class="xl_icon" mode="widthFix"></image>
+		</view>
+	</view>
+
+	<view class="form-item f-sb">
+		<view>订单时间</view>
+		<view class="f-end">
+			<view class="c_999 f_30 f-end">
+				{{time}}~{{time2}}
+				<!-- <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+          <view class="picker">
+            {{time}}
+          </view>
+        </picker>
+         ~ 
+         <picker  value="{{time2}}" start="00:00" end="23:59" bindchange="bindTimeChange2">
+          <view class="picker">
+          {{time2}}
+          </view>
+        </picker> -->
+
+			</view>
+			<!-- <image src="../../images/common/icon_xiala.png" class="xl_icon"  mode="widthFix"></image> -->
+		</view>
+	</view>
+	<view class="form_title">
+		投诉内容
+	</view>
+	<view class="form-item">
+		<textarea maxlength="100" placeholder="请输入想说的话" class="gx-textarea h_200" placeholder-style="color:#999999;"></textarea>
+	</view>
+
+	<view class="upload-item">
+		<mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="3" title="投诉照片" tips=""></mp-uploader>
+	</view>
+	<view class="s_btn_box">
+		<view class="submit_btn">提交</view>
+	</view>
+	<view class="help_text" bindtap="testup">
+		有问题？可联系客服 <text>{{tel}}</text>
+	</view>
+
+</view>

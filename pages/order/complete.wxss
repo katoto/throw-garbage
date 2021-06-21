@@ -1,0 +1,83 @@
+.ad_box{
+  width: calc(100% - 60rpx);
+  height: 270rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin: 20rpx auto 0;
+}
+.wedding_img{
+ width: 100%;
+}
+.order_list_box{
+  width: 100vw;
+ padding-bottom: 40rpx;
+}
+.order_list_item{
+  margin: 30rpx auto 0;
+  width: calc(100% - 60rpx);
+  background: #FFFFFF;
+  border: 1px solid #DADADA;
+  border-radius: 10px;
+  padding: 30rpx;
+  box-sizing:border-box;
+}
+.order_info_box{
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items: center;
+}
+.order_addr{
+  font-size: 30rpx;
+  line-height: 1.5;
+  width: 76%;
+}
+.order_status{
+    color: #31A043;
+    font-size: 36rpx;
+    font-style: italic;
+    border-left: 1rpx solid #DADADA;
+    width: 18%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80%;
+    font-weight: 600;
+}
+.order_num{
+  width: 18%;
+  border-left: 1px solid #DADADA;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: #31A043;
+  font-size: 36rpx;
+  font-style: italic;
+}
+.order_mark{
+  margin:29rpx auto 0 ;
+  background: #F1F1F1;
+  border-radius: 10px;
+  font-size: 26rpx;
+  padding: 20rpx  30rpx;
+  color: #31A043;
+}
+
+.c_gray{
+  color: #999999;
+}
+
+.order_empyt{
+  display: flex;
+  flex-direction: column;
+  align-items:  center ;
+  justify-content:  center;
+  height: 60vh;
+}
+.empty_text{
+  text-align: center;
+}
+.mark-txt{
+  color: #999999;
+}

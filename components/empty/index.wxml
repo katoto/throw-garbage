@@ -1,0 +1,8 @@
+<view class="order_empyt">
+	<view>
+		<image src="../../images/common/pic_wait.png" mode="widthFix"></image>
+	</view>
+	<view class="empty_text">
+		<slot></slot>
+	</view>
+</view>

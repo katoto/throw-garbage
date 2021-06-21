@@ -1,0 +1,76 @@
+<!-- 底部tabbar -->
+<tabbar tabbar="{{tabbar}}"></tabbar>
+
+<view class="container">
+	<block wx:if="{{n_userLogin}}">
+		<view class="user-info-box" bindtap="goUserCenter">
+			<view class="user-info">
+				<view class="avatar">
+					<open-data type="userAvatarUrl"></open-data>
+				</view>
+			</view>
+			<view class="user-info">
+				<view class="nickname">
+					<open-data type="userNickName"></open-data>
+				</view>
+			</view>
+		</view>
+	</block>
+	<block wx:else>
+		<view class="user-info-box" bindtap="showLoginBox">
+			<view class="user-info">
+				<view class="avatar">
+					<image class="user-headimg" src="../../images/common/user_head.png" mode="widthFix" />
+				</view>
+			</view>
+			<view class="user-info">
+				<view class="nickname" style="font-weight: 700;color:#000;">请登录</view>
+			</view>
+		</view>
+	</block>
+	<view class="rp-account-daiqiangorder yied_order_box" bindtap="gotoGrab" data-url="/pages/order/rob">
+		<view class="yied_order_desc">
+			<view>待抢订单</view>
+			<view class="order_num">{{ robNum }}</view>
+		</view>
+		<view class="y_o_b_bg">
+			<image src="../../images/account/qiangdan_bg.png" class="wedding_img" mode="widthFix"></image>
+		</view>
+	</view>
+	<view class="clear"></view>
+	<view class="user_tj_nums">
+		<view class="nums_item rp-account-tixian" bindtap="loginGoto" data-url="/pages/account/atm?type=worker">
+			<view class="nums_title">可提现</view>
+			<view class="nums_title c_green">
+				{{amount}}
+				<text class="nums_unit">￥</text>
+			</view>
+		</view>
+		<view class="nums_item rp-account-wancheng" bindtap="loginGoto" data-url="/pages/order/complete">
+			<view class="nums_title">已完成</view>
+			<view class="nums_title ">
+				{{finishCountOrders}}
+				<text class="nums_unit">(单)</text>
+			</view>
+		</view>
+	</view>
+	<view class="user_tj_nums">
+		<view class="nums_item rp-account-weiwancheng" bindtap="goOrderList">
+			<view class="nums_title">未完成</view>
+			<view class="nums_title c_red">
+				{{waitCountOrders}}
+				<text class="nums_unit">(单)</text>
+			</view>
+		</view>
+		<view class="nums_item rp-account-tousu" bindtap="loginGoto" data-url="/pages/order/his?type=ts">
+			<view class="nums_title">被投诉</view>
+			<view class="nums_title c_red">
+				{{complaintsCountOrders}}
+				<text class="nums_unit">(单)</text>
+			</view>
+		</view>
+	</view>
+	<view class="ad_box rp-account-ad">
+		<image src="{{fetchServer.banner}}" class="wedding_img" mode="widthFix"></image>
+	</view>
+</view>

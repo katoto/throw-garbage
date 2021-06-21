@@ -1,0 +1,92 @@
+<view class="container">
+	<view class="topTip">
+		垃圾丢弃，不可找回
+	</view>
+	<form bindsubmit="formSubmit" style="width:100vw">
+		<view class="form-item f-sb">
+			<view>预约地址</view>
+			<view class="f-end" bindtap="onChangeAddress">
+				<view class="c_999 f_30 inline">
+					<text class="inline">{{mapName ? mapName  : '选择地址'}}</text>
+				</view>
+                <!-- right -->
+				<image src="../../images/common/icon_xiala.png" class="xl_icon" mode="widthFix"></image>
+			</view>
+		</view>
+
+		<view class="form-item f-sb">
+			<view>楼宇号</view>
+			<view class="f-end">
+				<view class="c_999 f_30 f-end">
+					<picker mode="selector" range-key="buildingNumber" value="{{buildingNum}}" range="{{buildingNumArr}}" bindchange="bindBuildingNumChange">
+						<view class="picker-box">
+							<view class="picker">
+								{{buildingNum || '请选择楼宇号'}}
+							</view>
+							<image src="../../images/common/icon_xiala.png" class="xl_icon" mode="widthFix"></image>
+						</view>
+					</picker>
+				</view>
+			</view>
+		</view>
+
+		<view class="form-item f-sb">
+			<view>门牌号</view>
+			<view class="f-end">
+				<view class="c_999 f_30 f-end">
+					<picker mode="selector" range-key="houseNumber" value="{{houseNumber}}" range="{{houseList}}" bindchange="bindHouseNumChange">
+						<view class="picker-box">
+							<view class="picker">
+								{{houseNumber || '请选择门牌号'}}
+							</view>
+							<image src="../../images/common/icon_xiala.png" class="xl_icon" mode="widthFix"></image>
+						</view>
+					</picker>
+				</view>
+			</view>
+		</view>
+
+		<view class="form-item f-sb">
+			<view>预约时间</view>
+			<view class="f-end">
+				<view class="c_999 f_30 f-end">
+					<picker mode="selector" value="{{_currTime}}" range="{{timeArray}}" range-key="time" bindchange="bindTimeChange">
+						<view class="picker">
+							{{_currTime}}
+						</view>
+					</picker>
+				</view>
+				<image src="../../images/common/icon_xiala.png" class="xl_icon" mode="widthFix"></image>
+			</view>
+		</view>
+
+		<view class="new-btn">
+			<view wx:for="{{lable}}" class="type-btn {{ item.flag === '1' ? 'active-btn': '' }}" wx:key="index" data-currlable="{{item}}" bind:tap="sortHandle">
+				<text class="btn-txt">{{item.name}}{{item.selLen && item.selLen > 0 ? '('+ item.selLen +')' : ''}}</text>
+				<view class="icon-row" wx:if="{{item.children && item.children.length > 0}}"></view>
+			</view>
+
+		</view>
+		<view class="type-dialog-box" wx:if="{{showDialog}}">
+			<view class="type-dialog">
+				<view class="dialog-top">
+					<text class="title">{{dialogTitle}}</text>
+					<text class="c-title" bind:tap="closeDialog">确定</text>
+				</view>
+				<view class="dialog-bottom">
+					<view class="type-btn {{ item.flag === '1' ? 'active-btn': '' }}" wx:for="{{dialogList}}" wx:key="index" data-currlable="{{item}}" bind:tap="sortChildHandle">
+						<text class="btn-txt">{{item.name}}</text>
+					</view>
+				</view>
+			</view>
+			<view class="mask"></view>
+		</view>
+
+		<view class="s_btn_box fl_c">
+			<button class="submit_btn" formType="submit">提交</button>
+		</view>
+	</form>
+	<view class="ad_box rp-form-ad">
+		<image src="{{adServers}}develop/upload/img/ad/fl01.png" class="wedding_img" mode="widthFix"></image>
+	</view>
+</view>

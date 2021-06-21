@@ -1,0 +1,37 @@
+<view class="container">
+	<view class="page-section page-section-spacing swiper">
+		<swiper style="height:100vh" vertical="{{true}}" duration="{{600}}" bindchange="changeSwiper">
+			<block wx:for="{{urls}}" wx:key="id">
+				<swiper-item item-id="{{item.id}}">
+					<view class="swiper-item " data-id="{{item.id}}">
+						<block wx:if="{{item.type =='img'}}">
+							<view class="img_box">
+								<image class="img" src="{{item.url}}" mode="widthFix" bindtap="gotoLink" data-link="{{item.advertisementLink}}"></image>
+							</view>
+						</block>
+						<!-- 视频样式暂无数据 -->
+						<!-- <block wx:if="{{item.type =='video'}}">
+							<view class="play_btn" wx:if="{{ item.play==true }}" bindtap="setPlay" data-id="{{item.id}}">
+								<image src="../../images/common/icon_play.png" mode="widthFix"></image>
+							</view>
+							<video bindtap="togglePlay" data-id="{{item.id}}" id="myVideo_{{item.id}}" src="{{item.url}}" show-progress="{{false}}" controls="{{false}}" loop="{{true}}" show-center-play-btn="{{false}}" show-play-btn="{{false}}" style="width:100vw;height:100vh"></video>
+						</block> -->
+						<!-- style="margin-bottom: {{isIphoneX?'133rpx':'65rpx'}}" -->
+						<view class="pro_desc_box">
+							<view class="pro_desc">
+								<view class="pro_desc_title">
+									<!-- <view class="blue-icon">绿色</view> -->
+									<text class="desc-title-txt">{{item.title}}</text>
+								</view>
+								<view class="pro_desc_info" ><text class="info-txt">{{item.desc}}</text></view>
+							</view>
+						</view>
+					</view>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<view class="tip_hand">
+		<image src="../../images/product/icon_up.png" mode="widthFix"></image>
+	</view>
+</view>

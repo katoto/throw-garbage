@@ -1,0 +1,62 @@
+/**index.wxss**/
+
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.logo{
+  margin-top: 112rpx;
+  width: 160rpx;
+  height: 160rpx;
+}
+.btn-box{
+  margin-top: 150rpx;
+}
+.index-btn{
+  padding: 0;
+  margin:0 ;
+  width: 492rpx;
+  height: 112rpx;
+  font-size: 32rpx;
+  font-weight: 400;
+  border-radius: 56rpx;
+  line-height: 112rpx;
+  box-sizing: content-box;
+}
+.btn1{
+  background: #FFFFFF;
+  box-shadow: 0px 5rpx 51rpx 0rpx rgba(49, 160, 67, 0.28);
+  color: #31A043;
+}
+.btn2{
+  margin-top: 50rpx;
+  color: #FFFFFF;
+  background: #31A043;
+  box-shadow: 0px 5rpx 51rpx 0px rgba(49, 160, 67, 0.28);
+}
+.bg_bottom{
+  position:absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+  height: 709rpx;
+}
+.xieyi{
+  position: fixed;
+    bottom: 4rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 28rpx;
+    width: 100vw;
+    background: #ffffff8a;
+    height: 81rpx;
+}
+.checkImg{
+  width: 32rpx;
+  height: 32rpx;
+}

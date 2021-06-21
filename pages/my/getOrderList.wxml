@@ -1,0 +1,35 @@
+<navbar now-bar="ke"></navbar>
+<view class="act_list_box" wx:if="{{orderList && orderList.length > 0}}">
+	<!-- <view class="order-line" wx:for="{{orderList}}" wx:key="index">
+		<view class="line-top">
+			<view class="top-order-time">下单时间：{{item.fbookingTime}}</view>
+			<view class="top-roder-btn" data-orderid="{{item.orderId}}" bindtap="cancelHandle">取消</view>
+		</view>
+		<view class="line-bottom">
+			<text>{{item.address}}{{item.communityName}}{{item.buildingNumber}}{{item.houseNumber}}</text>
+		</view>
+	</view> -->
+	<!-- bindtap="orderComplete" -->
+	<view class="order-line"  data-item="{{item}}" wx:for="{{orderList}}" wx:key="index">
+		<view class="line-top">
+			<view class="top-order-time">下单时间：{{item.bookingTime}}</view>
+			<!-- bindtap="cancelHandle" -->
+			<view class="top-roder-btn roder-btn-disable" data-orderid="{{item.packageId}}">取消抢单</view>                                            
+		</view>
+		<view class="line-bottom">
+			<text>{{item.address}}{{item.communityName}}{{item.buildingNumber}}{{item.houseNumber}}{{item.size}}户</text>
+		</view>
+		<view class="price-box">
+			<text class="price-box-desc">订单金额(元)：</text>
+			<text class="price-box-txt">{{item.price}}元</text>
+		</view>
+	</view>
+</view>
+<view class="order_empyt" wx:else>
+	<view>
+		<image src="../../images/common/pic_wait.png" mode="widthFix"></image>
+	</view>
+	<view class="empty_text">
+		您还没有订单，快去下单吧~
+	</view>
+</view>

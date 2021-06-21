@@ -1,0 +1,61 @@
+<!-- 底部tabbar -->
+<tabbar tabbar="{{tabbar}}"></tabbar>
+<view class="container">
+	<view class="user_box">
+		<view class="user-info-box">
+			<block wx:if="{{n_userLogin}}">
+				<view class="user-info">
+					<view class="avatar">
+						<open-data type="userAvatarUrl"></open-data>
+					</view>
+					<view class="nickname">
+						<open-data type="userNickName"></open-data>
+					</view>
+				</view>
+			</block>
+			<block wx:else>
+				<view class="user-info" bindtap="showLoginBox">
+					<view class="avatar">
+						<image class="user-headimg" src="../../images/common/user_head.png" mode="widthFix" />
+					</view>
+					<view class="nickname" style="font-weight: 700;color:#000;">
+						请登录
+					</view>
+				</view>
+			</block>
+		</view>
+	</view>
+	<view>
+		<view class="act_list_box">
+			<view class="act_item" bindtap="goThrottle">
+				<view class="act_l_img">
+					<image src="../../images/common/icon_qx.png" />
+				</view>
+				<view class="act_text">取消下单</view>
+			</view>
+			<view class="act_item" bindtap="goCollect">
+				<view class="act_l_img">
+					<image src="../../images/common/icon_qx.png" />
+				</view>
+				<view class="act_text">取消抢单</view>
+			</view>
+		</view>
+
+		<view class="act_list_box">
+			<view class="act_item">
+				<view class="act_l_img">
+					<image src="../../images/common/icon_ndcp.png" />
+				</view>
+				<view class="act_text">当前版本</view>
+				<view class="act_version">1.1.3</view>
+			</view>
+			<view class="act_item" wx:if="{{n_userLogin}}" bindtap="logout">
+				<view class="act_l_img">
+					<image src="../../images/common/icon_tc.png" />
+				</view>
+				<view class="act_text">退出登录</view>
+			</view>
+		</view>
+		
+	</view>
+</view>

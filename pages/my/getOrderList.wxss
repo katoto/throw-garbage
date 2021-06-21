@@ -1,0 +1,123 @@
+page{
+    /* background-color: rgba(99, 99, 99, 0.1); */
+    background: #F5F5F5;
+}
+.act_list_box{
+  width: 100vw;
+  /* background: #fff; */
+  padding-bottom: 144rpx;
+}
+.act_item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx;
+  height: 120rpx;
+  border-bottom: 1rpx solid #ccc;
+  margin:0 12rpx;
+}
+
+.act_text{
+  font-size: 32rpx;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 78%;
+}
+.act-price{
+    font-size: 28rpx;
+    font-weight: 400;
+    color: rgb(141, 141, 141);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 68%;
+}
+
+.act_btn{
+    font-size: 29rpx;
+    border-left: 1px solid #ccc;
+    padding-right: 6rpx;
+    padding-top: 4rpx;
+    padding-bottom: 4rpx;
+    padding-left: 20rpx;
+    color: seagreen;
+}
+.order_empyt{
+  display: flex;
+  flex-direction: column;
+  align-items:  center ;
+  justify-content:  center;
+  height: 60vh;
+}
+.empty_text{
+  text-align: center;
+  color: #999999;
+  font-size: 32rpx;
+}
+.order-line{
+    padding: 0 30rpx;
+    padding-top: 0;
+    background-color: #fff;
+    margin-bottom: 24rpx;
+}
+.line-top{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30rpx;
+    margin-bottom: 18rpx;
+}
+.top-order-time{
+    font-size: 24rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #333333;
+    line-height: 48rpx;
+}
+.top-roder-btn{
+    background: rgba(228, 39, 39, 0);
+    border: 1px solid #E42727;
+    opacity: 0.5;
+    height: 40rpx;
+    border-radius: 40rpx;
+    font-size: 24rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #E42727;
+    padding: 0 30rpx;
+}
+.line-bottom{
+    font-size: 30rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #090103;
+    line-height: 48rpx;
+    padding: 0 4rpx;
+    margin-bottom: 32rpx;
+}
+.price-box{
+    border-top: 1rpx solid #DADADA;
+    width: 690rpx;
+    height: 85rpx;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.price-box-desc{
+    font-size: 24rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #333333;
+}
+.price-box-txt{
+    font-size: 36rpx;
+    font-family: PingFang SC;
+    font-weight: 600;
+    color: #333333;
+}
+.roder-btn-disable{
+    color: #B2B2B2;
+    border: 1rpx solid #B2B2B2;
+}
