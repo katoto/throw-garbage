@@ -1,6 +1,8 @@
 //behavior.js
 const utils = require('../utils/fuc.js');
 const app = getApp();
+const api = require("../api/index.js");
+
 module.exports = {
     goto(e) {
         let url = e.currentTarget.dataset.url;
@@ -34,9 +36,6 @@ module.exports = {
     },
     checkUserLogin() {
         // 有userType user  visitor console.log('do checkUserlogin -------') // '0' 登陆 '1' 未登陆
-        if (app.globalData.userType === 'user' || app.globalData.isLogin === '0') {
-            return true
-        }
-        return false
+        return app.globalData.userType === 'user' || app.globalData.isLogin === '0'
     },
 }

@@ -41,8 +41,24 @@ function bind(data, loading = false) {
         data: postData
     }, loading)
 }
+
+//获取banner
+function getBanner(data, loading = false) {
+    var postData = {
+        "method": "getBannerListByOrderAddr"
+    }
+    let url = conf.api_url + 'getData'
+    return request({
+        url,
+        method: 'post',
+        data: postData
+    }, loading)
+}
+
+
 module.exports = {
     login,
     info,
-    bind
+    bind,
+    getBanner
 }

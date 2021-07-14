@@ -4,9 +4,11 @@ var {
 var myBehavior = require("../../minxin/func.js");
 const utils = require("../../utils/fuc.js");
 
-const app = getApp() , adConfig = app.require("utils/adConfig");
+const app = getApp(), adConfig = app.require("utils/adConfig");
+
 const api = require("../../api/index.js");
 const msgTempId = ['Hiir7mE7qPhb7Zk029NyoasMmvqsGlk2fWQbnRmQGw0', 'ovtzX9vUcTo4o0hPKRowULLuSSVww3e4YAhOtdT_GC4', 'nQGN2OaiDuKnK_C73_VOxJkGcRQSexwIiF1gIz8xLn4']
+
 
 Page(
     mixin(myBehavior, {
@@ -23,7 +25,7 @@ Page(
             amount: "0.00",
             withhold: "0.00",
             n_userLogin: false, // 未登录
-            homeServer: adConfig.homeServer
+            homeServer: utils.cache("banner") ? utils.cache("banner").homeServer : adConfig.banner.homeServer
         },
         /**
          * 生命周期函数--监听页面加载
@@ -32,15 +34,23 @@ Page(
             // var that = this;
             //不存在类型的时候跳转到选择页面
             app.handleLogin().then(() => {
-                console.log('--------order/index.js 是否登录----', this.checkUserLogin())
                 this.setData({
                     n_userLogin: this.checkUserLogin()
                 })
             })
+            this.getBannerList();
+        },
+
+        getBannerList() {
+             adConfig.getBannerApi().then(res=>{
+                 this.setData({
+                    homeServer: res.homeServer,
+                })
+             });
         },
 
         fnum: function (num) {
-            return utils.formatNum(num);
+            return utils.formatNum(num); 
         },
 
         /**
@@ -57,6 +67,7 @@ Page(
         actAddOrder(e) {
             //没有登录 直接去下单页面
             if (!this.checkUserLogin()) {
+                console.log(123);
                 this.gotoAddOrder();
                 return false;
             }
@@ -92,13 +103,10 @@ Page(
                         linkType: 'redirect'
                     })
                 }
-                utils.openPageByType('mini://pages/form/comment', {
-                    linkType: 'redirect'
-                })
             });
         },
         goUserCenter() {
-            utils.openPageByType('mini://pages/my/index')
+            utils.openPageByType('tabs://pages/my/index')
         },
         // 订阅消息
         doSubMsg() {

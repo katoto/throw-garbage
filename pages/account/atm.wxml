@@ -13,9 +13,20 @@
 		<button bindtap="toAtm">提现</button>
 	</view>
 
-	<view class="ad_box" style="margin-top:70rpx;">
-		<image wx:if="{{type==='customer'}}" src="{{atmServer.banner}}" class="wedding_img" mode="widthFix" alt=""></image>
-		<image wx:else src="{{atmServer.banner}}" class="wedding_img" mode="widthFix"></image>
+	<view class="ad_box" style="margin-top:70rpx;" wx:if="{{type == 'customer'}}">
+		<swiper circular="true" autoplay="true" duration="500" interval="2000">
+			<swiper-item  wx:for="{{swiperList.swiper}}" wx:key="index">
+				<image src="{{item}}" class="wedding_img" mode="widthFix"></image>
+			</swiper-item>
+		</swiper>
+	</view>
+
+	<view class="ad_box" style="margin-top:70rpx;" wx:else>
+		<swiper circular="true" autoplay="true" duration="500" interval="2000">
+			<swiper-item  wx:for="{{distinctServer.swiper}}" wx:key="index">
+				<image src="{{item}}" class="wedding_img" mode="widthFix"></image>
+			</swiper-item>
+		</swiper>
 	</view>
 
 	<view class="atm_desc_box" style="margin-top:30rpx;">
@@ -23,15 +34,15 @@
 			奖惩及提现规则
 		</view>
 		<view class="desc_content">
-			<view>1、现金奖励账户不具有支付功能，久神将奖励支付至您与久神代丢账号绑定的微信零钱。提现申请受理成功后，平台将在1个工作日内将金额发放到指定微信账户的零钱中，请留意。</view>
+			<view>1、现金奖励账户不具有支付功能，久哥将奖励支付至您与久哥代丢账号绑定的微信零钱。提现申请受理成功后，平台将在1个工作日内将金额发放到指定微信账户的零钱中，请留意。</view>
 			<view>2、现金奖励账户的可提现余额至少为20元的整数倍，可发起提现，具体以提现页面展示为准。用户每次提现时可选择提现额度，剩余金额可在下次满足条件时提取。</view>
 			<view>3、每个用户每天有2次提现机会，每天提现金额不得超过200元。</view>
 			<view>4、提现过程需要授权用户的微信账号信息，以便将现金提现至指定微信账号的零钱账户。若微信账号信息授权失败，请将您的微信APP更新至最新版本后重新操作。</view>
-			<view>5、提现至微信零钱时，需确保微信账号已经进行微信支付实名认证，否则可能导致提现失败，将在3天后返回您的久神代丢小程序账户，具体可在“微信APP-我-支付-右上角菜单-实名认证”中查看。</view>
+			<view>5、提现至微信零钱时，需确保微信账号已经进行微信支付实名认证，否则可能导致提现失败，将在3天后返回您的久哥代丢小程序账户，具体可在“微信APP-我-支付-右上角菜单-实名认证”中查看。</view>
 			<view>6、如用户使用不正当手段（包括但不限于作弊领取、恶意套取、虚假交易、扰乱系统、实施网络攻击等）所获得的非法获利，一经发现，平台有权采取冻结和不发现金奖励等措施，亦有权收回和追讨用户已获得的现金奖励，并保留追究该用户责任的权利。</view>
 			<view>7、尊敬的丢垃圾用户，您一个月内错误分类不能高于4次，否则将扣除分类清晰奖励。如您是取垃圾工作人员，一个月内被投诉次数不能高于2次，否则将扣除次数*10倍*金额，每月抢单大于等于五次，公司还会奖励5元通讯补贴。</view>
-			<view>8、久神可根据实际情况，在法律允许的范围内，对本活动说明或者提现规则进行变动或者调整，相关变动或者调整将公布在活动页面上。</view>
-			<view>9、其他未尽事宜，可联系久神代丢客服。联系入口，久神代丢小程序-投诉-客服机器人。</view>
+			<view>8、久哥可根据实际情况，在法律允许的范围内，对本活动说明或者提现规则进行变动或者调整，相关变动或者调整将公布在活动页面上。</view>
+			<view>9、其他未尽事宜，可联系久哥代丢客服。联系入口，久哥代丢小程序-投诉-客服机器人。</view>
 		</view>
 	</view>
 

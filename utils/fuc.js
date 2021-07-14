@@ -15,6 +15,11 @@ function redirectTo(url) {
         url,
     });
 }
+function switchTab(url) {
+    wx.switchTab({
+        url,
+    });
+}
 function mixin() {
     return Object.assign(...arguments);
 }
@@ -128,7 +133,7 @@ function toast(msg, icon = "none", duration = 2500) {
     });
 }
 function toHome() {
-    wx.redirectTo({
+    wx.switchTab({
         url: "/pages/order/index",
     });
 }
@@ -389,6 +394,7 @@ module.exports = {
     randArrayOne,
     navigateTo,
     redirectTo,
+    switchTab,
     mixin,
     vcode,
     uphandle,

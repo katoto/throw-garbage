@@ -10,11 +10,18 @@ Page(mixin(myBehavior, {
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+        version: "1.1.4"
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        let account = wx.getAccountInfoSync();
+        let version = account.miniProgram.version
+        this.setData({
+            version : version || "1.1.6"
+        })
     },
 
     /**

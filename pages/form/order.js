@@ -1,5 +1,4 @@
 const api = require("../../api/index.js");
-const app = getApp();
 let mapMsg = null;
 var {
     mixin,
@@ -64,8 +63,9 @@ Page(
             dialogList: [],
             showDialog: false,
             dialogTitle: '',
-            adServers: app.data.adServers
+            adServers: utils.cache("banner").order
         },
+
         checkForm: function (data) {
             let formData = {};
             let error = false;
@@ -73,7 +73,7 @@ Page(
             if (!error && !this.data.buildingItem) {
                 error = "请选择楼宇号信息";
             }
-            if (!error && !this.data.houseNumber) {
+            if (!error && !this.data.houseNumber || !this.data.addressId) {
                 error = "请选择门牌号";
             }
             if (!error && !this.data.bindTimeIndex) {
@@ -242,9 +242,21 @@ Page(
                 latitude: mapMsg.latitude,
                 longitude: mapMsg.longitude,
             };
-            api.order
-                .buildingList(_params)
+            let that = this;
+            api.order.buildingList(_params)
                 .then((res) => {
+                    if (res.length <= 0) {
+                        wx.showModal({
+                            title: "提示",
+                            content: "当前区域暂未开通代丢服务",
+                            showCancel: false,
+                            success(res) {
+                                // if (res.confirm) that.onChangeAddress();
+                                // else if (res.cancel) wx.navigateBack();
+                                wx.navigateBack()
+                            }
+                        })
+                    }
                     this.setData({
                         buildingNumArr: res,
                     });
@@ -261,6 +273,7 @@ Page(
                 this.setData({
                     buildingNum: this.data.buildingNumArr[_key].buildingNumber || "",
                     buildingItem: this.data.buildingNumArr[_key],
+                    houseNumber: ""
                 });
                 this.getHouseList(this.data.buildingNumArr[_key])
             }

@@ -1,6 +1,12 @@
 <view class="container">
 	<view class="ad_box">
-		<image src="{{compServer.banner}}" class="wedding_img" mode="widthFix"></image>
+		<swiper circular="true" autoplay="true" duration="500" interval="2000">
+			<swiper-item  wx:for="{{compServer.swiper}}" wx:key="index">
+				<view class="swiper-item {{item}}">
+					<image src="{{item}}" class="wedding_img" mode="widthFix"></image>
+				</view>
+			</swiper-item>
+		</swiper>
 	</view>
 
 	<view class="order_list_box" wx:if="{{loaded}}">

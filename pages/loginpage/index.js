@@ -2,9 +2,9 @@
 var { mixin } = require("../../utils/fuc.js");
 var myBehavior = require("../../minxin/func.js");
 var utils = require("../../utils/fuc.js");
+const api = require("../../api/index.js");
 
 const app = getApp();
-const api = require("../../api/index.js");
 let beforeSession = ''
 
 Page(
@@ -55,6 +55,7 @@ Page(
                     desc: "获取用户信息",
                     success(e) {
                         if (e && e.encryptedData) {
+                            console.log(e);
                             // 拿到手机信息 请求接口 然后登陆
                             that.doUserInfoAfter(e);
                             that.setData({
@@ -96,7 +97,7 @@ Page(
                     if(getCurrentPages().length > 1){
                         utils.route('back')
                     } else {
-                        utils.redirectTo('/pages/order/index');
+                        utils.switchTab('/pages/order/index');
                     }
                     
                 }, 100)
@@ -134,9 +135,8 @@ Page(
                 if(getCurrentPages().length > 1){
                     utils.route('back')
                 } else {
-                    utils.redirectTo('/pages/order/index');
+                    utils.switchTab('/pages/order/index');
                 }
-
                 return true
             }
         },

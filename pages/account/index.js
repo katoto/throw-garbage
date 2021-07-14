@@ -17,7 +17,7 @@ Page(mixin(myBehavior, {
         finishCountOrders: 0,
         amount: '0.00',
         n_userLogin: false,
-        fetchServer: adConfig.fetchServer
+        fetchServer: utils.cache("banner").fetchServer
     },
     //获取抢单数
     getRobNum() {
@@ -40,11 +40,6 @@ Page(mixin(myBehavior, {
         })
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function () {
-    },
 
     /**
      * 生命周期函数--监听页面显示
@@ -52,10 +47,8 @@ Page(mixin(myBehavior, {
     onShow: function () {
         //更改了用户状态
         let _userLog = this.checkUserLogin()
-        if (_userLog) {
-            this.getUserInfo()
-            this.getRobNum()
-        }
+        this.getRobNum()
+        if (_userLog) this.getUserInfo()
         this.setData({
             n_userLogin: _userLog
         })
@@ -87,6 +80,6 @@ Page(mixin(myBehavior, {
         utils.openPageByType('mini://pages/order/list?from=nocomplete');
     },
     goUserCenter() {
-        utils.openPageByType('mini://pages/my/index')
+        utils.openPageByType('tabs://pages/my/index')
     }
 }))

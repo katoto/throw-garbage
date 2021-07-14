@@ -2,7 +2,7 @@ var { mixin } = require('../../utils/fuc.js');
 var myBehavior = require('../../minxin/func.js')
 var utils = require('../../utils/fuc.js');
 
-const app = getApp(), adConfig = app.require("utils/adConfig");
+const app = getApp();
 const api = require('../../api/index.js');
 
 Page(mixin(myBehavior, {
@@ -12,7 +12,8 @@ Page(mixin(myBehavior, {
     data: {
         amount: null,
         type: 'customer',
-        atmServer: adConfig.atmServer
+        swiperList: utils.cache("banner").atmServer,
+        distinctServer: utils.cache("banner").distinctServer
     },
     /**
      * 生命周期函数--监听页面加载

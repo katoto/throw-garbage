@@ -13,8 +13,9 @@ Page(mixin(myBehavior, {
         loaded: false,
         orders: [],
         mark: '',
-        compServer: adConfig.compServer
+        compServer: utils.cache("banner").compServer
     },
+    
     getOrderList: function () {
         api.order.roblist({
             "type": "worker",
@@ -34,6 +35,7 @@ Page(mixin(myBehavior, {
         this.setData({
             mark: `请将已收垃圾桶拿到8号楼垃圾转运站处倾倒并清洗，再运到7号楼地下一层车库归还工具。联系人：苑凌飞，电话：13614560531`
         })
+      
         // 暂时固定，后面接口配置
         // api.contact.info().then(res => {
         //     this.setData({

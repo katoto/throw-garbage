@@ -78,3 +78,7 @@ align-items: center;
     height: 96rpx;
     width:96rpx
 }
+
+.version{
+  color: #333;
+}

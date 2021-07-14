@@ -21,11 +21,15 @@ font-weight: 400;
   color: #31A043;
   font-size: 30rpx;
   display: flex;
+  justify-content: space-between;
 }
 
 .radio_list{
-  width: 29%;
   margin-right: 28rpx;
+}
+
+.radio_list:last-child {
+  margin-right: 0;
 }
 
 .radio_group{

@@ -4,7 +4,8 @@ var myBehavior = require('../../minxin/func.js')
 var utils = require('../../utils/fuc.js');
 const app = getApp()
 const api = require('../../api/index.js');
-const adsImg = [
+const banner = utils.cache("banner");
+const adsImg = banner ? banner.robOrder.swiper :  [
     "https://xcx.9shenghe.com/upload/img/ad/ad02.png",
     "https://xcx.9shenghe.com/develop/upload/img/ad/fl01.png", 
     "https://xcx.9shenghe.com/develop/upload/img/ad/fl02.png",

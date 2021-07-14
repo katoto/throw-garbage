@@ -27,8 +27,8 @@
 			<image src="../../images/common/jsdd.png" mode="widthFix" style="width:140rpx;height:35rpx" />
 			<view class="pmd_list_box">
 				<view class="pmd_list">
-					<text class="pmd_item">足不出户，预约代丢，垃圾变现，久神来帮您</text>
-					<text class="pmd_item">足不出户，预约代丢，垃圾变现，久神来帮您</text>
+					<text class="pmd_item">足不出户，预约代丢，垃圾变现，久哥来帮您</text>
+					<text class="pmd_item">足不出户，预约代丢，垃圾变现，久哥来帮您</text>
 				</view>
 			</view>
 		</view>
@@ -75,19 +75,9 @@
 
 	<view class="order-index-ad">
 		<swiper circular="true" autoplay="true" duration="500" interval="2000">
-			<swiper-item >
+			<swiper-item  wx:for="{{homeServer.swiper}}" wx:key="index">
 				<view class="swiper-item {{item}}">
-					<image src="{{homeServer.swiper1}}" class="ad_img" mode="widthFix"></image>
-				</view>
-			</swiper-item>
-			<swiper-item >
-				<view class="swiper-item {{item}}">
-					<image src="{{homeServer.swiper2}}" class="ad_img" mode="widthFix"></image>
-				</view>
-			</swiper-item>
-			<swiper-item >
-				<view class="swiper-item {{item}}">
-					<image src="{{homeServer.swiper3}}" class="ad_img" mode="widthFix"></image>
+					<image src="{{item}}" class="ad_img" mode="widthFix"></image>
 				</view>
 			</swiper-item>
 		</swiper>

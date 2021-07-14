@@ -1,10 +1,12 @@
 //app.js
 const utils = require("./utils/fuc");
 const api = require("./api/index.js");
+
 const USER_TYPE = { //当前用户类型
     visitor: 'visitor', //游客
     user: 'user', //用户
 }
+
 // 需要统计时长的页面路由
 global.tracksPages = ['pages/order/index', 'pages/account/index', 'pages/my/index']
 
@@ -40,7 +42,7 @@ Page = (page) => {
 // isLogin  '0' 登陆 '1' 未登陆
 App({
     data: {
-        adServers: "https://xcx.9shenghe.com/", // 广告测试环境
+        adBanner: {}
     },
 
     onLaunch: function () {
@@ -60,8 +62,8 @@ App({
         this.checkUpdateVersion(); // 版本更新升级提醒
         this.globalData.autoLogin = utils.cache("autoLogin") || false;
         this.globalData.nowUser = null;
+        this.handleLogin(); //初始化是否登录
     },
-
     async handleLogin() {
         return new Promise(async (resolve) => {
             let _logState = await this.zg_checkIsLogin();

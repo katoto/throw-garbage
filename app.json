@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/order/index",
-    "pages/index/index",
     "pages/product/list",
     "pages/form/order",
     "pages/form/bind",
@@ -29,7 +28,6 @@
     "pages/my/ordercancel",
     "pages/my/getOrderList",
     "pages/h5/xieyi",
-    "pages/product/detail",
     "pages/loginpage/index",
     "components/tabbar/index"
   ],
@@ -61,7 +59,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "久神代丢",
+    "navigationBarTitleText": "久哥代丢",
     "navigationBarTextStyle": "black"
   },
   "permission": {

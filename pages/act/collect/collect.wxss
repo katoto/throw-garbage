@@ -13,10 +13,7 @@
 .act_btn image{
   width: 280rpx;
 }
-.p_bottom{
-  /* position: absolute; */
-  /* bottom: 80rpx; */
-}
+
 
 .ad_box{
   width: calc(100% - 60rpx);
