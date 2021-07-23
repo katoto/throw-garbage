@@ -29,13 +29,13 @@ Page(mixin(myBehavior, {
         let type = options.type || 'good';
         let title = "分类清晰";
         param = {
-            "isClear": "1",
+            "isClear": "0",
             "type": "customer"
         }
         if (type == 'bad') {
             title = "分类异常";
             param = {
-                "isClear": "0",
+                "isClear": "1",
                 "type": "customer"
             }
             tipStr = '太棒了！没有分类异常，请继续保持';

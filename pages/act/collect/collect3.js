@@ -159,7 +159,7 @@ Page(mixin(myBehavior, {
         if(colorfulListArr.includes(collectArr[1])) isJump2Weight = true;
         
         if (isJump2Weight) {
-            cache('j_weigh', [JSON.stringify({ w: "0", i: "0", s: "1" })])
+            cache('j_weigh', [JSON.stringify({ w: "0", i: "0", s: "0" })])
             openPageByType('mini://pages/act/place/place?oid=' + this.data.oid, {
                 linkType: 'redirect'
             })
