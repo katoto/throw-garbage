@@ -14,7 +14,11 @@ Page(mixin(myBehavior, {
         loaded: false,
         orders: [],
         type: 'good',
-        tip: ''
+        tip: '',
+        smile: "/images/order/smile.png",
+        cry: "/images/order/cry.png",
+        rightTrue: "/images/order/right_true.png",
+        rightFalse: "/images/order/right_false.png"
     },
     formatTime: function (time) {
         return utils.formatTime(time, 'yy.MM.dd')
@@ -29,14 +33,16 @@ Page(mixin(myBehavior, {
         let type = options.type || 'good';
         let title = "分类清晰";
         param = {
-            "isClear": "1",
-            "type": "customer"
+            "isClear": "0",
+            "type": "customer",
+            "status": "F"
         }
         if (type == 'bad') {
             title = "分类异常";
             param = {
-                "isClear": "0",
-                "type": "customer"
+                "isClear": "1",
+                "type": "customer",
+                "status": "F"
             }
             tipStr = '太棒了！没有分类异常，请继续保持';
         }
@@ -58,15 +64,21 @@ Page(mixin(myBehavior, {
         this.getOrderList(param)
     },
     getOrderList(param) {
-        api.order.getCollList(
-            Object.assign({}, {
-                "status": "F"
-            }, param)
-            , '加载中').then(list => {
+        api.order.getCollList(param, '加载中').then(list => {
                 let newList = list.map((item) => {
                     item.orderTime = utils.formatTime(item.orderDate, 'yy.MM.dd')
+                    item.parentGarbageType = item.parentGarbageType.split(',')
+                    item.typeList = item.parentGarbageType.map(val =>{
+                        let obj = { 
+                            flag: val == "厨余" ? true : false,
+                            name: val
+                        }
+                        return obj;
+                    })
+                    if(!item.typeList.find(value => value.name == "厨余") && param.status != "F") item.typeList.push({flag: true, name:"厨余"})
                     return item;
                 })
+                console.log(newList);
                 this.setData({
                     loaded: true,
                     orders: newList
@@ -78,5 +90,14 @@ Page(mixin(myBehavior, {
                     duration: 2000,
                 });
             })
+    },
+    navOrderDetail(e) {
+        let id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+          url: "/pages/order/orderDetail/index?orderId=" + id,
+        })
+    },
+    navOrderComplaints(e) {
+       
     },
 }))

@@ -55,7 +55,7 @@ Page(mixin(myBehavior, {
     },
     gotoGrab() {
         return utils.openPageByType('mini://pages/order/rob', {
-            linkType: 'redirect'
+            linkType: 'page'
         });
     },
     loginGoto(e) {

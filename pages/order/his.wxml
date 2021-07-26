@@ -2,23 +2,45 @@
 	<empty wx:if="{{ loaded && orders.length===0 }}">
 		<text>{{tip}}</text>
 	</empty>
-	<view wx:if="{{loaded}}" style="width:100vw">
+	<!-- <view wx:if="{{loaded}}" style="width:100vw">
 		<view class="order_item" wx:for="{{orders}}" wx:key="index" data-key="{{index}}" data-item="{{item}}">
 			<view class="order_time">{{item.orderTime}}</view>
 			<view class="order_addr">{{item.address}}{{item.communityName}}{{item.buildingNumber}}{{item.houseNumber}}</view>
 			<view class="order_status">
-				<image wx:if="{{type=='good'}}" src="../../images/common/icon_xiaolian.png" class="status_icon" mode="widthFix"></image>
+				<image wx:if="{{type=='good'}}" src="../../images/common/icon_xiaolian.png" class="status_icon" mode="widthFix">
+				</image>
 				<button wx:if="{{type!='good'}}" open-type='contact' style="width:100rpx;">
-					<image open-type='contact' src="../../images/common/icon_kulian.png" class="status_icon" mode="widthFix"></image>
+					<image open-type='contact' src="../../images/common/icon_kulian.png" class="status_icon" mode="widthFix">
+					</image>
 				</button>
 			</view>
 		</view>
-		<!-- <view class="order_item">
-			<view class="order_time">xxxxx</view>
-			<view class="order_addr">wwwwwwwwwww</view>
-			<view class="order_status">
-				<image wx:if="{{type=='good'}}" src="../../images/common/icon_xiaolian.png" class="status_icon" mode="widthFix"></image>
+	</view> -->
+
+	<view class="classify" wx:if="{{loaded}}">
+		<view class="classify_list {{type == 'good' ? 'activeList' : ''}}" wx:for="{{orders}}" wx:key="index" data-key="{{index}}" data-item="{{item}}">
+			<view class="classify_bgc {{type == 'good' ? 'activeBgc' : ''}}">
+				<view class="classify_list_title">
+					<image class="classIfy_title_icon" mode="aspectFit" src="{{type == 'good' ? smile : cry}}"></image>
+					<view class="classify_title_time">预约时间：{{item.orderTime}}</view>
+					<button class="classify_title_text" wx:if="{{type != 'good'}}" open-type="contact" bindcontact="navOrderComplaints">投诉</button>
+				</view>
+				<view class="classify_detail" bindtap="navOrderDetail" data-id="{{item.orderId}}">
+					<view class="classify_detail_left">
+						<view class="classify_detail_address">
+							{{item.address}}{{item.communityName}}{{item.buildingNumber}}{{item.houseNumber}}</view>
+						<view class="classify_detail_type">
+							<view class="classify_detail_type_i {{data.flag && type != 'good'? 'tsActive': ''}}" wx:for="{{item.typeList}}" wx:for-item="data" wx:for-index="i" wx:key="index">{{data.name}}</view>
+						</view>
+					</view>
+					<view class="classify_detail_right">
+						<image mode="aspectFit" src="{{type == 'good' ? rightTrue: rightFalse}}"></image>
+					</view>
+				</view>
 			</view>
-		</view> -->
+
+		</view>
 	</view>
+
+
 </view>

@@ -1,5 +1,7 @@
 .container{
   width: 100vw;
+  padding: 30rpx;
+  box-sizing: border-box;
 }
 .order_item{
   width: calc(100% - 60rpx);
@@ -82,4 +84,114 @@
   color: #31A043;
   margin-bottom: 10rpx;
   font-size: 20rpx;
+}
+
+
+.order_list{
+  width: 100%;
+  background: #fff;
+  margin-bottom: 16rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.order_title{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.order_title_time{
+  flex: 1;
+  font-size: 24rpx;
+  color: #333;
+}
+.order_title_i{
+  text-align: center;
+  font-size: 24rpx;
+  color: #E68422;
+}
+
+.completeActive{
+  color: #31A043;
+}
+
+.order_title_icon{
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 10rpx;
+}
+
+.order_address{
+    width: 100%;
+    display: flex;
+    color: #090103;
+    font-size: 30rpx;
+    padding: 30rpx 24rpx;
+    box-sizing: border-box;
+    border-top: 1rpx solid #f2f2f2;
+    border-bottom: 1rpx solid #f2f2f2;
+}
+
+.order_address_text{
+  flex: 1;
+  box-sizing: border-box;
+  padding-right: 30rpx;
+}
+
+.order_address_icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+}
+
+.order_address_icon image{
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.order_classify{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 24rpx 24rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.order_classify_list{
+  padding: 0 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18rpx;
+  background: rgba(49, 160, 67, 0.1);
+  font-size: 24rpx;
+  color: #000;
+  margin-top: 16rpx;
+  margin-right: 8rpx;
+}
+
+.order_total{
+  width: 100%;
+  color: rgba(0,0,0,0.4);
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  border-top: 1rpx solid #f2f2f2;
+}
+
+.order_classify_icon{
+  position: absolute;
+  width: 136rpx;
+  height: 136rpx;
+  right: 0;
+  bottom: 0;
 }

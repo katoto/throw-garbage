@@ -22,6 +22,9 @@ Page(mixin(myBehavior, {
         hideLogin: true,
         userLogin: false,
         ad_space: 3,
+        robModal: false,
+        oid: null,
+        orderDetail: {}
         // ads: [
         //     'https://xcx.9shenghe.com/upload/img/ad/ad01.png', 'https://xcx.9shenghe.com/upload/img/ad/ad01.png', 'https://xcx.9shenghe.com/upload/img/ad/ad01.png',
         //     'https://xcx.9shenghe.com/upload/img/ad/ad01.png', 'https://xcx.9shenghe.com/upload/img/ad/ad01.png',
@@ -69,6 +72,15 @@ Page(mixin(myBehavior, {
     //     return this.data.ads[this.ad_i];
     // },
 
+    tsetFucn() {
+        const data = {
+            phone: '188828381381',
+            "type":[{"id":"200","name":"厨余"},{"number":1,"unit":"个","id":"300","name":"纸包装"},{"number":1,"unit":"个","id":"301","name":"塑料包装"},{"number":1,"unit":"个","id":"302","name":"其他包装"},{"id":"200","name":"厨余"},{"number":1,"unit":"个","id":"300","name":"纸包装"},{"number":2,"unit":"个","id":"301","name":"塑料包装"},{"number":2,"unit":"个","id":"302","name":"其他包装"}],
+        }
+        const type = this.arrTotal(data.type);
+        console.log(type);
+    },
+
     lockOrder(e) {
         if (!this.checkUserLogin()) {
             this.showLoginBox()
@@ -81,29 +93,46 @@ Page(mixin(myBehavior, {
         if (this.data.bind == 'W') {
             return utils.redirectTo('/pages/account/verify');
         }
+        let that = this;
         let oid = e.currentTarget.dataset.item.id;
         api.order.robOrder({ "packageId": oid }).then(res => {
-            wx.showModal({
-                title: '抢单提醒',
-                content: "抢单成功！请联系13614560531，领取工具后进行订单操作",
-                success: (res) => {
-                    if(res.confirm){
-                        wx.navigateTo({
-                            url: '/pages/order/list?packageId=' + oid,
-                        })
-                        this.getOrderList()
-                    }
-                },
-                fail: (err) => {
-                    this.getOrderList()
-                }
-            })
+            let orderDetail = res;
+           let types = that.arrTotal(res.type);
+           orderDetail.type = types;
+           this.setData({
+               robModal: true,
+               oid,
+               orderDetail: res
+           })
         }).catch(err => {
             wx.showToast({
                 title: err.msg || err.errmsg,
                 icon: 'none'
             })
         })
+    },
+
+    arrTotal(arr) {
+        let newArr = []
+        arr.forEach(el=>{
+            const result = newArr.findIndex(ol=>{return el.id === ol.id})
+            if(result!== -1){
+                newArr[result].number = newArr[result].number + el.number;
+            }else{
+                newArr.push(el)
+            } 
+        })
+        return newArr;
+    },
+
+    robOrderSucc() {
+        this.setData({
+            robModal: false
+        })
+        wx.navigateTo({
+            url: '/pages/order/list?packageId=' + this.data.oid,
+        })
+        this.getOrderList()
     },
 
     onShow() {

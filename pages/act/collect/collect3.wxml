@@ -1,7 +1,7 @@
 <view class="container">
 	<view class="coll-box">
 		<view class="act_btn">
-			<image src="../../../images/act/coll_3.png" mode="widthFix" />
+			<image src="../../../images/act/gray.png" mode="widthFix" />
 		</view>
 		<view class="coll-title">取桶</view>
 		<view class="coll-desc">

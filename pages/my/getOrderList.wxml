@@ -1,4 +1,3 @@
-<navbar now-bar="ke"></navbar>
 <view class="act_list_box" wx:if="{{orderList && orderList.length > 0}}">
 	<!-- <view class="order-line" wx:for="{{orderList}}" wx:key="index">
 		<view class="line-top">

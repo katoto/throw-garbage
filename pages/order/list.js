@@ -26,7 +26,8 @@ Page(mixin(myBehavior, {
         }).then(list => {
             list.forEach(item => {
                 item.booksTime = this.formateBookTime(item.bookingTime);
-                if(item.garbageType) item.garbageLabel = item.garbageType.split(',')
+                if(item.garbageType) item.garbageLabel =  JSON.parse(item.garbageType);
+                item.len = item.garbageLabel.length;
             })
             
             let isAllOk = list.every((item) => {

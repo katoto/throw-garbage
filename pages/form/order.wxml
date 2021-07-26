@@ -61,13 +61,12 @@
 		</view>
 
 		<view class="new-btn">
-			<view wx:for="{{lable}}" class="type-btn {{ item.flag === '1' ? 'active-btn': '' }}" wx:key="index" data-currlable="{{item}}" bind:tap="sortHandle">
+			<view wx:for="{{lable}}" class="type-btn {{ item.flag === '1' ? 'active-btn': '' }}" wx:key="index" data-index="{{index}}" data-currlable="{{item}}" bind:tap="sortHandle">
 				<text class="btn-txt">{{item.name}}{{item.selLen && item.selLen > 0 ? '('+ item.selLen +')' : ''}}</text>
-				<view class="icon-row" wx:if="{{item.children && item.children.length > 0}}"></view>
 			</view>
 
 		</view>
-		<view class="type-dialog-box" wx:if="{{showDialog}}">
+		<!-- <view class="type-dialog-box">
 			<view class="type-dialog">
 				<view class="dialog-top">
 					<text class="title">{{dialogTitle}}</text>
@@ -80,7 +79,36 @@
 				</view>
 			</view>
 			<view class="mask"></view>
+		</view> -->
+
+		<view class="modal_type"  wx:if="{{showDialog}}">
+			<view class="modal_type_body">
+				<view class="modal_type_title">
+					<view class="modal_type_title_text">{{dialogTitle}}</view>
+					<view class="modal_type_title_close" bindtap="childHandleCancel">取消</view>
+				</view>
+				<view class="modal_content">
+					<scroll-view class="modal_scroll" scroll-y enhanced show-scrollbar="isScroll">
+							<view class="type_list" wx:for="{{dialogList}}" wx:key="index" >
+								<view class="type_list_img">
+									<image mode="aspectFit" src="/images/classify/{{item.id}}.png"></image>
+								</view>
+								<view class="type_list_center">
+									<view class="type_list_center_text">{{item.name}}</view>
+									<view class="type_list_center_p">({{item.unit}})</view>
+								</view>
+								<view class="type_list_right">
+									<view class="type_list_btn {{item.number <= 0 ? 'subtract': ''}}" bind:tap="childhandleNumber" data-type="subtract" data-item="{{item}}" >-</view>
+									<view class="type_list_number {{item.number <= 0 ? 'number' : ''}}">{{item.number}}</view>
+									<view class="type_list_btn" bind:tap="childhandleNumber" data-type="add" data-item="{{item}}">+</view>
+								</view>
+							</view>
+					</scroll-view>
+				</view>
+				<view class="modal_btm" bindtap="childHandleConfirm">确定</view>
+			</view>
 		</view>
+
 
 		<view class="s_btn_box fl_c">
 			<button class="submit_btn" formType="submit">提交</button>

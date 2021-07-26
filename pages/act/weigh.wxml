@@ -1,5 +1,25 @@
 <view class="container">
-	<view>
+	<view class="classify">
+		<view class="classify_body">
+			<!-- <image class="classify_bgc" mode="aspectFit" src="/images/act/classifyBgc.png"></image> -->
+			<view class="classify_title">厨余垃圾分类</view>
+			<view class="classify_switch">
+				<view class="classify_btn {{activeId == 1? 'classify_active' : ''}}" bindtap="switchBtn" data-id="1">分类异常</view>
+				<view class="classify_btn {{activeId == 0? 'classify_active' : ''}}" bindtap="switchBtn" data-id="0">分类清晰</view>
+			</view>
+			<view class="classify_title">上传厨余垃圾照片</view>
+			<view class="classify_upload">
+				<view class="classify_upload_img" bindtap="uploadPictures">
+					<block wx:if="{{uploadImag}}">
+						<image mode="aspectFit" src="{{uploadImag}}"></image>
+					</block>
+					<image wx:else mode="aspectFit" src="/images/act/upload.png" wx></image>
+				</view>
+			</view>
+		</view>
+	</view>
+	
+	<view class="act_body">
 		<view class="act_btn" bindtap="doConnect">
 			<image src="../../images/order/icon_cheng.png" mode="widthFix" />
 		</view>

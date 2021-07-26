@@ -29,36 +29,38 @@
     "pages/my/getOrderList",
     "pages/h5/xieyi",
     "pages/loginpage/index",
-    "components/tabbar/index"
+    "components/tabbar/index",
+    "pages/order/orderDetail/index"
   ],
-
   "tabBar": {
     "backgroundColor": "#ffffff",
     "color": "#979795",
     "selectedColor": "#1c1c1b",
-    "list":[{
-      "pagePath": "pages/order/index",
-      "iconPath": "/images/bar/icon_dlj_pre.png",
-      "selectedIconPath": "/images/bar/icon_dlj_pre.png",
-      "text": "丢垃圾"
-    },
-    {
-      "pagePath": "pages/account/index",
-      "iconPath": "/images/bar/icon_qlj_pre.png",
-      "selectedIconPath": "/images/bar/icon_qlj_pre.png",
-      "text": "取垃圾"
-    },
-    {
-      "pagePath": "pages/my/index",
-      "iconPath": "/images/bar/icon_khzx_pre.png",
-      "selectedIconPath": "/images/bar/icon_khzx_pre.png",
-      "text": "客户中心"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/order/index",
+        "iconPath": "/images/bar/icon_dlj_pre.png",
+        "selectedIconPath": "/images/bar/icon_dlj_pre.png",
+        "text": "丢垃圾"
+      },
+      {
+        "pagePath": "pages/account/index",
+        "iconPath": "/images/bar/icon_qlj_pre.png",
+        "selectedIconPath": "/images/bar/icon_qlj_pre.png",
+        "text": "取垃圾"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "iconPath": "/images/bar/icon_khzx_pre.png",
+        "selectedIconPath": "/images/bar/icon_khzx_pre.png",
+        "text": "客户中心"
+      }
+    ]
   },
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#fff",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "久哥代丢",
     "navigationBarTextStyle": "black"
   },

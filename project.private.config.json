@@ -13,8 +13,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/loginpage/index",
-          "pathName": "pages/loginpage/index",
+          "name": "pages/act/weigh",
+          "pathName": "pages/act/weigh",
           "query": "",
           "scene": null
         },
@@ -139,8 +139,8 @@
           "scene": null
         },
         {
-          "name": "pages/order/complete",
-          "pathName": "pages/order/complete",
+          "name": "pages/order/orderDetail/index",
+          "pathName": "pages/order/orderDetail/index",
           "query": "",
           "scene": null
         },
