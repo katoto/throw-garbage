@@ -13,7 +13,7 @@ Page(mixin(myBehavior, {
         loaded: false,
         orders: [],
         mark: '',
-        compServer: utils.cache("banner").compServer
+        compServer: utils.cache("banner") ? utils.cache("banner").compServer : adConfig.banner.compServer
     },
     
     getOrderList: function () {

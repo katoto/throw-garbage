@@ -15,7 +15,7 @@ let _tomorrowWeek = formatTime(
     new Date().getTime() + 86400000,
     "yyyy-MM-dd[week]"
 );
-
+const app = getApp(), adConfig = app.require("utils/adConfig");
 let _tomorrowDate = formatTime(new Date().getTime() + 86400000, "yyyy-MM-dd");
 let defaultTimeList = [{
     time: `${_today} 07:00-09:00`,
@@ -63,7 +63,8 @@ Page(
             dialogList: [],
             showDialog: false,
             dialogTitle: '',
-            adServers: utils.cache("banner").order
+            adServers: utils.cache("banner") ? utils.cache("banner").order : adConfig.banner.order
+
         },
 
         checkForm: function (data) {

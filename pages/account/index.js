@@ -17,7 +17,7 @@ Page(mixin(myBehavior, {
         finishCountOrders: 0,
         amount: '0.00',
         n_userLogin: false,
-        fetchServer: utils.cache("banner").fetchServer
+        fetchServer: utils.cache("banner") ? utils.cache("banner").fetchServer : adConfig.banner.fetchServer
     },
     //获取抢单数
     getRobNum() {
