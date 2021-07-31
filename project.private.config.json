@@ -227,6 +227,24 @@
           "pathName": "pages/order/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/form/comment",
+          "pathName": "pages/order/weight",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/act/weigh",
+          "pathName": "pages/act/weigh",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/complain/index",
+          "pathName": "pages/order/complain/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

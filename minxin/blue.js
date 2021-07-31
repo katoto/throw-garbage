@@ -30,6 +30,9 @@ function ab2hex(buffer) {
 
 module.exports = {
     openBluetoothAdapter() {
+        wx.showLoading({
+          title: '连接蓝牙中...',
+        })
         this.closeBluetoothAdapter()
         wx.openBluetoothAdapter({
             success: (res) => {
@@ -201,6 +204,10 @@ module.exports = {
                 console.error('getBLEDeviceCharacteristics', res)
             }
         })
+        blueWeightArr.length = 0;
+        wx.showLoading({
+          title: '正在称重中...',
+        })
         // 操作之前先监听，保证第一时间获取数据
         wx.onBLECharacteristicValueChange((characteristic) => {
             if (!this.data.chs) {
@@ -222,6 +229,7 @@ module.exports = {
                     console.log(blueWeightArr)
                     console.log('======拼接结果=end====')
                     if (blueWeightArr.length >= 10) {
+                        wx.hideLoading();
                         this.setData({
                             blueWeightArr: blueWeightArr
                         })

@@ -57,20 +57,28 @@ Page(mixin(myBehavior, blueBehavior, {
     weighOk() {
         // 称重ok
         console.log(this.data.blueWeightArr)
-        let _len = this.data.blueWeightArr.length
-        let _lastVal = this.data.blueWeightArr[_len - 1]
-        if (_lastVal) {
-            let lastValObj = JSON.parse(_lastVal)
-            lastValObj.imgId = this.data.activeId;
-            lastValObj.i = _lastVal.i == 1 || this.data.uploadId == 1 ? 1 : 0;
-            this.data.blueWeightArr.push(JSON.stringify(lastValObj));
+        const weightData = this.data.blueWeightArr.map(item =>{
+            let val = JSON.parse(item);
+            return val;
+        })
+        const found =  weightData.filter(item => item.w > 0);
+        if(!found || found.length == 0) {
+            return wx.showModal({
+                title:"没有检测到重量,请重新点击称重,在放桶",
+                showCancel: false
+            })
         }
-        console.log(this.data.blueWeightArr)
+        let wei = found[found.length - 1];
+        if(this.data.activeId != 1) {
+           let status = weightData.find(item => item.s == 1);
+           wei.s = status ? 1 : 0;
+        }else wei.s = 1;
+        console.log(wei);
         cache('j_weigh', this.data.blueWeightArr)
         toast('餐厨垃圾称重成功')
-        openPageByType('mini://pages/act/place/place?oid=' + this.data.oid, {
-            linkType: 'redirect'
-        })
+        // openPageByType('mini://pages/act/place/place?oid=' + this.data.oid, {
+        //     linkType: 'redirect'
+        // })
     },
 
     switchBtn(e) {

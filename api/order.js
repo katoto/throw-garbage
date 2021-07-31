@@ -15,6 +15,20 @@ function buildingList(data) {
     })
 }
 
+function getComplaintsOrderList(data) {
+    var postData = {
+        "method": "getComplaintsOrderList",
+        "data": handleUserActionData(data, 'customer')
+    }
+    let url = conf.api_url + 'getData'
+    return request({
+        url,
+        method: 'post',
+        data: postData
+    })
+}
+
+
 function add(data) {
     var postData = {
         "method": "createOrder",
@@ -319,5 +333,6 @@ module.exports = {
     getCollList,
     getOrderInfo,
     checkIsGetTool,
-    defEvaluate
+    defEvaluate,
+    getComplaintsOrderList
 }
