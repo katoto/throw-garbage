@@ -53,6 +53,17 @@ Page(mixin(myBehavior, {
             n_userLogin: _userLog
         })
     },
+
+    onLoad() {
+        this.getBannerList();
+    },
+    getBannerList() {
+        adConfig.getBannerApi().then(res=>{
+            this.setData({
+                fetchServer: res.fetchServer,
+           })
+        });
+   },
     gotoGrab() {
         return utils.openPageByType('mini://pages/order/rob', {
             linkType: 'page'

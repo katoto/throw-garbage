@@ -103,7 +103,7 @@ Page(mixin(myBehavior, {
             let data = this.NFCData.find(item => {
                 return item.bucketId === _nfcId;
             })
-            if(!allCard && data.type !== "yellow") { 
+            if(!allCard && data.type !== "gray") { 
                 toast("请根据颜色指示放入正确垃圾桶");
                 return false;
             }
@@ -115,7 +115,7 @@ Page(mixin(myBehavior, {
                 toast("其他垃圾取桶成功");
                 cache(cacheKey, collectArr.join('|'))
                 if(allCard) this.NFCData.forEach(item => {
-                    if(item.type === "yellow" ) item.allCard = true;
+                    if(item.type === "gray" ) item.allCard = true;
                 })
                 cache("NFCData", this.NFCData);
                 console.log(collectArr.join('|'))
@@ -159,7 +159,7 @@ Page(mixin(myBehavior, {
         if(colorfulListArr.includes(collectArr[1])) isJump2Weight = true;
         
         if (isJump2Weight) {
-            cache('j_weigh', [JSON.stringify({ w: "0", i: "0", s: "0" })])
+            cache('j_weigh', { w: "0", i: "0", s: "0" })
             openPageByType('mini://pages/act/place/place?oid=' + this.data.oid, {
                 linkType: 'redirect'
             })

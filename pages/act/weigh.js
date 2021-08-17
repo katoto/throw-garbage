@@ -56,7 +56,7 @@ Page(mixin(myBehavior, blueBehavior, {
 
     weighOk() {
         // 称重ok
-        console.log(this.data.blueWeightArr)
+        const that = this;
         const weightData = this.data.blueWeightArr.map(item =>{
             let val = JSON.parse(item);
             return val;
@@ -70,15 +70,25 @@ Page(mixin(myBehavior, blueBehavior, {
         }
         let wei = found[found.length - 1];
         if(this.data.activeId != 1) {
-           let status = weightData.find(item => item.s == 1);
-           wei.s = status ? 1 : 0;
-        }else wei.s = 1;
-        console.log(wei);
-        cache('j_weigh', this.data.blueWeightArr)
-        toast('餐厨垃圾称重成功')
-        // openPageByType('mini://pages/act/place/place?oid=' + this.data.oid, {
-        //     linkType: 'redirect'
-        // })
+           let status = weightData.find(item => item.s == "1");
+           wei.s = status ? "1" : "0";
+        }else wei.s = "1";
+        wei.fileId = that.data.uploadId;
+        wei.i = JSON.stringify(wei.i);
+        wei.w = JSON.stringify(wei.w);
+        wx.showModal({
+            title:"称重成功",
+            showCancel: false,
+            success (res) {
+                if (res.confirm) {
+                    cache('j_weigh', wei)
+                    toast('餐厨垃圾称重成功')
+                    openPageByType('mini://pages/act/place/place?oid=' + that.data.oid, {
+                        linkType: 'redirect'
+                    })
+                } 
+            }
+        })
     },
 
     switchBtn(e) {

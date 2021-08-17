@@ -45,7 +45,7 @@
 			</view>
 			<view class="home_act_btn_item rp-order-jiangli" bindtap="loginGoto" data-url="/pages/account/atm">
 				<image src="../../images/common/icon_qxjl.png" mode="widthFix"></image>
-				<text>清晰奖励</text>
+				<text>账户余额</text>
 			</view>
 		</view>
 		<view class="home_act_btn_box rp-order-fenleierror">
@@ -65,7 +65,7 @@
 			</view>
 			<view class="home_act_btn_item rp-order-nonda" bindtap="goto" data-url="/pages/product/list">
 				<image src="../../images/common/icon_ndcp.png" mode="widthFix"></image>
-				<text>农大精选</text>
+				<text>闲哥交易</text>
 			</view>
 		</view>
 	</view>

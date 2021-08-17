@@ -20,7 +20,7 @@ Page(mixin(myBehavior, {
         let account = wx.getAccountInfoSync();
         let version = account.miniProgram.version
         this.setData({
-            version : version || "1.1.6"
+            version : version || "1.2.0"
         })
     },
 

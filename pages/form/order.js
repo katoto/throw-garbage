@@ -1,4 +1,6 @@
-    const api = require("../../api/index.js");
+const api = require("../../api/index.js");
+const app = getApp(), adConfig = app.require("utils/adConfig");
+
 let mapMsg = null;
 var {
     mixin,
@@ -54,7 +56,7 @@ Page(
             mapName: "", // 地图短地址
             buildingNumArr: [], // 楼宇列表
             houseList: [], // 门票列表
-            houseNumber: '',
+            houseNumberCode: '',
             addressId: '',
             buildingNum: "",
             buildingItem: "",
@@ -64,17 +66,18 @@ Page(
             showDialog: false,
             dialogTitle: '',
             adServers: utils.cache("banner").order,
-            isScroll: false
+            isScroll: false,
+            addrFlag: false
         },
 
         checkForm: function (data) {
             let formData = {};
             let error = false;
 
-            if (!error && !this.data.buildingItem) {
+            if (!error && !this.data.buildingNum) {
                 error = "请选择楼宇号信息";
             }
-            if (!error && !this.data.houseNumber || !this.data.addressId) {
+            if (!error && !this.data.houseNumberCode || !this.data.addressId) {
                 error = "请选择门牌号";
             }
             if (!error && !this.data.bindTimeIndex) {
@@ -90,13 +93,12 @@ Page(
             }
             formData.parentGarbageType = sortArr.parentGarbageType.join(",");
             formData.garbageType = JSON.stringify(sortArr.garbageType);
-            console.log(formData);
             formData.address = this.data.address;
             formData.bookingDTime =
                 currTimeList[this.data.bindTimeIndex] &&
                 currTimeList[this.data.bindTimeIndex].bookTime;
             formData.communityName = this.data.mapName;
-            formData.houseNumber = this.data.houseNumber;
+            formData.houseNumber = this.data.houseNumberCode;
             formData.addressId = this.data.addressId
             formData.buildingNumber = this.data.buildingItem.buildingNumber;
             formData.isClean = "Y";
@@ -167,11 +169,14 @@ Page(
             }
             console.log("form发生了submit事件，携带数据为：", e.detail.value);
             let formData = this.checkForm(e.detail.value);
-
+            console.log(formData);
             if (formData !== false) {
                 api.order
                     .add(formData)
                     .then(() => {
+                        let addrData =  Object.assign({}, formData, this.mapMsgs, this.buildingIndex);
+                        console.log(addrData);
+                        utils.cache("orderAddress",addrData);
                         redirectTo("/pages/order/tip");
                     })
                     .catch((err) => {
@@ -236,20 +241,45 @@ Page(
         /**
          * 生命周期函数--监听页面显示
          */
-        onShow() {
+        onLoad() {
             currTimeList = JSON.parse(JSON.stringify(defaultTimeList));
             // 获取分类数据
             this.getlables();
+            this.loadAddress();
+            this.getBannerList();
         },
+
+        getBannerList() {
+            adConfig.getBannerApi().then(res=>{
+                this.setData({
+                    adServers: res.adServers,
+               })
+            });
+       },
+        loadAddress() {
+            let addr = utils.cache("orderAddress");
+            if(!addr) return false;
+            this.getBuildingList(addr);
+            this.setData({
+                mapName: addr.communityName,
+                addressId: addr.addressId,
+                address: addr.address,
+                communityName: addr.communityName,
+                buildingNum: addr.buildingNumber,
+                buildingNumber: addr.buildingNumber,
+                houseNumberCode: addr.houseNumber
+            })
+        },
+
         onChangeAddress() {
             // 地图选择
             wx.chooseLocation({
                 success: (rs) => {
                     mapMsg = rs;
-                    console.log(mapMsg);
                     this.setData({
                         address: rs.address || "",
                         mapName: rs.name || "",
+                        addrFlag: true
                     });
                     this.getBuildingList(mapMsg);
                 },
@@ -258,10 +288,11 @@ Page(
         getBuildingList(mapMsg = {}) {
             // 获取楼宇数据
             let _params = {
-                communityName: mapMsg.name,
+                communityName: mapMsg.name || mapMsg.communityName,
                 latitude: mapMsg.latitude,
                 longitude: mapMsg.longitude,
             };
+            this.mapMsgs = _params;
             let that = this;
             api.order.buildingList(_params)
                 .then((res) => {
@@ -280,20 +311,25 @@ Page(
                     this.setData({
                         buildingNumArr: res,
                     });
+                    let addr = utils.cache("orderAddress");
+                    if(addr && !this.data.addrFlag) this.bindBuildingNumChange(false, Number(addr.buildingIndex));
+                   
                 })
                 .catch((err) => {
                     utils.toast(err.msg);
                 });
         },
 
-        bindBuildingNumChange(e) {
+        bindBuildingNumChange(e = false,index) {
             // 选择楼宇
-            let _key = e.detail.value;
+            let _key = typeof index == "number" ? Number(index) : e.detail.value;
+            this.buildingIndex = { buildingIndex: _key};
             if (this.data.buildingNumArr[_key]) {
+                let houseNumberCode =  e ? "" : this.data.houseNumberCode;
                 this.setData({
                     buildingNum: this.data.buildingNumArr[_key].buildingNumber || "",
                     buildingItem: this.data.buildingNumArr[_key],
-                    houseNumber: ""
+                    houseNumberCode
                 });
                 this.getHouseList(this.data.buildingNumArr[_key])
             }
@@ -301,9 +337,10 @@ Page(
         bindHouseNumChange(e) {
             // 选择门牌号
             let _key = e.detail.value;
+            console.log()
             if (this.data.houseList[_key]) {
                 this.setData({
-                    houseNumber: this.data.houseList[_key].houseNumber || "",
+                    houseNumberCode: this.data.houseList[_key].houseNumber || "",
                     addressId: this.data.houseList[_key].id || ''
                 });
             }
@@ -390,14 +427,14 @@ Page(
             const item = e.currentTarget.dataset.item;
             if(type === "add" && item.number < 9999) {
                 let dialogList = this.data.dialogList.map((val, index) =>{
-                    if(index == item.cIndex) val.number = item.number + 1;
+                    if(index == item.cIndex) val.number = item.number +  (item.unit != "千克" ? 1 : 0.5);
                     return val;
                 })
                 this.setData({dialogList})
             }  
             if(type === "subtract" && item.number >= 1) {
                 let dialogList = this.data.dialogList.map((val, index) =>{
-                    if(index == item.cIndex) val.number = item.number - 1;
+                    if(index == item.cIndex) val.number = item.number - (item.unit != "千克" ? 1 : 0.5);
                     return val;
                 })
                 this.setData({dialogList})

@@ -19,7 +19,7 @@ module.exports = {
     env_version,
     api_domin: domin,
    // api_url: domin + '/wx/service/',
-    // api_url: domin + '/jeesite/wx/service/',
-    api_url: 'http://192.168.3.59:8080/wx/service/',
+    api_url: domin + '/jeesite/wx/service/',
+    // api_url: 'http://192.168.3.59:8080/wx/service/',
     up_url: domin + '/jeesite/FileManage/FileCenter/upload'
 }

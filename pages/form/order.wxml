@@ -37,7 +37,7 @@
 					<picker mode="selector" range-key="houseNumber" value="{{houseNumber}}" range="{{houseList}}" bindchange="bindHouseNumChange">
 						<view class="picker-box">
 							<view class="picker">
-								{{houseNumber || '请选择门牌号'}}
+								{{houseNumberCode || '请选择门牌号'}}
 							</view>
 							<image src="../../images/common/icon_xiala.png" class="xl_icon" mode="widthFix"></image>
 						</view>
