@@ -60,9 +60,10 @@ page{
 }
 .line-top{
     display: flex;
+    height: 80rpx;
+    align-items: center;
     justify-content: space-between;
-    margin-top: 30rpx;
-    margin-bottom: 18rpx;
+    border-bottom: 1rpx solid #f2f2f2;
 }
 .top-order-time{
     font-size: 24rpx;
@@ -72,15 +73,14 @@ page{
     line-height: 48rpx;
 }
 .top-roder-btn{
-    background: rgba(228, 39, 39, 0);
-    border: 1rpx solid #E42727;
+    border: 1rpx solid #000;
     opacity: 0.5;
     height: 40rpx;
     border-radius: 40rpx;
     font-size: 24rpx;
     font-family: PingFang SC;
     font-weight: 400;
-    color: #E42727;
+    color: #666;
     padding: 0 30rpx;
     display: flex;
     flex-direction: row;
@@ -92,30 +92,44 @@ page{
     font-family: PingFang SC;
     font-weight: 400;
     color: #090103;
-    line-height: 48rpx;
     padding: 0 4rpx;
+    box-sizing: border-box;
+    display: flex;
 }
+
+.right_icon{
+  width: 90rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.right_icon image{
+  width: 44rpx;
+  height: 44rpx;
+}
+
 .order-label{
     padding-bottom: 28rpx;
     border-bottom: 1rpx solid #DADADA;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .label-item-txt{
-    font-size: 20rpx;
+    font-size: 22rpx;
     font-family: PingFang SC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-weight: 400;
     color: #31A043;
-    text-align: center;
-    min-width: 80rpx;
-    height: 32rpx;
-    line-height: 32rpx;
-    background: rgba(49, 160, 67, 0);
-    border: 1rpx solid #31A043;
-    border-radius: 6rpx;
-    padding: 2rpx 12rpx;
+    height: 36rpx;
+    background: rgba(49, 160, 67, 0.1);
+    border-radius: 18rpx;
+    padding: 0 20rpx;
     margin-top: 12rpx;
     margin-right: 12rpx;
-    display: inline-block;
 }
 
 .roder-btn-disable{

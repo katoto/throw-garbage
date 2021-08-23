@@ -78,22 +78,9 @@ Page(mixin(myBehavior, {
     },
     _formateWeight(weight = ["{\"weight\":250,\"id\":\"123123123\",\"status\":\"Y\"}"]) {
         if (weight) {
-            let _len = weight.length
-            let _lastVal = weight[_len - 1]
-            if (_lastVal) {
-                let lastValObj = JSON.parse(_lastVal)
-                if (lastValObj.i !== undefined) {
-                    lastValObj.i = lastValObj.i.toString()
-                }
-                if (lastValObj.s !== undefined) {
-                    lastValObj.s = lastValObj.s.toString()
-                }
-                return [lastValObj]
-            }
-            return []
-        } else {
-            console.log('_formateWeight error')
+            return [weight]
         }
+        else  console.log('_formateWeight error')
     },
     _formateNFC(ids = 'Ju9xLQ==|BkJyLQ==|lpRyLQ==') {
         if (ids) {
@@ -165,7 +152,7 @@ Page(mixin(myBehavior, {
         if (!nextFlag && (!collectArr.includes(_nfcId) || colorfulListArr.includes(_nfcId))) {
             if(this.NFCData.length > 0) {  // 判断用户地址是否绑定芯片 
                 let data = this.NFCData.find(item => {
-                    return item.type === "yellow";
+                    return item.type === "gray";
                 })
                 if(!data && !allCard) return toast("放桶失败,请放入正确的垃圾桶.");
                 if(data && data.allCard != allCard) return toast("放桶失败,请放入正确的垃圾桶.");
@@ -255,7 +242,7 @@ Page(mixin(myBehavior, {
             success() { }
         }).then(res => {
             if (res && res.errcode === 0){
-                if(res.data.type !== "yellow") {
+                if(res.data.color !== "gray") {
                     toast("请根据颜色指示放入正确垃圾桶");
                     return false;
                 } else return true;

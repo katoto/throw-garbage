@@ -1,0 +1,34 @@
+<view class="complain">
+  <empty wx:if="{{ orderList && orderList.length <= 0 }}">
+    <text>还没有完成的订单，快去抢单吧！</text>
+  </empty>
+  <block wx:else>
+    <view class="complain_list" wx:for="{{orderList}}" wx:key="index">
+      <button class="complain_title" open-type="contact" bindcontact="navOrderComplaints">
+        <view class="complain_title_time">投诉时间: {{item.createDate}}</view>
+        <view class="complain_title_text">申诉</view>
+        <image class="complain_title_icon" mode="aspectFill" src="/images/order/grayRight.png"></image>
+      </button>
+      <view class="complain_body">
+        <view class="complain_body_flex">
+          <image class="complain_body_icon" mode="aspectFit" src="/images/order/complainOrder.png"></image>
+          <view class="complain_body_name">订单编号</view>
+          <view class="complain_body_text">{{item.orderNumber}}</view>
+        </view>
+        <view class="complain_body_flex">
+          <image class="complain_body_icon" mode="aspectFit" src="/images/order/complainTime.png"></image>
+          <view class="complain_body_name">操作时间</view>
+          <view class="complain_body_text">{{item.time}}</view>
+        </view>
+      </view>
+      <view class="complain_lable">
+        <view class="complain_lable_text">评价标签</view>
+        <view class="complain_lable_list" wx:for="{{item.types}}" wx:key="index">{{item}}</view>
+      </view>
+      <view class="complain_remark" wx:if="{{comment.length > 0}}">
+        <view class="complain_remark_text">桶为什么给我放在楼梯口那边，大夏天的还要我跑过去。放我家门口，或者放在心里不好嘛～</view>
+      </view>
+    </view>
+  </block>
+
+</view>

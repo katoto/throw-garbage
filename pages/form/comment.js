@@ -19,7 +19,7 @@ Page(mixin(myBehavior, {
         orders: [],
         files: [],
         complaintsSelects: [0,1,2],
-        commoentServer: utils.cache("banner") ? utils.cache("banner").commoentServer : adConfig.banner.commoentServer
+        commoentServer: utils.cache("banner").commoentServer
     },
 
     /**

@@ -4,13 +4,16 @@
 		<view class="line-top">
 			<view class="top-order-time">下单时间：{{item.bookingTime}}</view>
 			<!-- roder-btn-disable 不可用状态-->
-			<view class="top-roder-btn {{item.status === 'P' ? 'roder-btn-disable' : ''}}" data-orderitem="{{item}}" bindtap="cancelHandle">取消下单</view>
+			<view class="top-roder-btn {{item.status === 'P' ? 'roder-btn-disable' : ''}}" data-orderitem="{{item}}" bindtap="cancelHandle">取消</view>
 		</view>
-		<view class="line-bottom">
+		<view class="line-bottom" bindtap="navOrderDetail" data-id="{{item.orderId}}">
 			<text>{{item.address}}{{item.communityName}}{{item.buildingNumber}}{{item.houseNumber}}</text>
+			<view class="right_icon">
+				<image mode="aspectFit" src="/images/order/right.png"></image>
+			</view>
 		</view>
-		<view class="order-label" wx:if="{{item.garbageLabel}}">
-			<text wx:for="{{item.garbageLabel}}" wx:for-item="itemLabel" wx:key="index" class="label-item-txt">{{itemLabel}}</text>
+		<view class="order-label" wx:if="{{item.parentGarbageType}}">
+			<text wx:for="{{item.parentGarbageType}}" wx:for-item="itemLabel" wx:key="index" class="label-item-txt">{{itemLabel}}</text>
 		</view>
 	</view>
 </view>

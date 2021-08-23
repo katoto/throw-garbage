@@ -38,7 +38,7 @@ Page(
                     n_userLogin: this.checkUserLogin()
                 })
             })
-            // this.getBannerList();
+            this.getBannerList();
         },
 
         getBannerList() {

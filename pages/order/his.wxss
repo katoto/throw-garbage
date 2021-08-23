@@ -65,3 +65,127 @@
   flex-basis: 150rpx;
   line-height: 1.5;
 }
+
+
+page{
+  background: #fff !important;
+}
+.classify{
+  width: 100%;
+  padding:  0 30rpx;
+  box-sizing: border-box;
+}
+
+.classify_list{
+  width: 100%;
+  padding: 2rpx;
+  box-sizing: border-box;
+  border-radius: 24rpx;
+  background: linear-gradient(to top,#FFAB96, #FF0F47);
+  margin-bottom: 32rpx;
+}
+
+.activeList{
+  background: linear-gradient(to top,#98E05F, #0DE3AC) !important;
+}
+
+.activeBgc{
+  background: #F6FFF7 !important;
+}
+
+.activeI {
+  background: #FFFAFB !important;
+  color: #FF0F47 !important;
+}
+
+.classify_bgc{
+  width: 100%;
+  border-radius: 24rpx;
+  background: #FFFAFB;
+}
+
+.classify_list_title{
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  border-bottom: 1rpx solid #f1f1f1;
+  box-sizing: border-box;
+}
+
+.classIfy_title_icon{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.classify_title_time{
+  flex: 1;
+  font-size: 24rpx;
+  color: #333;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+
+.classify_title_text{
+  width: 80rpx !important;
+  text-align: right;
+  font-size: 28rpx;
+  padding: 0;
+  color: #FF0F47;
+}
+
+.classify_detail{
+  width: 100%;
+  padding: 30rpx 10rpx 10rpx 24rpx;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.classify_detail_left{
+  flex: 1;
+}
+
+.classify_detail_address {
+  font-size: 30rpx;
+  color: #090103;
+}
+
+.classify_detail_type{
+  width: 100%;
+  margin-top: 10rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.classify_detail_type_i{
+  height: 36rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20rpx;
+  background: #EAF5EC;
+  border-radius: 18rpx;
+  box-sizing: border-box;
+  margin-right: 10rpx;
+  margin-bottom: 16rpx;
+  color: #31A043;
+  font-size: 22rpx;
+}
+
+.classify_detail_type .tsActive{
+  background: rgba(252, 109, 73, 0.1);
+  color: #FF0F47;
+}
+
+.classify_detail_right{
+  width: 100rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.classify_detail_right image{
+  width: 44rpx;
+  height: 44rpx;
+}

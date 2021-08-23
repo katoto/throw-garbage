@@ -161,7 +161,7 @@ Page(mixin(myBehavior, {
         }).then(res => {
             console.log(res);
             if (res && res.errcode === 0){
-                if(res.data.type !== "blue") {
+                if(res.data.color !== "blue") {
                     toast("请根据颜色指示放入正确垃圾桶");
                     return false;
                 }else return true;

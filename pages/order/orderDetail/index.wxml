@@ -1,0 +1,34 @@
+<!-- 订单详情 -->
+
+<view class="order">
+  <view class="order_top">
+    <view class="order_top_title">
+      <view class="order_top_icon"></view>
+      <view class="order_top_text">订单信息</view>
+    </view>
+    <view class="order_top_ul">
+      <view class="order_top_list">
+        <view class="order_top_list_name">预约时间</view>
+        <view class="order_top_list_text">{{orderMsg.bookingTime}}</view>
+      </view>
+      <view class="order_top_list">
+        <view class="order_top_list_name">订单地址</view>
+        <view class="order_top_list_text">{{orderMsg.address}}{{orderMsg.communityName}}{{orderMsg.buildingNumber}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="order_detail">
+    <view class="order_top_title">
+      <view class="order_top_icon"></view>
+      <view class="order_top_text">下单类型</view>
+    </view>
+    <view class="order_detail_lable">
+      <view class="order_detail_list" wx:for="{{orderMsg.garbageType}}" wx:key="index">
+        <view class="order_detail_list_name">{{item.name}}</view>
+        <view class="order_detail_list_num">{{item.number}} {{item.unit}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>

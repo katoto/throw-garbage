@@ -19,6 +19,14 @@ Page({
             }
         }
     },
+
+    navOrderDetail(e) {
+        let id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+          url: "/pages/order/orderDetail/index?orderId=" + id,
+        })
+    },
+
     fnum(num) {
         // 金额格式
         return utils.formatNum(num)
@@ -32,8 +40,9 @@ Page({
                     item.bookingTime = this.formateBookTime(item.bookingTime)
                 }
                 if (item.garbageType) {
-                    item.garbageLabel = item.garbageType.split(',')
+                    item.garbageLabel = JSON.parse(item.garbageType);
                 }
+                if (item.parentGarbageType) item.parentGarbageType = item.parentGarbageType.split(",");
             })
             this.setData({
                 orderList: orders

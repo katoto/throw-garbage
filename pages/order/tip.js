@@ -6,7 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        succServer: utils.cache("banner") ? utils.cache("banner").succServer : adConfig.banner.succServer
+        succServer: utils.cache("banner").succServer
     },
 
     /**

@@ -1,4 +1,6 @@
 const api = require("../../api/index.js");
+const app = getApp(), adConfig = app.require("utils/adConfig");
+
 let mapMsg = null;
 var {
     mixin,
@@ -15,7 +17,7 @@ let _tomorrowWeek = formatTime(
     new Date().getTime() + 86400000,
     "yyyy-MM-dd[week]"
 );
-const app = getApp(), adConfig = app.require("utils/adConfig");
+
 let _tomorrowDate = formatTime(new Date().getTime() + 86400000, "yyyy-MM-dd");
 let defaultTimeList = [{
     time: `${_today} 07:00-09:00`,
@@ -54,7 +56,7 @@ Page(
             mapName: "", // 地图短地址
             buildingNumArr: [], // 楼宇列表
             houseList: [], // 门票列表
-            houseNumber: '',
+            houseNumberCode: '',
             addressId: '',
             buildingNum: "",
             buildingItem: "",
@@ -63,18 +65,19 @@ Page(
             dialogList: [],
             showDialog: false,
             dialogTitle: '',
-            adServers: utils.cache("banner") ? utils.cache("banner").order : adConfig.banner.order
-
+            adServers: utils.cache("banner").order,
+            isScroll: false,
+            addrFlag: false
         },
 
         checkForm: function (data) {
             let formData = {};
             let error = false;
 
-            if (!error && !this.data.buildingItem) {
+            if (!error && !this.data.buildingNum) {
                 error = "请选择楼宇号信息";
             }
-            if (!error && !this.data.houseNumber || !this.data.addressId) {
+            if (!error && !this.data.houseNumberCode || !this.data.addressId) {
                 error = "请选择门牌号";
             }
             if (!error && !this.data.bindTimeIndex) {
@@ -88,13 +91,14 @@ Page(
                 utils.toast(error);
                 return false;
             }
-            formData.garbageType = sortArr.join(",");
+            formData.parentGarbageType = sortArr.parentGarbageType.join(",");
+            formData.garbageType = JSON.stringify(sortArr.garbageType);
             formData.address = this.data.address;
             formData.bookingDTime =
                 currTimeList[this.data.bindTimeIndex] &&
                 currTimeList[this.data.bindTimeIndex].bookTime;
             formData.communityName = this.data.mapName;
-            formData.houseNumber = this.data.houseNumber;
+            formData.houseNumber = this.data.houseNumberCode;
             formData.addressId = this.data.addressId
             formData.buildingNumber = this.data.buildingItem.buildingNumber;
             formData.isClean = "Y";
@@ -104,20 +108,34 @@ Page(
         },
         getSelSort() {
             // 获取分类的数据
-            let _sortArr = []
+            let _sortArr = {
+                parentGarbageType: [],
+                garbageType: []
+            }
             this.data.lable.forEach((item) => {
-                // 子类
-                if (item && item.children.length > 0) {
-                    item.children.forEach((child) => {
-                        if (child.flag === '1') {
-                            _sortArr.push(child.code)
+               if(item.flag == 1) {
+                _sortArr.parentGarbageType.push(item.id);
+                   if(item && item.children && item.children.length > 0) {
+                       item.children.forEach(child => {
+                           if(child.number > 0) {
+                            let obj = {
+                                number : child.number,
+                                unit: child.unit,
+                                id: child.id,
+                                name: child.name
+                            }
+                            _sortArr.garbageType.push(obj);
+                           }
+                       })
+                   }
+                   if(item && item.id == 200 && item.flag == 1) {
+                        let obj = {
+                            id: item.id,
+                            name: item.name
                         }
-                    })
-                } else {
-                    if (item.flag === '1') {
-                        _sortArr.push(item.code)
-                    }
-                }
+                        _sortArr.garbageType.push(obj);
+                   }
+               }
             })
             return _sortArr
         },
@@ -151,11 +169,14 @@ Page(
             }
             console.log("form发生了submit事件，携带数据为：", e.detail.value);
             let formData = this.checkForm(e.detail.value);
-
+            console.log(formData);
             if (formData !== false) {
                 api.order
                     .add(formData)
                     .then(() => {
+                        let addrData =  Object.assign({}, formData, this.mapMsgs, this.buildingIndex);
+                        console.log(addrData);
+                        utils.cache("orderAddress",addrData);
                         redirectTo("/pages/order/tip");
                     })
                     .catch((err) => {
@@ -171,6 +192,7 @@ Page(
             api.lable
                 .order()
                 .then((lables) => {
+                    console.log(lables);
                     // 获取当前时间，如果大于选项则干掉
                     let currentHours = new Date().getHours();
                     if (currentHours >= 19) {
@@ -182,25 +204,27 @@ Page(
                     }
                     // 新增
                     currTimeList = currTimeList.slice(0, 3)
-                    lables.lable = lables.lable.sort(function (a, b) {
+                    lables = lables.sort(function (a, b) {
                         return a.sort - b.sort
                     })
-                    lables.lable.forEach((item, index) => {
-                        if (item && item.children.length > 0) {
+                    lables.forEach((item, index) => {
+                        if (item && item.children && item.children.length > 0) {
                             item.children.forEach((child, cIndex) => {
                                 child.pcode = item.code
                                 child.pIndex = index
                                 child.flag = '0'
                                 child.cIndex = cIndex
+                                child.number = 0;
                             })
                         }
                     })
                     this.setData({
                         timeArray: currTimeList,
-                        lable: lables.lable,
+                        lable: lables
                     });
                 })
                 .catch((err) => {
+                    console.log(err);
                     wx.showToast({
                         title: err.msg,
                         icon: "none",
@@ -217,20 +241,45 @@ Page(
         /**
          * 生命周期函数--监听页面显示
          */
-        onShow() {
+        onLoad() {
             currTimeList = JSON.parse(JSON.stringify(defaultTimeList));
             // 获取分类数据
             this.getlables();
+            this.loadAddress();
+            this.getBannerList();
         },
+
+        getBannerList() {
+            adConfig.getBannerApi().then(res=>{
+                this.setData({
+                    adServers: res.adServers,
+               })
+            });
+       },
+        loadAddress() {
+            let addr = utils.cache("orderAddress");
+            if(!addr) return false;
+            this.getBuildingList(addr);
+            this.setData({
+                mapName: addr.communityName,
+                addressId: addr.addressId,
+                address: addr.address,
+                communityName: addr.communityName,
+                buildingNum: addr.buildingNumber,
+                buildingNumber: addr.buildingNumber,
+                houseNumberCode: addr.houseNumber
+            })
+        },
+
         onChangeAddress() {
             // 地图选择
             wx.chooseLocation({
                 success: (rs) => {
                     mapMsg = rs;
-                    console.log(mapMsg);
                     this.setData({
                         address: rs.address || "",
                         mapName: rs.name || "",
+                        addrFlag: true
                     });
                     this.getBuildingList(mapMsg);
                 },
@@ -239,10 +288,11 @@ Page(
         getBuildingList(mapMsg = {}) {
             // 获取楼宇数据
             let _params = {
-                communityName: mapMsg.name,
+                communityName: mapMsg.name || mapMsg.communityName,
                 latitude: mapMsg.latitude,
                 longitude: mapMsg.longitude,
             };
+            this.mapMsgs = _params;
             let that = this;
             api.order.buildingList(_params)
                 .then((res) => {
@@ -261,20 +311,25 @@ Page(
                     this.setData({
                         buildingNumArr: res,
                     });
+                    let addr = utils.cache("orderAddress");
+                    if(addr && !this.data.addrFlag) this.bindBuildingNumChange(false, Number(addr.buildingIndex));
+                   
                 })
                 .catch((err) => {
                     utils.toast(err.msg);
                 });
         },
 
-        bindBuildingNumChange(e) {
+        bindBuildingNumChange(e = false,index) {
             // 选择楼宇
-            let _key = e.detail.value;
+            let _key = typeof index == "number" ? Number(index) : e.detail.value;
+            this.buildingIndex = { buildingIndex: _key};
             if (this.data.buildingNumArr[_key]) {
+                let houseNumberCode =  e ? "" : this.data.houseNumberCode;
                 this.setData({
                     buildingNum: this.data.buildingNumArr[_key].buildingNumber || "",
                     buildingItem: this.data.buildingNumArr[_key],
-                    houseNumber: ""
+                    houseNumberCode
                 });
                 this.getHouseList(this.data.buildingNumArr[_key])
             }
@@ -282,9 +337,10 @@ Page(
         bindHouseNumChange(e) {
             // 选择门牌号
             let _key = e.detail.value;
+            console.log()
             if (this.data.houseList[_key]) {
                 this.setData({
-                    houseNumber: this.data.houseList[_key].houseNumber || "",
+                    houseNumberCode: this.data.houseList[_key].houseNumber || "",
                     addressId: this.data.houseList[_key].id || ''
                 });
             }
@@ -309,9 +365,11 @@ Page(
 
         sortHandle(e) {
             let currLabel = e.currentTarget.dataset.currlable;
+            const index = e.currentTarget.dataset.index;
             if (currLabel && currLabel.children && currLabel.children.length > 0) {
                 this.setData({
                     dialogList: currLabel.children,
+                    updataType: this.data.lable[index].children,
                     showDialog: true,
                     dialogTitle: currLabel.name,
                     dialogIndex: currLabel.children[0].pIndex
@@ -363,66 +421,48 @@ Page(
                 lable: this.data.lable
             })
         },
-        // getAddr: function (addr) {
-        //     var _this = this;
-        //     qqmapsdk.reverseGeocoder({
-        //         location: addr || "",
-        //         success: function (res) {
-        //             //成功后的回调
-        //             let { province, city, district } = res.result.address_component;
-        //             let addrArry = [province, city, district];
-        //             _this.setData({
-        //                 //设置markers属性和地图位置poi，将结果在地图展示
-        //                 region: addrArry,
-        //             });
-        //         },
-        //         fail: function (error) {
-        //             console.error(error);
-        //         },
-        //         complete: function (res) {
-        //             console.log(res);
-        //         },
-        //     });
-        // },
-        // chooseImage: function (e) {
-        //     var that = this;
-        //     wx.chooseImage({
-        //         sizeType: ["original", "compressed"], // 可以指定是原图还是压缩图，默认二者都有
-        //         sourceType: ["album", "camera"], // 可以指定来源是相册还是相机，默认二者都有
-        //         success: function (res) {
-        //             // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        //             that.setData({
-        //                 files: that.data.files.concat(res.tempFilePaths),
-        //             });
-        //         },
-        //     });
-        // },
-        // previewImage: function (e) {
-        //     wx.previewImage({
-        //         current: e.currentTarget.id, // 当前显示图片的http链接
-        //         urls: this.data.files, // 需要预览的图片http链接列表
-        //     });
-        // },
-        // selectFile(files) {
-        //     console.log("files", files);
-        //     // 返回false可以阻止某次文件上传
-        // },
-        // uplaodFile(files) {
-        //     console.log("upload files", files);
-        //     // 文件上传的函数，返回一个promise
-        //     return new Promise((resolve, reject) => {
-        //         setTimeout(() => {
-        //             reject("some error");
-        //         }, 1000);
-        //     });
-        // },
-        // uploadError(e) {
-        //     console.log("upload error", e.detail);
-        // },
-        // uploadSuccess(e) {
-        //     console.log("upload success", e.detail);
-        // },
+        
+        childhandleNumber (e) {
+            const type = e.currentTarget.dataset.type;
+            const item = e.currentTarget.dataset.item;
+            if(type === "add" && item.number < 9999) {
+                let dialogList = this.data.dialogList.map((val, index) =>{
+                    if(index == item.cIndex) val.number = item.number +  (item.unit != "千克" ? 1 : 0.5);
+                    return val;
+                })
+                this.setData({dialogList})
+            }  
+            if(type === "subtract" && item.number >= 1) {
+                let dialogList = this.data.dialogList.map((val, index) =>{
+                    if(index == item.cIndex) val.number = item.number - (item.unit != "千克" ? 1 : 0.5);
+                    return val;
+                })
+                this.setData({dialogList})
+            }
+            const flag = this.data.dialogList.find(item => item.number > 0);
+            this.data.lable[item.pIndex].flag = flag ? "1" : "0";
+            this.setData({lable: this.data.lable});
+        },
 
+        childHandleConfirm () {
+            const index = this.data.dialogIndex;
+            this.data.lable[index].children =  this.data.dialogList;
+            this.setData({
+                showDialog: false,
+                lable: this.data.lable
+            })
+        },
 
+        childHandleCancel () {
+            const index = this.data.dialogIndex;
+            const flag = this.data.updataType.find(item => item.number > 0);
+            console.log(flag);
+            this.data.lable[index].flag = flag ? "1" : "0";
+            this.setData({
+                dialogList: this.data.updataType,
+                showDialog: false,
+                lable: this.data.lable
+            })
+        }
     })
 );

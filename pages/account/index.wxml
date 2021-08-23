@@ -40,7 +40,7 @@
 	<view class="clear"></view>
 	<view class="user_tj_nums">
 		<view class="nums_item rp-account-tixian" bindtap="loginGoto" data-url="/pages/account/atm?type=worker">
-			<view class="nums_title">可提现</view>
+			<view class="nums_title">账户余额</view>
 			<view class="nums_title c_green">
 				{{amount}}
 				<text class="nums_unit">￥</text>
@@ -62,7 +62,7 @@
 				<text class="nums_unit">(单)</text>
 			</view>
 		</view>
-		<view class="nums_item rp-account-tousu" bindtap="loginGoto" data-url="/pages/order/his?type=ts">
+		<view class="nums_item rp-account-tousu" bindtap="loginGoto" data-url="/pages/order/complain/index">
 			<view class="nums_title">被投诉</view>
 			<view class="nums_title c_red">
 				{{complaintsCountOrders}}

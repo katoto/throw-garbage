@@ -42,7 +42,33 @@ Page = (page) => {
 // isLogin  '0' 登陆 '1' 未登陆
 App({
     data: {
-        adBanner: {}
+        adBanner: {},
+        defaultReviewType: [
+            {
+                id: 0,
+                val: "桶干净完好",
+            },
+            {
+                id: 1,
+                val: "地面整洁好",
+            },
+            {
+                id: 2,
+                val: "桶放置得当",
+            },
+            {
+                id: 3,
+                val: "桶污渍破损",
+            },
+            {
+                id: 4,
+                val: "地面脏乱差",
+            },
+            {
+                id: 5,
+                val: "桶放置太远",
+            },
+        ]
     },
 
     onLaunch: function () {

@@ -57,7 +57,7 @@ const plugin = {
   NFC: {
     init,
     breakEvent,
-    nfcAdapter
+    nfcAdapter 
   }
 }
 

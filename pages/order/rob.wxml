@@ -36,7 +36,27 @@
 			</block>
 		</block>
 	</view>
+	<view class="modal" wx:if="{{robModal}}">
+		<view class="modal_body">
+			<view class="modal_title">抢单成功</view>
+			<view class="modal_text">
+				<view class="modal_t">抢单成功: 请联系{{orderDetail.phone}}</view>
+				<view class="modal_t">领取工具进行订单操作</view>
+			</view>
+			<view class="modal_package">
+				<view class="modal_type_title">订单包含：</view>
+				<view class="modal_type_package">
+					<view class="modal_type_list" wx:for="{{orderDetail.type}}" wx:key="index">
+						<view class="modal_type_name">{{item.name}}</view>
+						<view class="modal_type_num">{{item.number}}</view>
+						<view class="modal_tyoe_unit">{{item.unit}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="modal_confirm" bindtap="robOrderSucc">确定</view>
+		</view>
+	</view>
 	<empty wx:if="{{ loaded && orders.length==0 }}" class="empty-class">
-		<text>暂无待抢订单</text>
+		<text bindtap="tsetFucn">暂无待抢订单</text>
 	</empty>
 </view>

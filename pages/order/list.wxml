@@ -1,5 +1,5 @@
 <view class="container">
-	<view class="order_item" wx:for="{{orders}}" wx:key="index" data-key="{{index}}" data-item="{{item}}">
+	<!-- <view class="order_item" wx:for="{{orders}}" wx:key="index" data-key="{{index}}" data-item="{{item}}">
 		<view style="width:72%">
 			<view class="order-time">下单时间：{{item.booksTime}}</view>
 			<view class="order_addr">{{item.address}}{{item.communityName}}{{item.buildingNumber}}{{item.houseNumber}}</view>
@@ -8,7 +8,29 @@
 		<view class="order_label" wx:if="{{item.garbageLabel}}">
 			<view class="order_label_item" wx:for="{{item.garbageLabel}}" wx:for-item="itemLabel" wx:key="index">{{itemLabel}}</view>
 		</view>
+	</view> -->
+	<view class="order_list" wx:for="{{orders}}" wx:key="index" data-key="{{index}}" data-item="{{item}}"  bindtap="listClick" data-item="{{item}}">
+		<view class="order_title">
+			<view class="order_title_time">预约时间: {{item.booksTime}} </view>
+			<view class="order_title_i {{item.status === 'F'?'completeActive' : ''}}">{{item.status === 'F'?'已完成' : '未完成'}}</view>
+			<block wx:if="{{item.status != 'F'}}">
+				<image class="order_title_icon" mode="aspectFit" src="/images/order/orderRight.png"></image>
+			</block>
+		</view>
+		<view class="order_address" >
+			<view class="order_address_icon">
+				<image mode="aspectFit" src="/images/order/address.png"></image>
+			</view>
+			<view class="order_address_text">{{item.address}}{{item.communityName}}{{item.buildingNumber}}{{item.houseNumber}}</view>
+		</view>
+		<view class="order_classify"  wx:if="{{item.garbageLabel}}">
+			<image wx:if="{{item.status === 'F'}}" class="order_classify_icon" mode="aspectFit" src="/images/order/complete.png"></image>
+			<view class="order_classify_list"  wx:for="{{item.garbageLabel}}" wx:for-item="itemLabel" wx:key="index">{{itemLabel.name}}{{itemLabel.number}}{{itemLabel.unit}}</view>
+		</view>
+		<view class="order_total">共 {{item.len}} 件物品</view>
 	</view>
+
+
 	<empty wx:if="{{loaded && orders.length==0}}">
 		<text>还没有完成的订单，快去抢单吧！</text>
 	</empty>

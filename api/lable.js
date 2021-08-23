@@ -4,7 +4,7 @@ const {request} = require('../utils/request.js')
 
 function order(){
   var postData = {
-    "method": "getLable",
+    "method": "getGarbageTypeList",
       "data": handleUserActionData({}, 'customer')
   }
   let url = conf.api_url + 'getData'

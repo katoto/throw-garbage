@@ -17,7 +17,7 @@ Page(mixin(myBehavior, {
         finishCountOrders: 0,
         amount: '0.00',
         n_userLogin: false,
-        fetchServer: utils.cache("banner") ? utils.cache("banner").fetchServer : adConfig.banner.fetchServer
+        fetchServer: utils.cache("banner").fetchServer
     },
     //获取抢单数
     getRobNum() {
@@ -53,9 +53,20 @@ Page(mixin(myBehavior, {
             n_userLogin: _userLog
         })
     },
+
+    onLoad() {
+        this.getBannerList();
+    },
+    getBannerList() {
+        adConfig.getBannerApi().then(res=>{
+            this.setData({
+                fetchServer: res.fetchServer,
+           })
+        });
+   },
     gotoGrab() {
         return utils.openPageByType('mini://pages/order/rob', {
-            linkType: 'redirect'
+            linkType: 'page'
         });
     },
     loginGoto(e) {
