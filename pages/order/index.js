@@ -1,11 +1,10 @@
-var {
+import { com_getUserAvatar } from '../../utils/common';
+const {
     mixin
 } = require("../../utils/fuc.js");
-var myBehavior = require("../../minxin/func.js");
+const myBehavior = require("../../minxin/func.js");
 const utils = require("../../utils/fuc.js");
-
 const app = getApp(), adConfig = app.require("utils/adConfig");
-
 const api = require("../../api/index.js");
 const msgTempId = ['Hiir7mE7qPhb7Zk029NyoasMmvqsGlk2fWQbnRmQGw0', 'ovtzX9vUcTo4o0hPKRowULLuSSVww3e4YAhOtdT_GC4', 'nQGN2OaiDuKnK_C73_VOxJkGcRQSexwIiF1gIz8xLn4']
 
@@ -25,18 +24,23 @@ Page(
             amount: "0.00",
             withhold: "0.00",
             n_userLogin: false, // 未登录
+            userAvatar: {},
             homeServer: utils.cache("banner") ? utils.cache("banner").homeServer : adConfig.banner.homeServer
         },
         /**
          * 生命周期函数--监听页面加载
          */
         onLoad: function (options) {
-            // var that = this;
             //不存在类型的时候跳转到选择页面
             app.handleLogin().then(() => {
+                const isLog = this.checkUserLogin()
                 this.setData({
-                    n_userLogin: this.checkUserLogin()
+                    n_userLogin: isLog
                 })
+                if (isLog) com_getUserAvatar()
+            })
+            this.setData({
+                userAvatar: utils.cache("userAvatar") || {},
             })
             this.getBannerList();
         },
@@ -61,7 +65,8 @@ Page(
             this.setData({
                 n_userLogin: this.checkUserLogin()
             })
-            console.log('-----order index show start---')
+            console.log('-----order index show start---', this.data.n_userLogin)
+            
         },
 
         actAddOrder(e) {

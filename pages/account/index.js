@@ -17,7 +17,8 @@ Page(mixin(myBehavior, {
         finishCountOrders: 0,
         amount: '0.00',
         n_userLogin: false,
-        fetchServer: utils.cache("banner").fetchServer
+        fetchServer: utils.cache("banner").fetchServer,
+        userAvatar: {},
     },
     //获取抢单数
     getRobNum() {
@@ -50,7 +51,8 @@ Page(mixin(myBehavior, {
         this.getRobNum()
         if (_userLog) this.getUserInfo()
         this.setData({
-            n_userLogin: _userLog
+            n_userLogin: _userLog,
+            userAvatar: utils.cache("userAvatar") || {}
         })
     },
 

@@ -170,7 +170,7 @@ Page(mixin(myBehavior, {
             wx.showToast({
                 title: error,
                 icon: 'none',
-                duration: 2000,
+                duration: 2500,
                 files: []
             })
             return false;

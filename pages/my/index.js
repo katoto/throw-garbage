@@ -11,7 +11,8 @@ Page(mixin(myBehavior, {
      * 页面的初始数据
      */
     data: {
-        version: "1.1.4"
+        version: "1.1.4",
+        userAvatar: {},
     },
     /**
      * 生命周期函数--监听页面加载
@@ -20,8 +21,10 @@ Page(mixin(myBehavior, {
         let account = wx.getAccountInfoSync();
         let version = account.miniProgram.version
         this.setData({
-            version : version || "1.2.0"
+            version : version || "1.2.0",
+            userAvatar: utils.cache("userAvatar") || {}
         })
+        console.log(this.data.userAvatar)
     },
 
     /**

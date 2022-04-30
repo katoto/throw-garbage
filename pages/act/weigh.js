@@ -117,7 +117,7 @@ Page(mixin(myBehavior, blueBehavior, {
                         wx.showToast({
                             title: err.msg || "上传失败",
                             icon: "none",
-                            duration: 2000,
+                            duration: 2500,
                         });
                     });
             },

@@ -103,7 +103,7 @@ Page(
                 wx.showToast({
                     title: error,
                     icon: "none",
-                    duration: 2000,
+                    duration: 2500,
                 });
                 return false;
             }
@@ -129,7 +129,7 @@ Page(
                         wx.showToast({
                             title: err.msg,
                             icon: "none",
-                            duration: 2000,
+                            duration: 2500,
                         });
                     });
             }
@@ -172,7 +172,7 @@ Page(
                             wx.showToast({
                                 title: err.msg || "上传失败",
                                 icon: "none",
-                                duration: 2000,
+                                duration: 2500,
                             });
                         });
                 },

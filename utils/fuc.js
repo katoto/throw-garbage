@@ -292,8 +292,6 @@ function route(url, type = "page", delta = 1) {
     }
 };
 
-
-
 //判断iPhone型号
 function isIphoneXClassFn() {
     let isIphoneMax = false;

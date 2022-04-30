@@ -1,11 +1,11 @@
 // pages/order/index.js
-var { mixin } = require("../../utils/fuc.js");
-var myBehavior = require("../../minxin/func.js");
-var utils = require("../../utils/fuc.js");
+let { mixin } = require("../../utils/fuc.js");
+let myBehavior = require("../../minxin/func.js");
+let utils = require("../../utils/fuc.js");
 const api = require("../../api/index.js");
-
 const app = getApp();
-let beforeSession = ''
+import { com_getUserAvatar } from '../../utils/common';
+let beforeSession = '';
 
 Page(
     mixin(myBehavior, {
@@ -13,7 +13,6 @@ Page(
          * 页面的初始数据
          */
         data: {
-            // openType: "getUserInfo", // getUserInfo getPhoneNumber
             openType: "userProfile", // userProfile getPhoneNumber
             showLoginbtn: true,
             loginProtolAgree: true // 控制协议
@@ -24,7 +23,6 @@ Page(
         onShow() {
             this.init();
         },
-        // =================
         async phoneHandler(e) {
             if (!this.data.loginProtolAgree) {
                 utils.toast('请勾选协议')
@@ -71,7 +69,6 @@ Page(
         },
         async init() {
             // '1'代表未登录
-            console.log('=======login page1=============')
             if (!this.checkUserLogin()) {
                 // 缺个检查是否已绑定信息，之前是通过wx.getSetting 查询是否已授权过做判断。
                 let userState = await this.zg_checkUserState()
@@ -108,6 +105,7 @@ Page(
                 // 登录
                 app.globalData.userType = 'user'
                 app.globalData.isLogin = '0'
+                com_getUserAvatar(); // 获取头像
             } else {
                 // 未登录
                 app.globalData.userType = 'visitor'
@@ -150,7 +148,6 @@ Page(
                 return res.hasMobile
             }).catch(() => {
                 utils.toast('登录失败，请重试~')
-                console.error('====zg_doLogin error====')
             })
         },
 

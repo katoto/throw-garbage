@@ -5,11 +5,9 @@
 		<view class="user-info-box">
 			<block wx:if="{{n_userLogin}}">
 				<view class="user-info">
-					<view class="avatar">
-						<open-data type="userAvatarUrl"></open-data>
-					</view>
+					<image class="avatar" src="{{ userAvatar.avatarUrl || '' }}" mode="aspectFit"></image>
 					<view class="nickname">
-						<open-data type="userNickName"></open-data>
+						{{ userAvatar.nickname || '' }}
 					</view>
 				</view>
 			</block>

@@ -1,6 +1,7 @@
 
 // NFC 识别读取
-const app = getApp(), myBehavior = app.require("minxin/func"), wxApi = app.require("utils/wxApi"), {toast} = app.require("utils/fuc");
+const app = getApp(), myBehavior = app.require("minxin/func"), wxApi = app.require("utils/wxApi"), {toast, cache} = app.require("utils/fuc");
+const userApi = app.require("api/user");
 let nfcAdapter = wx.getNFCAdapter();
 let startDiscoveryFlag = false;
 let tryTime = 5; // 查询nfc 次数
@@ -61,6 +62,17 @@ const plugin = {
   }
 }
 
+function com_getUserAvatar() {
+  userApi.info().then(res => {
+    let { avatarUrl, nickname } = res;
+    cache("userAvatar", {
+      avatarUrl,
+      nickname
+    })
+  })
+}
+
 module.exports = {
-  plugin
+  plugin,
+  com_getUserAvatar
 }

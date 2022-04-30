@@ -87,7 +87,7 @@ Page(mixin(myBehavior, {
                 wx.showToast({
                     title: err.msg || err.errMsg,
                     icon: "none",
-                    duration: 2000,
+                    duration: 2500,
                 });
             })
     },

@@ -93,7 +93,6 @@ App({
     async handleLogin() {
         return new Promise(async (resolve) => {
             let _logState = await this.zg_checkIsLogin();
-            // this.zg_getCode()
             if (!_logState || _logState === '1') {
                 this.setGlobalData('logout')
             } else if (_logState === '0') {

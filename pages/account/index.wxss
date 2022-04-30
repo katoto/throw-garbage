@@ -41,6 +41,7 @@ page{
 }
 .wedding_img{
   width: 100%;
+  max-height: 270rpx;
 }
 .yied_order_desc{
   margin-top: 20rpx;

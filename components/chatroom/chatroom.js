@@ -282,7 +282,6 @@ Component({
       this.createSelectorQuery().select('.body').boundingClientRect(bodyRect => {
         this.createSelectorQuery().select(`.body`).scrollOffset(scroll => {
           if (scroll.scrollTop + bodyRect.height * 3 > scroll.scrollHeight) {
-            console.log('should scroll to bottom')
             this.setData(SETDATA_SCROLL_TO_BOTTOM)
           }
         }).exec()

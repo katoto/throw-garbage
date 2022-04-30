@@ -5,11 +5,9 @@
 	<view class="user-info-box">
 		<block wx:if="{{n_userLogin}}">
 			<view class="user-info" bindtap="goUserCenter">
-				<view class="avatar">
-					<open-data type="userAvatarUrl"></open-data>
-				</view>
+				<image class="avatar" src="{{ userAvatar.avatarUrl || '' }}" mode="aspectFit"></image>
 				<view class="nickname">
-					<open-data type="userNickName"></open-data>
+					{{ userAvatar.nickname || '' }}
 				</view>
 			</view>
 		</block>
@@ -76,7 +74,7 @@
 	<view class="order-index-ad">
 		<swiper circular="true" autoplay="true" duration="500" interval="2000">
 			<swiper-item  wx:for="{{homeServer.swiper}}" wx:key="index">
-				<view class="swiper-item {{item}}">
+				<view class="swiper-item">
 					<image src="{{item}}" class="ad_img" mode="widthFix"></image>
 				</view>
 			</swiper-item>
