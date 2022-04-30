@@ -73,7 +73,6 @@ Page(
         checkForm: function (data) {
             let formData = {};
             let error = false;
-
             if (!error && !this.data.buildingNum) {
                 error = "请选择楼宇号信息";
             }
@@ -84,7 +83,7 @@ Page(
                 error = "请选择预约时间";
             }
             let sortArr = this.getSelSort()
-            if (!error && sortArr.length == 0) {
+            if (!error && sortArr.parentGarbageType.length == 0) {
                 error = "请选择订单类型";
             }
             if (error !== false) {
@@ -170,6 +169,7 @@ Page(
             console.log("form发生了submit事件，携带数据为：", e.detail.value);
             let formData = this.checkForm(e.detail.value);
             console.log(formData);
+            return false
             if (formData !== false) {
                 api.order
                     .add(formData)

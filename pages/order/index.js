@@ -67,7 +67,6 @@ Page(
         actAddOrder(e) {
             //没有登录 直接去下单页面
             if (!this.checkUserLogin()) {
-                console.log(123);
                 this.gotoAddOrder();
                 return false;
             }

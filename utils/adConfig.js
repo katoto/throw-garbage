@@ -79,17 +79,17 @@ let banner  = {
 }
 
 const getBannerApi =  () => {
-  return new Promise((resolve,reject)=> {
+  return new Promise((resolve)=> {
     api.getBanner().then(data =>{
-      // data.forEach(item =>{
-      //   if(item.bannerLocation == 2) banner.homeServer.swiper = item.fileUrl.split(",");
-      //   else if(item.bannerLocation == 3) banner.atmServer.swiper = item.fileUrl.split(",");
-      //   else if(item.bannerLocation == 4) banner.order.swiper = item.fileUrl.split(",");
-      //   else if(item.bannerLocation == 6) banner.fetchServer.swiper = item.fileUrl.split(",");
-      //   else if(item.bannerLocation == 8) banner.compServer.swiper = item.fileUrl.split(",");
-      //   else if(item.bannerLocation == 9) banner.commoentServer.swiper = item.fileUrl.split(",");
-      //   else if(item.bannerLocation == 10) banner.robOrder.swiper = item.fileUrl.split(",");
-      // })
+      data.forEach(item =>{
+        if(item.bannerLocation === '2') banner.homeServer.swiper = item.fileUrl.split(",");
+        else if(item.bannerLocation === '3') banner.atmServer.swiper = item.fileUrl.split(",");
+        else if(item.bannerLocation === '4') banner.order.swiper = item.fileUrl.split(",");
+        else if(item.bannerLocation === '6') banner.fetchServer.swiper = item.fileUrl.split(",");
+        else if(item.bannerLocation === '8') banner.compServer.swiper = item.fileUrl.split(",");
+        else if(item.bannerLocation === '9') banner.commoentServer.swiper = item.fileUrl.split(",");
+        else if(item.bannerLocation === '10') banner.robOrder.swiper = item.fileUrl.split(",");
+      })
       fuc.cache("banner",banner);
       resolve(banner);
     }).catch(err=>{
