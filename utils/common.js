@@ -1,6 +1,8 @@
-
 // NFC 识别读取
-const app = getApp(), myBehavior = app.require("minxin/func"), wxApi = app.require("utils/wxApi"), {toast, cache} = app.require("utils/fuc");
+const app = getApp(),
+  myBehavior = app.require("minxin/func"),
+  wxApi = app.require("utils/wxApi"),
+  { toast, cache } = app.require("utils/fuc");
 const userApi = app.require("api/user");
 let nfcAdapter = wx.getNFCAdapter();
 let startDiscoveryFlag = false;
@@ -16,7 +18,7 @@ const init = (func) => {
   nfcAdapter.stopDiscovery();
   connectEvent(nfcAdapter);
   receiveEvent = func;
-}
+};
 
 // 接受NFC信息
 function coverHandler(res) {
@@ -24,55 +26,67 @@ function coverHandler(res) {
   receiveEvent(_nfcId);
 }
 // 检测NFC功能是否打开
-const connectEvent = nfcAdapter => {
-  nfcAdapter && nfcAdapter.startDiscovery({
-    success() {
-      // NFC 功能已打开
-      startDiscoveryFlag = true;
-      console.log("NFC已打开")
-      wxApi.hideLoading();
-    },
-    fail(res) {
-      if (res && res.errMsg && res.errMsg === "startDiscovery:fail current platform is not supported") {
-        toast("当前设备不支持NFC，请换设备~", "none", 6000);
-      } else {
-        if (tryTime > 0) {
-          wxApi.showLoading("NFC连接中请稍后...");
-          tryTime--;
-          setTimeout(() => {
-            connectEvent(nfcAdapter)
-          }, 1500)
+const connectEvent = (nfcAdapter) => {
+  nfcAdapter &&
+    nfcAdapter.startDiscovery({
+      success() {
+        // NFC 功能已打开
+        startDiscoveryFlag = true;
+        console.log("NFC已打开");
+        wxApi.hideLoading();
+      },
+      fail(res) {
+        if (
+          res &&
+          res.errMsg &&
+          res.errMsg === "startDiscovery:fail current platform is not supported"
+        ) {
+          toast("当前设备不支持NFC，请换设备~", "none", 6000);
         } else {
-          toast("操作失败，请检查NFC是否打开");
+          if (tryTime > 0) {
+            wxApi.showLoading("NFC连接中请稍后...");
+            tryTime--;
+            setTimeout(() => {
+              connectEvent(nfcAdapter);
+            }, 1500);
+          } else {
+            toast("操作失败，请检查NFC是否打开");
+          }
         }
-      }
-    }
-  });
-}
- function breakEvent() {
+      },
+    });
+};
+function breakEvent() {
   nfcAdapter && nfcAdapter.stopDiscovery();
   nfcAdapter && nfcAdapter.offDiscovered(coverHandler);
- }
+}
 
 const plugin = {
   NFC: {
     init,
     breakEvent,
-    nfcAdapter 
-  }
-}
+    nfcAdapter,
+  },
+};
 
 function com_getUserAvatar() {
-  userApi.info().then(res => {
-    let { avatarUrl, nickname } = res;
-    cache("userAvatar", {
-      avatarUrl,
-      nickname
-    })
-  })
+  return new Promise((resolve) => {
+    if (cache("userAvatar")) {
+      resolve(true);
+      return true;
+    }
+    userApi.info().then((res) => {
+      let { avatarUrl, nickname } = res;
+      cache("userAvatar", {
+        avatarUrl,
+        nickname,
+      });
+      resolve(true);
+    });
+  });
 }
 
 module.exports = {
   plugin,
-  com_getUserAvatar
-}
+  com_getUserAvatar,
+};

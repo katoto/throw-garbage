@@ -1,5 +1,6 @@
 // tabBarComponent/tabBar.js
 const app = getApp(), fuc = app.require("utils/fuc");
+
 Component({
   /**
    * 组件的属性列表
@@ -42,8 +43,9 @@ Component({
    * 组件的初始数据
    */
   data: {
-    isIphoneX: app.globalData.systemInfo.model.includes('iPhone X'),
+    isIphoneX: fuc.isIphoneXClassFn()
   },
+  
 
   /**
    * 组件的方法列表

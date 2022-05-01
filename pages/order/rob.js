@@ -78,7 +78,6 @@ Page(mixin(myBehavior, {
             "type":[{"id":"200","name":"厨余"},{"number":1,"unit":"个","id":"300","name":"纸包装"},{"number":1,"unit":"个","id":"301","name":"塑料包装"},{"number":1,"unit":"个","id":"302","name":"其他包装"},{"id":"200","name":"厨余"},{"number":1,"unit":"个","id":"300","name":"纸包装"},{"number":2,"unit":"个","id":"301","name":"塑料包装"},{"number":2,"unit":"个","id":"302","name":"其他包装"}],
         }
         const type = this.arrTotal(data.type);
-        console.log(type);
     },
 
     lockOrder(e) {

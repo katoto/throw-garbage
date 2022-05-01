@@ -61,7 +61,7 @@
 		</view>
 
 		<view class="new-btn">
-			<view wx:for="{{lable}}" class="type-btn {{ item.flag === '1' ? 'active-btn': '' }}" wx:key="index" data-index="{{index}}" data-currlable="{{item}}" bind:tap="sortHandle">
+			<view wx:for="{{lable}}" class="type-btn {{ item.flag === '1' ? item.activeColor: '' }}" wx:key="index" data-index="{{index}}" data-currlable="{{item}}" bind:tap="sortHandle">
 				<text class="btn-txt">{{item.name}}{{item.selLen && item.selLen > 0 ? '('+ item.selLen +')' : ''}}</text>
 			</view>
 		</view>

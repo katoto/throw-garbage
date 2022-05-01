@@ -218,6 +218,13 @@ Page(
             return a.sort - b.sort;
           });
           lables.forEach((item, index) => {
+            if (item.id === "200") {
+              item.activeColor = "act-color-green";
+            } else if (item.id === "206") {
+              item.activeColor = "act-color-gray";
+            } else {
+              item.activeColor = "act-color-blue";
+            }
             if (item && item.children && item.children.length > 0) {
               item.children.forEach((child, cIndex) => {
                 child.pcode = item.code;
@@ -234,7 +241,6 @@ Page(
           });
         })
         .catch((err) => {
-          console.log(err);
           wx.showToast({
             title: err.msg,
             icon: "none",
@@ -313,8 +319,6 @@ Page(
               content: "当前区域暂未开通代丢服务",
               showCancel: false,
               success(res) {
-                // if (res.confirm) that.onChangeAddress();
-                // else if (res.cancel) wx.navigateBack();
                 wx.navigateBack();
               },
             });

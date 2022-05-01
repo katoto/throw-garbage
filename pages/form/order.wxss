@@ -88,11 +88,26 @@
   border-top: 16rpx solid rgba(0, 0, 0, 0.2);
   margin-left: 10rpx;
 }
-.active-btn{
-    border: 1px solid #31A043;   
+.act-color-green {
+    border: 1px solid #31A043;
+    background-color: #31A043;
 }
-.active-btn .btn-txt{
-    color: #31A043;
+.act-color-green .btn-txt{
+    color: #fff;
+}
+.act-color-gray {
+    border: 1px solid #DADADA;
+    background-color: #DADADA; 
+}
+.act-color-gray .btn-txt{
+    color: #fff;
+}
+.act-color-blue {
+    border: 1px solid rgba(126,171,243, 1);   
+    background-color: rgba(126,171,243, 1);  
+}
+.act-color-blue .btn-txt{
+    color: #fff; 
 }
 .type-dialog{
     width: 690rpx;

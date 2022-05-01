@@ -47,7 +47,6 @@ function uphandle(data = [], limit = 3, option = {}) {
     );
     const total = conf.count;
     return new Promise((resolve, reject) => {
-        console.log(conf);
         wx.chooseImage(
             Object.assign({}, conf, {
                 success: (res) => {
@@ -56,7 +55,6 @@ function uphandle(data = [], limit = 3, option = {}) {
                     resolve(images);
                 },
                 fail: (res) => {
-                    console.log(res);
                     reject("选择图片失败");
                 },
             })
