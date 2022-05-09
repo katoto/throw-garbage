@@ -1,7 +1,6 @@
 const api = require("../../api/index.js");
-const app = getApp(),
-  adConfig = app.require("utils/adConfig");
-
+const app = getApp();
+const adConfig = require("../../utils/adConfig");
 let mapMsg = null;
 var { mixin, redirectTo, formatTime } = require("../../utils/fuc.js");
 var utils = require("../../utils/fuc.js");

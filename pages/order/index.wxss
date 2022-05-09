@@ -242,7 +242,7 @@ page{
     border: 1rpx solid #DADADA;
     border-radius: 10rpx;
     margin: 0 auto;
-    margin-bottom: 34rpx;
+    margin-bottom: 84rpx;
     overflow: hidden;
 }
 

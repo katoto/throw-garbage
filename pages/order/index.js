@@ -2,8 +2,8 @@ import { com_getUserAvatar } from "../../utils/common";
 const { mixin } = require("../../utils/fuc.js");
 const myBehavior = require("../../minxin/func.js");
 const utils = require("../../utils/fuc.js");
-const app = getApp(),
-  adConfig = app.require("utils/adConfig");
+const app = getApp();
+const adConfig = require("../../utils/adConfig.js");
 const api = require("../../api/index.js");
 const msgTempId = [
   "Hiir7mE7qPhb7Zk029NyoasMmvqsGlk2fWQbnRmQGw0",

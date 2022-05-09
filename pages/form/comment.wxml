@@ -25,7 +25,7 @@
 			<mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="3" title="上传照片" tips=""></mp-uploader>
 		</view>
 		<view class="ad_box">
-			<swiper circular="true" autoplay="true" duration="500" interval="2000">
+			<swiper circular="true" autoplay="true" duration="500" interval="2500">
 				<swiper-item  wx:for="{{commoentServer.swiper}}" wx:key="index">
 					<view class="swiper-item {{item}}">
 						<image src="{{item}}" class="wedding_img" mode="widthFix"></image>

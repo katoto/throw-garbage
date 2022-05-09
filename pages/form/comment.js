@@ -4,7 +4,8 @@ var {
 } = require('../../utils/fuc.js');
 var myBehavior = require('../../minxin/func.js')
 
-const app = getApp(), adConfig = app.require("utils/adConfig");
+const app = getApp();
+const adConfig = require("../../utils/adConfig");
 const api = require('../../api/index.js');
 var utils = require('../../utils/fuc.js');
 

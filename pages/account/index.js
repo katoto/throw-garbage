@@ -3,8 +3,8 @@ var { mixin } = require("../../utils/fuc.js");
 var myBehavior = require("../../minxin/func.js");
 var utils = require("../../utils/fuc.js");
 const api = require("../../api/index.js");
-const app = getApp(),
-  adConfig = app.require("utils/adConfig");
+const app = getApp();
+const adConfig = require("../../utils/adConfig");
 // bind  N 未提交  W 审核中 Y 审核通过
 Page(
   mixin(myBehavior, {

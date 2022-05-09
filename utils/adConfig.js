@@ -2,7 +2,6 @@
 const server = "https://xcx.9shenghe.com/"; // 测送环境
 const app = getApp(), api = app.require("api/user"), fuc = app.require("utils/fuc");
 
-
    // 丢垃圾 
 const homeServer = {
     swiper1: server + "develop/upload/img/ad/ad02.png",
@@ -154,4 +153,4 @@ const defaultTypeOptions = [
 module.exports = {
   getBannerApi,
   banner
-} 
+};

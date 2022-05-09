@@ -1,10 +1,8 @@
 page{
-    /* background-color: rgba(99, 99, 99, 0.1); */
     background: #F5F5F5;
 }
 .act_list_box{
   width: 100vw;
-  /* background: #fff; */
   padding-bottom: 144rpx;
 }
 .act_item{
@@ -79,13 +77,14 @@ page{
     background: rgba(228, 39, 39, 0);
     border: 1px solid #E42727;
     opacity: 0.5;
-    height: 40rpx;
     border-radius: 40rpx;
     font-size: 24rpx;
     font-family: PingFang SC;
-    font-weight: 400;
     color: #E42727;
-    padding: 0 30rpx;
+    padding: 1px 30rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .line-bottom{
     font-size: 30rpx;

@@ -78,7 +78,6 @@ Page(mixin(myBehavior, {
                     if(!item.typeList.find(value => value.name == "厨余") && param.status != "F") item.typeList.push({flag: true, name:"厨余"})
                     return item;
                 })
-                console.log(newList);
                 this.setData({
                     loaded: true,
                     orders: newList
