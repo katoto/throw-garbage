@@ -12,9 +12,10 @@
           "scene": null
         },
         {
-          "name": "pages/act/collect/collect",
-          "pathName": "pages/act/collect/collect",
-          "query": "oid=b1a72453aead4225b116a74e4c6652db",
+          "name": "pages/act/collect/collect3",
+          "pathName": "pages/act/collect/collect3",
+          "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {

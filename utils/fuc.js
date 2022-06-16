@@ -305,6 +305,9 @@ function isIphoneXClassFn() {
             "iPhone11",
             "iPhone12",
             "iPhone13",
+            "iPhone14",
+            "iPhone15",
+            "iPhone16",
         ];
         isIphoneMax = iPhoneArr.some((item) => {
             return model.indexOf(item) > -1;

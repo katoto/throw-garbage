@@ -257,6 +257,7 @@ Page(
      * 生命周期函数--监听页面显示
      */
     onLoad() {
+      console.log('===========')
       currTimeList = JSON.parse(JSON.stringify(defaultTimeList));
       // 获取分类数据
       this.getlables();
@@ -267,7 +268,7 @@ Page(
     getBannerList() {
       adConfig.getBannerApi().then((res) => {
         this.setData({
-          adServers: res.adServers,
+          adServers: res.order,
         });
       });
     },

@@ -108,7 +108,6 @@
 			</view>
 		</view>
 
-
 		<view class="s_btn_box fl_c">
 			<button class="submit_btn" formType="submit">提交</button>
 		</view>
