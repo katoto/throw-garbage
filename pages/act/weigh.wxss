@@ -51,6 +51,28 @@ page {
   margin-top: 40rpx;
 }
 
+.upload_no_box {
+  width: 188rpx;
+  padding: 15rpx 0;
+  border-radius: 12rpx;
+  background-color: rgb(238, 236, 236);
+}
+
+.classify_upload_img .upload_no_img {
+  display: block;
+  width: 60rpx;
+  margin: 0 auto;
+}
+
+.upload_no_txt {
+  color: rgb(156, 154, 154);
+  font-size: 26rpx;
+  display: block;
+  line-height: 38rpx;
+  padding-bottom: 4rpx;
+  text-align: center;
+}
+
 .classify_body{
   width: 100%;
   height: 452rpx;

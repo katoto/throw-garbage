@@ -9,6 +9,9 @@ if (_accountInfo && _accountInfo.miniProgram && _accountInfo.miniProgram.envVers
             env_version = 'develop';
             map_key = 'BLBBZ-3VG6W-NL7RM-RJ7XV-VKGQH-3XBBZ' // 测试
             domin = 'https://xcx.9shenghe.com/develop'
+
+            // domin = 'https://xcx.9shenghe.com/release';
+            // map_key = 'RBUBZ-M3W64-XQUUM-XMIFE-2U7C2-MNF4H'; // 正式
             //domin = 'http://localhost:8080'
             break;
     }

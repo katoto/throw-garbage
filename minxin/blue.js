@@ -54,8 +54,6 @@ module.exports = {
         })
     },
     startBluetoothDevicesDiscovery() {
-        console.log(this._discoveryStarted)
-        console.log('======_discoveryStarted========')
         if (this._discoveryStarted) {
             return
         }

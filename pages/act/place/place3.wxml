@@ -1,7 +1,7 @@
 <view class="container">
 	<view>
 		<view class="act_btn">
-			<image src="../../../images/act/gray.png" mode="widthFix" />
+			<image src="../../../images/act/place_3.png" mode="widthFix" />
 		</view>
 		<view class="place-title">放桶</view>
 		<view class="place-cont">

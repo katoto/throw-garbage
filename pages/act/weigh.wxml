@@ -13,7 +13,10 @@
 					<block wx:if="{{uploadImag}}">
 						<image mode="aspectFit" src="{{uploadImag}}"></image>
 					</block>
-					<image wx:else mode="aspectFit" src="/images/act/upload.png" wx></image>
+					<view wx:else class="upload_no_box">
+						<image class="upload_no_img" mode="widthFix" src="/images/act/upload.png"></image>
+						<text class="upload_no_txt">点击拍摄照片</text>
+					</view>
 				</view>
 			</view>
 		</view>
