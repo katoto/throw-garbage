@@ -1,0 +1,113 @@
+<view class="container">
+    <view class="section">
+        <view class="li">
+            <view class="name">代丢垃圾服务费</view>
+            <view class="desc">
+                <text class="strong">1.00</text>
+                元/次
+            </view>
+        </view>
+        <view class="li">
+            <view class="name vipColor">会员卡</view>
+            <view class="rf">
+                <view class="desc">无可用</view>
+                <image class="arrow-right" src="../../../images/member/arrow-right.png"></image>
+            </view>
+        </view>
+        <view class="li">
+            <view class="name vipColor">优惠券</view>
+            <view class="rf">
+                <view class="desc">无可用</view>
+                <image class="arrow-right" src="../../../images/member/arrow-right.png"></image>
+            </view>
+        </view>
+        <view class="li">
+            <view class="name">代分垃圾服务费</view>
+            <view class="desc">
+                <text class="strong">5.00</text>
+                元/次
+            </view>
+        </view>
+        <view class="li">
+            <view class="name vipColor">代分垃圾服务费（新手保护）</view>
+            <view class="desc vipColor">
+                <text class="strong vipColor">-5.00</text>
+                元/次
+            </view>
+        </view>
+    </view>
+    <view class="vip-cont vip-month">
+        <view class="corner">方便实惠适用</view>
+        <view class="vip-body">
+            <view class="lf">
+                <view class="name">代丢垃圾月卡</view>
+                <view class="sub-name vipColor">副标题代丢垃圾月卡</view>
+            </view>
+            <view class="rf" bindtap="vipMonthHandle">
+                <view class="vipColor">
+                    <text class="strong vipColor">29.9</text>
+                    元/月
+                </view>
+                <image wx:if="{{vipMonth}}" class="img-select" src="../../../images/member/vip-month.png"></image>
+                <view wx:else class="no-select"></view>
+            </view>
+        </view>
+    </view>
+    <view class="vip-cont vip-number">
+        <view class="corner">方便实惠适用</view>
+        <view class="vip-body">
+            <view class="lf">
+                <view class="name">代丢90天30次卡</view>
+            </view>
+            <view class="rf" bindtap="vipMonthHandle">
+                <view class="vipColor">
+                    <text class="strong vipColor">29.9</text>
+                    元/月
+                </view>
+                <image wx:if="{{vipMonth}}" class="img-select" src="../../../images/member/vip-month.png"></image>
+                <view wx:else class="no-select"></view>
+            </view>
+        </view>
+    </view>
+    <view class="total-cont">
+        <view>合计：¥</view>
+        <view class="price">20.0</view>
+        <view>元</view>
+        <image class="img-notice" bindtap="openDialog" src="../../../images/member/notice.png"></image>
+    </view>
+    <view class="foot">
+        <view class="rf foot-name" bindtap="footHandle">立即支付</view>
+    </view>
+    <view class="dialog" wx:if="{{showRule}}">
+        <view class="mask">
+            <view class="content-box">
+                <view class="title">规则说明</view>
+                <view class="content">
+                    京东直营京东直营京东直营京东直营京东直营京东直营
+                    京东直营京东直营京东直营京东直营京东直营京东直营
+                    京东直营京东直营京东直营京东直营京东直营京东直营
+                    京东直营京东直营京东直营京东直营京东直营京东直营
+                    京东直营京东直营京东直营京东直营京东直营京东直营
+                    京东直营京东直营京东直营京东直营京东直营京东直营
+                                        京东直营京东直营京东直营京东直营京东直营京东直营
+                    京东直营京东直营京东直营京东直营京东直营京东直营
+                    京东直营京东直营京东直营京东直营京东直营京东直营
+                    京东直营京东直营京东直营京东直营京东直营京东直营
+                    京东直营京东直营京东直营京东直营京东直营京东直营
+                    京东直营京东直营京东直营京东直营京东直营京东直营
+                </view>
+                <image class="img-close" bindtap="closeDialog" src="../../../images/member/close.png"></image>
+            </view>
+        </view>
+    </view>
+    <!-- <view class="foot">
+        <view class="lf">
+            <view class="lf-desc">实付：</view>
+            <view class="price-box">
+                ¥
+                <view class="price">20.00</view>
+            </view>
+        </view>
+        <view class="rf foot-name" bindtap="footHandle">立即支付</view>
+    </view> -->
+</view>

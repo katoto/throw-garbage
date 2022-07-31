@@ -22,10 +22,10 @@
   background:rgb(72, 72, 88);
   color: #fafafa;
   width: 100vw;
-  padding:19rpx 35rpx;
+  padding:22rpx 35rpx;
   box-sizing: border-box;
   line-height: 30rpx;
-  font-size: 24rpx;
+  font-size: 26rpx;
   margin-bottom: 5rpx;
 }
 .form-inp-txt{

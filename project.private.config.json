@@ -239,6 +239,20 @@
           "pathName": "pages/order/complain/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/form/order",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/member/payDetails/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

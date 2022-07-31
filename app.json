@@ -31,7 +31,8 @@
     "pages/loginpage/index",
     "components/tabbar/index",
     "pages/order/orderDetail/index",
-    "pages/order/complain/index"
+    "pages/order/complain/index",
+    "pages/member/payDetails/index"
   ],
   "tabBar": {
     "backgroundColor": "#ffffff",
