@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "支付明细"
+  "navigationBarTitleText": "支付明细",
+  "usingComponents": {
+    "mp-half-screen-dialog": "weui-miniprogram/half-screen-dialog/half-screen-dialog"
+  }
 }

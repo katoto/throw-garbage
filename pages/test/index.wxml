@@ -1,55 +1,6 @@
 <view class="container">
 	<mp-dialog show="{{dialogShow}}" title="这是标题" buttons="{{buttons}}" bindbuttontap="tapDialogButton">111</mp-dialog>
 
-	<mp-half-screen-dialog 
-	bindbuttontap="diaCouponClick"
-	show="{{showCoupon}}"
-	title="测试标题B" 
-	>
-
-	<view slot="desc" class="half-css">
-		<view>
-		sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		<view>sfsafew</view>
-		
-	</view>
-	div
-
-	</mp-half-screen-dialog>
 	<view class="tip_hand">
 		<image src="../../images/product/icon_up.png" mode="widthFix"></image>
 	</view>

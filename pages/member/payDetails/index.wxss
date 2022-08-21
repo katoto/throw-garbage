@@ -17,7 +17,7 @@ page{
     margin: 24rpx auto 10rpx;
     background-color: #fff;
     border-radius: 14rpx;
-    padding: 16rpx 22rpx;
+    padding: 18rpx 24rpx;
     box-sizing: border-box;
 }
 
@@ -45,7 +45,7 @@ page{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10rpx 0;
+    padding: 12rpx 0;
     position: relative;
 }
 
@@ -246,6 +246,102 @@ page{
     width: 38rpx;
     height: 38rpx;
   }
+  
+.half-css {
+  max-height: 620rpx;
+  min-height: 380rpx;
+  overflow-y: scroll;
+}
+
+.half-footer {
+  border: 1px solid #f60;
+  color: #f60;
+  width: 290rpx;
+  height: 88rpx;
+  border-radius: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.line {
+  border: 1px solid rgb(192, 190, 190);
+  height: 148rpx;
+  border-radius: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.active {
+  border: 1px solid #f60;
+}
+
+.line .no-select {
+  border: 1px solid rgb(169, 168, 168);
+  border-radius: 50%;
+  width: 34rpx;
+  height: 34rpx;
+  margin-left: 14px;
+}
+
+.line-lf {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin: auto 0;
+  width: 100px;
+}
+
+.line .price-unit {
+  font-size: 16px;
+  margin-right: 2px;
+  color: #f4362a;
+}
+.line .price-num {
+  font-size: 28px;
+  color: #f4362a;
+}
+
+.line .line-rf {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 14px;
+}
+
+.line .line-rf .title{
+  font-size: 17px;
+}
+
+.line .line-rf .expiry-time {
+  color: rgb(146, 146, 146);
+  margin-top: 2px;
+}
+
+.line .icon-ok {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.weui-half-screen-dialog__hd__side {
+  position: absolute;
+  right: 40px;
+  left: auto;
+}
+
+.weui-half-screen-dialog__ft {
+  padding: 0;
+}
+
+.weui-half-screen-dialog__bd {
+  padding-bottom: 20px;
+}
 
 /* 
 .foot {

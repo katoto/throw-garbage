@@ -16,7 +16,7 @@
         </view>
         <view class="li">
             <view class="name vipColor">优惠券</view>
-            <view class="rf">
+            <view class="rf" bind:tap="showCouponHandle">
                 <view class="desc">无可用</view>
                 <image class="arrow-right" src="../../../images/member/arrow-right.png"></image>
             </view>
@@ -100,6 +100,29 @@
             </view>
         </view>
     </view>
+    <mp-half-screen-dialog bindbuttontap="diaCouponClick" show="{{showCoupon}}" title="选择优惠券">
+        <view slot="desc" class="half-css">
+            <view wx:for="{{couponList}}" wx:key="id" class="line {{activeCouponId === item.id ? 'active' : '' }}" bind:tap="couponChange" data-item="{{item}}">
+                <view class="line-lf">
+                    <view class="price-unit">¥</view>
+                    <view class="price-num">{{item.price || 0}}</view>
+                </view>
+                <view class="line-rf">
+                    <view>
+                        <view class="title">{{item.title || ''}}</view>
+                        <view class="expiry-time">{{item.time || ''}}</view>
+                    </view>
+                    <view>
+                        <image wx:if="{{activeCouponId === item.id}}" class="icon-ok" src="../../../images/member/vip-month.png" />
+                        <view wx:else class="no-select"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view slot="footer" class="half-footer">
+            确定
+        </view>
+    </mp-half-screen-dialog>
     <!-- <view class="foot">
         <view class="lf">
             <view class="lf-desc">实付：</view>

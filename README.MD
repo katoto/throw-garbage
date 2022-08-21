@@ -12,3 +12,5 @@ global = {
 ### 
 1、登录成功后的处理
 2、多次切换就登录上了
+
+https://github.com/wechat-miniprogram/weui-miniprogram
