@@ -32,7 +32,8 @@
     "components/tabbar/index",
     "pages/order/orderDetail/index",
     "pages/order/complain/index",
-    "pages/member/payDetails/index"
+    "pages/member/payDetails/index",
+    "pages/test/index"
   ],
   "tabBar": {
     "backgroundColor": "#ffffff",

@@ -211,9 +211,10 @@
           "scene": null
         },
         {
-          "name": "pages/test/test",
-          "pathName": "pages/test/test",
+          "name": "pages/index",
+          "pathName": "pages/test/index",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
