@@ -1,0 +1,150 @@
+page{
+  background-color: #fff !important;
+}
+page,.container,.swiper{
+  width: 100vw;
+  height: 100vh;
+}
+
+.weui-half-screen-dialog__hd__side {
+  position: absolute;
+  right: 40px;
+  left: auto;
+}
+
+.weui-half-screen-dialog__ft {
+  padding: 0;
+}
+
+.half-css {
+  border: 1px solid red;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.swiper{
+  height: 100%;
+}
+.swiper-item{
+  position: relative;
+  width: 690rpx;
+  height: 94vh;
+  border-radius: 24rpx;
+  background: linear-gradient(-55deg, #765CE8 0%, #4B97FF 13%, #4FFF57 99%);
+  margin: 24rpx auto 0;
+  padding-top: 5rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pro_desc{
+  position: relative;
+}
+
+.pro_desc_title{
+  font-size: 38rpx;
+  font-weight: 500;
+  line-height: 1.8;
+  text-align: center;
+  padding: 0 20rpx;
+  margin-bottom: 23rpx;
+  margin-top: 36rpx;
+}
+.pro_desc_info{
+    font-size: 28rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    padding: 34rpx;
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-bottom: 5rpx;
+    width: 680rpx;
+    min-height: 148rpx;
+    background: #F7FFF5;
+    border-radius: 24rpx;
+    color: #333333;
+}
+.blue-icon{
+    position: absolute;
+    top: 12rpx;
+    left: 32rpx;
+    width: 66rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+    border-radius: 0 17rpx 17rpx 17rpx;
+    background-color: #31A043;
+    overflow: hidden;
+    font-size: 20rpx;
+    color: #fff;
+}
+.desc-title-txt{
+    font-size: 36rpx;
+    line-height: 46rpx;
+    font-family: PingFang SC;
+    font-weight: 500;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-indent: 1em;
+    text-align: left;
+    font-size: 36rpx;
+    color: #FFFFFF;
+    line-height: 48rpx;
+}
+.info-txt{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.play_btn{
+  position: absolute;
+  top: calc(50% - 50rpx);
+  left:calc(50% - 50rpx);  
+  z-index: 10;
+}
+.play_btn image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.img_box{
+  display: flex;
+  justify-content: center;
+  background:#fff;
+  width: 680rpx;
+  /* height: 69vh; */
+  border-radius: 24rpx 24rpx 48rpx 48rpx;
+  overflow: hidden;
+  margin: 0 auto;
+  flex: 1;
+}
+.img_box .img{
+    display: block;
+    width: 100%;
+    border-radius: 24rpx 24rpx 48rpx 48rpx;
+}
+@keyframes myMove {
+  0% {
+      bottom: 3%;
+  }
+  50% {
+    bottom: 1%;
+  }
+  100% {
+      bottom: 3%;
+  }
+}
+.tip_hand{
+  position: fixed;
+  bottom: 3%;
+  z-index: 100;
+  animation: myMove 1.8s infinite;
+}
+.tip_hand image{
+  width: 30rpx;
+  height: 30rpx;
+  display: block;
+}
+
